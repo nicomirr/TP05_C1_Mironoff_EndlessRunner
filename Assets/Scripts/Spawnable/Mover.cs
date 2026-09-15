@@ -1,9 +1,12 @@
 using UnityEngine;
+using Game.Events;
 
 public class Mover : MonoBehaviour
 {
-    //Tiene que ser global para todos y aumentar con el tiempo la speed
-    [SerializeField] private float _speed;
+    //IMPLEMENTAR ESTO, CADA OBJETO TIENE MODIFICADOR DE SPEED
+    private float _speedMod = 1f;
+
+    private float _baseSpeed;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -11,8 +14,24 @@ public class Mover : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        RunnerEvents.OnWorldSpeedBroadcast += UpdateBaseSpeed;
+        RunnerEvents.RaiseWorldSpeedRequested();
+    }
+    
     private void FixedUpdate()
     {
-        _rb.linearVelocity =  Vector2.left * _speed;
+        _rb.linearVelocity =  Vector2.left * _baseSpeed * _speedMod;
+    }
+
+    private void OnDisable()
+    {
+        RunnerEvents.OnWorldSpeedBroadcast -= UpdateBaseSpeed;
+    }
+
+    private void UpdateBaseSpeed(float speed)
+    {
+        _baseSpeed = speed;
     }
 }
