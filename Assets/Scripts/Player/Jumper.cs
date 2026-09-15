@@ -1,14 +1,23 @@
 using Game.Data;
 using UnityEngine;
 
-public class Jumper 
+namespace Game.Player
 {
-    private readonly Rigidbody2D _rb;
-    private readonly float _jumpForce;
-
-    public Jumper(Rigidbody2D rb, PlayerConfigSo data)
+    public class Jumper
     {
-        _rb = rb;
-        _jumpForce = data.JumpForce;
+        private readonly Rigidbody2D _rb;
+        private readonly float _jumpForce;
+
+        public Jumper(Rigidbody2D rb, PlayerConfigSo data)
+        {
+            _rb = rb;
+            _jumpForce = data.JumpForce;
+        }
+
+        public void Jump()
+        {
+            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        }
     }
 }
+
