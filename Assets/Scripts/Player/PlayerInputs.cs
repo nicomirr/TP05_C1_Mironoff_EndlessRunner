@@ -1,17 +1,38 @@
-using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerInputs
+namespace Game.Player
 {
-    private readonly GameControls _playerControls;
-    
-    public PlayerInputs()
+    public class PlayerInputs
     {
-        _playerControls = new GameControls();
-        _playerControls.Enable();
-    }
+        public bool JumpPressed => _jumpAction.WasPressedThisFrame();
+        public bool PausePressed => _pauseInput.WasPressedThisFrame();
 
-    public void Deinitialize()
-    {
-        _playerControls.Disable();
+        private readonly GameControls _playerControls;
+
+        private InputAction _jumpAction;
+        private InputAction _pauseInput;
+
+        public PlayerInputs()
+        {
+            _playerControls = new GameControls();
+            EnablePlayerInputs();
+        }
+
+        private void EnablePlayerInputs()
+        {
+            _jumpAction = _playerControls.Player.Jump;
+            _pauseInput = _playerControls.Player.Pause;
+
+            _jumpAction.Enable();
+            _pauseInput.Enable();
+        }
+
+        public void Deinitialize()
+        {
+            _playerControls.Disable();
+            _playerControls.Dispose();
+        }
+
     }
 }
+

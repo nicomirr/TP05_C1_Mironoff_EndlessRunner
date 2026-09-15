@@ -1,16 +1,20 @@
+using Game.Data;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Game.Player
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class PlayerController : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private PlayerConfigSo _playerConfig;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private PlayerInputs _playerInputs;
+
+        private void Awake()
+        {
+            _playerInputs = new PlayerInputs();
+        }
+
     }
 }
+
