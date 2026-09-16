@@ -1,7 +1,7 @@
 using UnityEngine;
 using Game.Events;
 
-public class Mover : MonoBehaviour
+public class SpawnablesMover : MonoBehaviour
 {
     //IMPLEMENTAR ESTO, CADA OBJETO TIENE MODIFICADOR DE SPEED
     private float _speedMod = 1f;

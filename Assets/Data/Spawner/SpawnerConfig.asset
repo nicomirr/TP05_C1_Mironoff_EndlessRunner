@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01043cb6948b8124786b7693b2befbb6, type: 3}
   m_Name: SpawnerConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnerConfigSo
-  _minSpawnTime: 2
-  _maxSpawnTime: 5
+  _minSpawnTime: 11
+  _maxSpawnTime: 17

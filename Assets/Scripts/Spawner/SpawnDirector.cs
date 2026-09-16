@@ -10,8 +10,15 @@ namespace Game.Spawner
     {
         [SerializeField] private SpawnerConfigSo _data;
         [SerializeField] private List<SpawnableObjectSpawner> _spawners = new List<SpawnableObjectSpawner>();
-                        
+        [SerializeField] private MonoBehaviour _worldSpeedProviderMonobehaviour;
+
+        private ISpeedProvider _worldSpeedProvider;
         private Coroutine _spawnCoroutine;
+
+        private void Awake()
+        {
+            _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
+        }
 
         private void Start()
         {
@@ -39,9 +46,12 @@ namespace Game.Spawner
 
             while (true)
             {
-                float spawnTime = Random.Range(_data.MinSpawnTime, _data.MaxSpawnTime);
+                int integerSpawnTime = Random.Range(_data.MinSpawnTime, _data.MaxSpawnTime + 1);
+                float spawnTime = integerSpawnTime * 0.1f;
 
-                yield return new WaitForSeconds(spawnTime);
+                float finalSpawnTime = spawnTime * (_worldSpeedProvider.WorldBaseSpeed / _worldSpeedProvider.WorldCurrentSpeed);
+
+                yield return new WaitForSeconds(finalSpawnTime);
                 
                 SpawnableObjectCategory randomCategory = categories[Random.Range(0, categories.Length)];
                                 

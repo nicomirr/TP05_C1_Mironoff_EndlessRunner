@@ -10,13 +10,13 @@ namespace Game.Player
         [SerializeField] private Transform _groundCheck;
 
         private PlayerInputs _playerInputs;
-        private Jumper _jumper;
+        private PlayerJump _jumper;
         private PlayerGroundCheck _playerGroundCheck;
 
         private void Awake()
         {
             _playerInputs = new PlayerInputs();
-            _jumper = new Jumper(GetComponent<Rigidbody2D>(), _data);
+            _jumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
             _playerGroundCheck = new PlayerGroundCheck(_groundCheck, _data);
         }
 
@@ -37,6 +37,11 @@ namespace Game.Player
             {
                 _jumper.Jump();
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }

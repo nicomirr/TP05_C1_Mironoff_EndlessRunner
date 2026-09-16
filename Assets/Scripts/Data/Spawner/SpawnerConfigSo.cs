@@ -5,11 +5,13 @@ namespace Game.Data
     [CreateAssetMenu(fileName = "SpawnerConfig", menuName = "Scriptable Objects/SpawnerConfig")]
     public class SpawnerConfigSo : ScriptableObject
     {
-        [SerializeField] private float _minSpawnTime;
-        public float MinSpawnTime => _minSpawnTime;
+        [Tooltip("El valor se divide por 10")]
+        [Range(7,20)][SerializeField] private int _minSpawnTime;
+        public int MinSpawnTime => _minSpawnTime;
 
-        [SerializeField] private float _maxSpawnTime;
-        public float MaxSpawnTime => _maxSpawnTime;
+        [Tooltip("El valor se divide por 10")]
+        [Range(7, 20)][SerializeField] private int _maxSpawnTime;
+        public int MaxSpawnTime => _maxSpawnTime;
     }
 }
 
