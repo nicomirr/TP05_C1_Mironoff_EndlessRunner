@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01043cb6948b8124786b7693b2befbb6, type: 3}
-  m_Name: SpawnerConfig
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnerConfigSo
-  _minSpawnTime: 11
-  _maxSpawnTime: 20
+  m_Script: {fileID: 11500000, guid: 42116f09702427247b416b4cbfcc4eb2, type: 3}
+  m_Name: EnviromentObjectsSpeedModi
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
+  _speedModifier: 0.7

@@ -1128,7 +1128,7 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: bcb20fef74b9b1f4ebb1b399add3ee67, type: 2}
   _spawners:
   - {fileID: 879674383}
-  _worldSpeedProviderMonobehaviour: {fileID: 474982512}
+  _worldSpeedProviderMonobehaviour: {fileID: 785835998}
 --- !u!1 &571622382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000091f384f519f2267033ecc034
+  m_ApplyToSortingLayers: 0000000091f384f519f2267033ecc034bf5830e6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2722,14 +2722,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113624816}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.11107, y: -1.13565, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 461881272}
   - {fileID: 1598230369}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1692899707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1220781673
 GameObject:
@@ -3135,6 +3135,7 @@ Transform:
   m_Children:
   - {fileID: 662974193}
   - {fileID: 603081230}
+  - {fileID: 1113624818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714425325
@@ -3434,6 +3435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Spawner.SpawnableObjectFactory
   _spawnableObjects:
   - {fileID: 11400000, guid: 445526f6f8fe7004896f13cd66b16435, type: 2}
+  - {fileID: 11400000, guid: 5d139522409f16f47a740d9bc2225095, type: 2}
+  - {fileID: 11400000, guid: 2d49153a8e434e8438961badd6b57ba7, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3443,4 +3446,3 @@ SceneRoots:
   - {fileID: 1552564406}
   - {fileID: 1528508821}
   - {fileID: 1692899707}
-  - {fileID: 1113624818}

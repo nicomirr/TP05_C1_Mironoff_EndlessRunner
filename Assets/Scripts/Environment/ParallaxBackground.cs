@@ -83,7 +83,7 @@ namespace Game.Environment
             foreach (Transform background in _backgrounds)
             {
                 background.position += Vector3.left * (_worldSpeedProvider.WorldCurrentSpeed * 
-                    _data.SpeedModifier * Time.deltaTime);
+                    _data.SpeedModifierData.SpeedModifier * Time.deltaTime);
             }
         }
 

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ecc45c4fbc3bf54db4bfe387730070e, type: 3}
-  m_Name: GroundObstacle
+  m_Name: BigRockObstacle
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectSo
   _category: 0
-  _type: 0
-  _prefab: {fileID: 7780681365473830397, guid: 59f74d9968d21dc4388a110dcd08b256, type: 3}
+  _type: 1
+  _prefab: {fileID: 4597799554535089270, guid: fc5063141d3a9e94d96d9f6e6dace9e1, type: 3}

@@ -2,7 +2,9 @@ namespace Game.Core
 {
     public enum SpawnableObjectType
     {
-        Obstacle,
+        SoldierGround,
+        BigRockGround,
+        SmallRockGround,
         Powerup,       
     }
 }
