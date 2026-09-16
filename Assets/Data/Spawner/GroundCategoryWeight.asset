@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42116f09702427247b416b4cbfcc4eb2, type: 3}
-  m_Name: MovingFastSpeedMod
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
-  _speedModifier: 1.2
+  m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
+  m_Name: GroundCategoryWeight
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
+  _category: 0
+  _weight: 50

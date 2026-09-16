@@ -41,6 +41,7 @@ namespace Game.Spawner
 
                     _pool[data.Type].Add(spawnableObject);
                 }
+
             }
 
         }
@@ -50,12 +51,41 @@ namespace Game.Spawner
             return _typesByCategory[category];
         }
 
-        public GameObject GetSpawnableObject(SpawnableObjectType type)
-        {
-            foreach (GameObject spawnableObject in _pool[type])
+        public GameObject GetRandomSpawnableObject(SpawnableObjectCategory category)
+        {            
+            int acummulatedWeight = 0;
+
+            for (int i = 0; i < _factory.Count; i++)
+            {                
+                SpawnableObjectSo data = _factory.GetSpawnableObjectData(i);
+
+                if (data.Category == category)
+                {
+                    acummulatedWeight += data.Weight;
+                }
+            }
+
+            int randomValue = Random.Range(0, acummulatedWeight);
+            acummulatedWeight = 0;
+
+            for (int i = 0; i < _factory.Count; i++)
             {
-                if (!spawnableObject.activeSelf)
-                    return spawnableObject;
+                SpawnableObjectSo data = _factory.GetSpawnableObjectData(i);
+
+                if (data.Category == category)
+                {
+                    acummulatedWeight += data.Weight;
+
+                    if (randomValue < acummulatedWeight)
+                    {
+                        foreach (GameObject spawnableObject in _pool[data.Type])
+                        {
+                            if (!spawnableObject.activeSelf)
+                                return spawnableObject;
+                        }
+
+                    }
+                }
             }
 
             return null;

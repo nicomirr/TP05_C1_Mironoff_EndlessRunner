@@ -34,7 +34,7 @@ namespace Game.Spawner
 
         private void StopObjectSpawners()
         {
-            if (_spawnCoroutine != null) return;
+            if (_spawnCoroutine == null) return;
 
             StopCoroutine(_spawnCoroutine);
             _spawnCoroutine = null;
@@ -42,8 +42,6 @@ namespace Game.Spawner
 
         private IEnumerator SpawnObjectsRoutine()
         {
-            SpawnableObjectCategory[] categories = (SpawnableObjectCategory[])System.Enum.GetValues(typeof(SpawnableObjectCategory));
-
             while (true)
             {
                 int integerSpawnTime = Random.Range(_data.MinSpawnTime, _data.MaxSpawnTime + 1);
@@ -52,24 +50,43 @@ namespace Game.Spawner
                 float finalSpawnTime = spawnTime * (_worldSpeedProvider.WorldBaseSpeed / _worldSpeedProvider.WorldCurrentSpeed);
 
                 yield return new WaitForSeconds(finalSpawnTime);
+
+                SpawnableObjectCategory randomCategory = GetRandomCategory();                               
                 
-                SpawnableObjectCategory randomCategory = categories[Random.Range(0, categories.Length)];
-                                
-                SpawnableObjectSpawner currentSpawner = null;
-
-                GameObject spawnableObject = null;
-
                 foreach (SpawnableObjectSpawner spawner in _spawners)
                 {
-                    spawnableObject = spawner.TrySpawnObject(randomCategory);
-
-                    if (spawnableObject != null)
-                    {
-                        currentSpawner = spawner;
-                        break;
-                    }
+                    GameObject spawnableObject = spawner.TrySpawnObject(randomCategory);
+                                        
+                    if (spawnableObject != null)                                            
+                        break;                    
                 }
             }
+        }
+
+        private SpawnableObjectCategory GetRandomCategory()
+        {
+            int acummulatedWeight = 0;
+
+            foreach(SpawnCategoryWeight data in _data.CategoriesWeight)
+            {
+                acummulatedWeight += data.Weight;
+            }                      
+
+            int randomValue = Random.Range(0, acummulatedWeight);
+            acummulatedWeight = 0;
+
+            foreach (SpawnCategoryWeight data in _data.CategoriesWeight)
+            {
+                acummulatedWeight += data.Weight;
+
+                if (randomValue < acummulatedWeight)
+                {
+                    return data.Category;
+                }
+            }
+
+            return SpawnableObjectCategory.GroundObject;
+                        
         }
         
     }

@@ -14,6 +14,10 @@ namespace Game.Data
 
         [SerializeField] private GameObject _prefab;
         public GameObject Prefab => _prefab;
+
+        [Tooltip("Probabilidad de que aparezca el objeto")]
+        [SerializeField] private int _weight;
+        public int Weight => _weight;
     }
 }
 

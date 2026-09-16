@@ -30,7 +30,7 @@ namespace Game.Spawner
 
             SpawnableObjectType randomType = availableTypes[Random.Range(0, availableTypes.Count)];
 
-            GameObject spawnableObject = _spawnableObjectPool.GetSpawnableObject(randomType);
+            GameObject spawnableObject = _spawnableObjectPool.GetRandomSpawnableObject(_category);
 
             if (spawnableObject == null)
             {

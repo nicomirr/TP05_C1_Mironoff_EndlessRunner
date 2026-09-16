@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecc45c4fbc3bf54db4bfe387730070e, type: 3}
-  m_Name: SheepObstacle
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectSo
+  m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
+  m_Name: FlyingCategoryWeight
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
   _category: 1
-  _type: 3
-  _prefab: {fileID: 2750843863573938923, guid: 403c1b07b2e5b004d82be7eb32965937, type: 3}
   _weight: 15
