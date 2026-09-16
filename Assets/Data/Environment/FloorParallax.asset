@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0436a284cc867a945a2570c576b5cd6d, type: 3}
   m_Name: FloorParallax
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParallaxDataSo
-  _minXPos: -20
-  _movementSpeed: 2
+  _minXPos: -18
+  _speedModifier: 0.8

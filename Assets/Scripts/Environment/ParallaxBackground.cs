@@ -9,11 +9,17 @@ namespace Game.Environment
     {
         [SerializeField] private ParallaxDataSo _data;
         [SerializeField] private List<Transform> _backgrounds = new();
-
+        
+        [SerializeField] private MonoBehaviour _worldSpeedProviderMonobehaviour;
+        private ISpeedProvider _worldSpeedProvider;
+        
         private float _backgroundWidth;
+
 
         private void Awake()
         {
+            _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
+
             CompressTilemapBounds();
             CalculateBackgroundWidth();
             PositionBackgrounds();
@@ -36,22 +42,18 @@ namespace Game.Environment
 
         private void CalculateBackgroundWidth()
         {
-            Tilemap firstTilemap =
-                _backgrounds[0].GetComponentInChildren<Tilemap>();
+            Tilemap firstTilemap = _backgrounds[0].GetComponentInChildren<Tilemap>();
 
-            _backgroundWidth =
-                GetRightEdge(firstTilemap) - GetLeftEdge(firstTilemap);
+            _backgroundWidth = GetRightEdge(firstTilemap) - GetLeftEdge(firstTilemap);
         }
 
         private void PositionBackgrounds()
         {
             for (int i = 1; i < _backgrounds.Count; i++)
             {
-                Tilemap previousTilemap =
-                    _backgrounds[i - 1].GetComponentInChildren<Tilemap>();
+                Tilemap previousTilemap = _backgrounds[i - 1].GetComponentInChildren<Tilemap>();
 
-                Tilemap currentTilemap =
-                    _backgrounds[i].GetComponentInChildren<Tilemap>();
+                Tilemap currentTilemap = _backgrounds[i].GetComponentInChildren<Tilemap>();
 
                 float previousRightEdge = GetRightEdge(previousTilemap);
                 float currentLeftEdge = GetLeftEdge(currentTilemap);
@@ -66,24 +68,22 @@ namespace Game.Environment
         {
             BoundsInt bounds = tilemap.cellBounds;
 
-            return tilemap.CellToWorld(
-                new Vector3Int(bounds.xMin, bounds.yMin, 0)).x;
+            return tilemap.CellToWorld(new Vector3Int(bounds.xMin, bounds.yMin, 0)).x;
         }
 
         private float GetRightEdge(Tilemap tilemap)
         {
             BoundsInt bounds = tilemap.cellBounds;
 
-            return tilemap.CellToWorld(
-                new Vector3Int(bounds.xMax, bounds.yMin, 0)).x;
+            return tilemap.CellToWorld(new Vector3Int(bounds.xMax, bounds.yMin, 0)).x;
         }
 
         private void MoveBackgrounds()
         {
             foreach (Transform background in _backgrounds)
             {
-                background.position +=
-                    Vector3.left * (_data.MovementSpeed * Time.deltaTime);
+                background.position += Vector3.left * (_worldSpeedProvider.WorldCurrentSpeed * 
+                    _data.SpeedModifier * Time.deltaTime);
             }
         }
 

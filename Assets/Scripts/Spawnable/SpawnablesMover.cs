@@ -3,10 +3,10 @@ using Game.Events;
 
 public class SpawnablesMover : MonoBehaviour
 {
+    private float _baseSpeed;
     //IMPLEMENTAR ESTO, CADA OBJETO TIENE MODIFICADOR DE SPEED
     private float _speedMod = 1f;
 
-    private float _baseSpeed;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class SpawnablesMover : MonoBehaviour
         RunnerEvents.OnWorldSpeedBroadcast += UpdateBaseSpeed;
         RunnerEvents.RaiseWorldSpeedRequested();
     }
-    
+
     private void FixedUpdate()
     {
         _rb.linearVelocity =  Vector2.left * _baseSpeed * _speedMod;
@@ -34,4 +34,5 @@ public class SpawnablesMover : MonoBehaviour
     {
         _baseSpeed = speed;
     }
+
 }

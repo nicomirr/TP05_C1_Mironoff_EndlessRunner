@@ -9,8 +9,8 @@ namespace Game.Data
         [SerializeField] private float _minXPos;
         public float MinXPos => _minXPos;
 
-        [SerializeField] private float _movementSpeed;
-        public float MovementSpeed => _movementSpeed;
+        [Range(0.1f, 1f)][SerializeField] private float _speedModifier;
+        public float SpeedModifier => _speedModifier;
     }
 }
 

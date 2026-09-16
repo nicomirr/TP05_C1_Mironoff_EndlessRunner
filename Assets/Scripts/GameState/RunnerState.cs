@@ -4,64 +4,52 @@ using Game.Events;
 
 namespace Game.GameState
 {
-    public class RunnerState : MonoBehaviour, ISpeedProvider
+    public class RunnerState : MonoBehaviour
     {
         [SerializeField] private RunnerStateConfigSo _data;
+
+        [SerializeField] private WorldSpeed _worldSpeed;
 
         private SpeedProgression _speedProgression;
         private SpeedProgressionTimer _speedProgressionTimer;
 
-        private float _currentWorldSpeed;
-        public float WorldCurrentSpeed => _currentWorldSpeed;
-        public float WorldBaseSpeed => _data.InitialWorldSpeed;
-
-
-
         private void Awake()
         {
+            _worldSpeed.Initialize(_data);
+
             _speedProgression = new SpeedProgression(_data);
             _speedProgressionTimer = new SpeedProgressionTimer(_data);
 
-            RunnerEvents.OnBaseSpeedRequested += BroadcastBaseSpeed;
-            RunnerEvents.OnWorldSpeedRequested += BroadcastWorldSpeed;
-        }
-
-        private void Start()
-        {
-            _currentWorldSpeed = _data.InitialWorldSpeed;
-            RunnerEvents.RaiseWorldSpeedBroadcast(_currentWorldSpeed);
+            RunnerEvents.OnWorldSpeedRequested += BroadcastCurrentSpeed;
         }
 
         private void Update()
         {
-            HandleSpeedProgression();            
+            HandleSpeedProgression();
         }
 
         private void OnDestroy()
         {
-            RunnerEvents.OnBaseSpeedRequested -= BroadcastBaseSpeed;
-            RunnerEvents.OnWorldSpeedRequested -= BroadcastWorldSpeed;
+            RunnerEvents.OnWorldSpeedRequested -= BroadcastCurrentSpeed;
         }
 
         private void HandleSpeedProgression()
         {
             if (_speedProgressionTimer.UpdateTimer())
             {
-                if(_speedProgression.TryIncreaseWorldSpeed(ref _currentWorldSpeed))
+                float speed = _worldSpeed.WorldCurrentSpeed;
+
+                if(_speedProgression.TryIncreaseWorldSpeed(ref speed))
                 {
-                    BroadcastWorldSpeed();
+                    _worldSpeed.UpdateSpeed(speed);
+                    RunnerEvents.RaiseWorldSpeedBroadcast(_worldSpeed.WorldCurrentSpeed);
                 }
             }
         }
 
-        private void BroadcastBaseSpeed()
-        {
-            RunnerEvents.RaiseBaseSpeedBroadcast(_data.InitialWorldSpeed);
-        }
-
-        private void BroadcastWorldSpeed()
-        {
-            RunnerEvents.RaiseWorldSpeedBroadcast(_currentWorldSpeed);
+        private void BroadcastCurrentSpeed()
+        {           
+            RunnerEvents.RaiseWorldSpeedBroadcast(_worldSpeed.WorldCurrentSpeed);
         }
     }
 }
