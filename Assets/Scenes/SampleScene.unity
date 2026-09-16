@@ -1128,6 +1128,7 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: bcb20fef74b9b1f4ebb1b399add3ee67, type: 2}
   _spawners:
   - {fileID: 879674383}
+  - {fileID: 215446944}
   _worldSpeedProviderMonobehaviour: {fileID: 785835998}
 --- !u!1 &571622382
 GameObject:
@@ -1335,7 +1336,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000091f384f519f2267033ecc034bf5830e6
+  m_ApplyToSortingLayers: 0000000091f384f519f2267033ecc034bf5830e695142d39
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

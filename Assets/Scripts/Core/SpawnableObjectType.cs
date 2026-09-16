@@ -5,6 +5,7 @@ namespace Game.Core
         SoldierGround,
         BigRockGround,
         SmallRockGround,
+        ShipFly,
         Powerup,       
     }
 }

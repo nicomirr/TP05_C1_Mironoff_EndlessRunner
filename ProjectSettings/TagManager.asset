@@ -53,5 +53,8 @@ TagManager:
   - name: Enemy
     uniqueID: 1881600537
     locked: 0
+  - name: Flying
+    uniqueID: 959255701
+    locked: 0
   m_RenderingLayers:
   - Default

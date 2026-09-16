@@ -5,6 +5,7 @@ namespace Game.Data
     [CreateAssetMenu(fileName = "RunnerStateConfigSo", menuName = "Scriptable Objects/RunnerStateConfigSo")]
     public class RunnerStateConfigSo : ScriptableObject
     {
+        [Tooltip("La distancia entre obstáculos durante el juego cambia dependiendo de este valor inicial")]
         [SerializeField] private float _initialWorldSpeed;
         public float InitialWorldSpeed => _initialWorldSpeed;
 
