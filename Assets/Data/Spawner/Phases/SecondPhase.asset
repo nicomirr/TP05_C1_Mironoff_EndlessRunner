@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
-  m_Name: FlyingCategoryWeight
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
-  _category: 1
-  _weight: 15
+  m_Script: {fileID: 11500000, guid: f458e6e12c169934f8a5111a82df09e2, type: 3}
+  m_Name: SecondPhase
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPhaseSo
+  _availableCategories: 00000000
+  _availableTypes: 01000000020000000300000000000000

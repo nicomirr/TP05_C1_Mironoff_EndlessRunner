@@ -51,7 +51,7 @@ namespace Game.Spawner
             return _typesByCategory[category];
         }
 
-        public GameObject GetRandomSpawnableObject(SpawnableObjectCategory category)
+        public GameObject GetRandomSpawnableObject(SpawnableObjectCategory category, List<SpawnableObjectType> availableTypes)
         {            
             int acummulatedWeight = 0;
 
@@ -59,8 +59,8 @@ namespace Game.Spawner
             {                
                 SpawnableObjectSo data = _factory.GetSpawnableObjectData(i);
 
-                if (data.Category == category)
-                {
+                if (data.Category == category && availableTypes.Contains(data.Type))
+                {                    
                     acummulatedWeight += data.Weight;
                 }
             }
@@ -72,7 +72,7 @@ namespace Game.Spawner
             {
                 SpawnableObjectSo data = _factory.GetSpawnableObjectData(i);
 
-                if (data.Category == category)
+                if (data.Category == category && availableTypes.Contains(data.Type))
                 {
                     acummulatedWeight += data.Weight;
 

@@ -20,17 +20,13 @@ namespace Game.Spawner
                 Debug.LogError("Position Provider must implement ISpawnPositionProvider");
         }
 
-        public GameObject TrySpawnObject(SpawnableObjectCategory category)
+        public GameObject TrySpawnObject(SpawnableObjectCategory category, List<SpawnableObjectType> availableTypes)
         {
             if (_category != category) return null;
 
-            IReadOnlyList<SpawnableObjectType> availableTypes = _spawnableObjectPool.GetTypes(_category);
-
             Vector2 spawnPos = _positionProvider.GetSpawnPos();
 
-            SpawnableObjectType randomType = availableTypes[Random.Range(0, availableTypes.Count)];
-
-            GameObject spawnableObject = _spawnableObjectPool.GetRandomSpawnableObject(_category);
+            GameObject spawnableObject = _spawnableObjectPool.GetRandomSpawnableObject(_category, availableTypes);
 
             if (spawnableObject == null)
             {

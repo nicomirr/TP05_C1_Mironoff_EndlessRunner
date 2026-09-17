@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ecc45c4fbc3bf54db4bfe387730070e, type: 3}
-  m_Name: SmallRockObstacle
+  m_Name: StumpObstacle
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectSo
   _category: 0
-  _type: 2
-  _prefab: {fileID: 4597799554535089270, guid: 0e8bb0a06f40281438970a3689ee410f, type: 3}
-  _weight: 44
+  _type: 3
+  _prefab: {fileID: 4597799554535089270, guid: d71de17df7c1dce4aa95695228ba2e25, type: 3}
+  _weight: 42
