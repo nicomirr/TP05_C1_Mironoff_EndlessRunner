@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecc45c4fbc3bf54db4bfe387730070e, type: 3}
+  m_Name: MonkPowerup
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectSo
+  _category: 0
+  _type: 5
+  _prefab: {fileID: 8986172999258673750, guid: 3ca47f7eed7af62488e1c621fa4be734, type: 3}
+  _weight: 44

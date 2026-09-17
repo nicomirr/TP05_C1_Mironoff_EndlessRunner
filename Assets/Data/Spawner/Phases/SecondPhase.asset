@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SecondPhase
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPhaseSo
   _availableCategories: 00000000
-  _availableTypes: 01000000020000000300000000000000
+  _availableTypes: 01000000030000000000000002000000
