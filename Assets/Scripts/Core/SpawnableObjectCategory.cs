@@ -2,8 +2,9 @@ namespace Game.Core
 {
     public enum SpawnableObjectCategory
     {
-        GroundObject,
-        FlyingObject
+        GroundObstacle,
+        FlyingObstacle,
+        GroundPowerUp
     }
 }
 

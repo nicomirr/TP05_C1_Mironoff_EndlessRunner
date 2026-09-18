@@ -129,7 +129,7 @@ namespace Game.Spawner
                 }
             }
 
-            return SpawnableObjectCategory.GroundObject;                        
+            return SpawnableObjectCategory.GroundObstacle;                        
         }
         
     }

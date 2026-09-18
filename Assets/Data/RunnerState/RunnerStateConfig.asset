@@ -15,4 +15,4 @@ MonoBehaviour:
   _initialWorldSpeed: 9
   _maxWorldSpeed: 25
   _speedProgression: 1
-  _speedProgressionTime: 10
+  _speedProgressionTime: 0.1

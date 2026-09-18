@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecc45c4fbc3bf54db4bfe387730070e, type: 3}
   m_Name: InvincibilityPowerUp
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectSo
-  _category: 0
+  _category: 2
   _type: 5
   _prefab: {fileID: 8986172999258673750, guid: 3ca47f7eed7af62488e1c621fa4be734, type: 3}
   _weight: 10
