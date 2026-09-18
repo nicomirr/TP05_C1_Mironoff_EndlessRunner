@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f458e6e12c169934f8a5111a82df09e2, type: 3}
   m_Name: SecondPhase
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPhaseSo
-  _availableCategories: 00000000
-  _availableTypes: 01000000030000000000000002000000
+  _availableCategories: 0000000002000000
+  _availableTypes: 0100000003000000000000000200000005000000

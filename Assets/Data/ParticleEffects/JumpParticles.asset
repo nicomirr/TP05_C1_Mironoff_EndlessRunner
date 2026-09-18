@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
-  m_Name: GroundPowCategoryWeight
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
-  _family: 1
-  _category: 2
-  _weight: 3
+  m_Script: {fileID: 11500000, guid: 8524ab4ec42d0564cba2eaec9d952daa, type: 3}
+  m_Name: JumpParticles
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParticleEffectDataSo

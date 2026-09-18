@@ -62,5 +62,8 @@ TagManager:
   - name: Flying
     uniqueID: 959255701
     locked: 0
+  - name: ParticleEffects
+    uniqueID: 3923978875
+    locked: 0
   m_RenderingLayers:
   - Default
