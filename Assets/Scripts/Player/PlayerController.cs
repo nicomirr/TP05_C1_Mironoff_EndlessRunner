@@ -82,6 +82,7 @@ namespace Game.Player
         private void HandleLand()
         {
             _audioPlayer.PlayAudio(AudioCategory.LandSFX);
+            _particleEffectsPlayer.PlayEffect(ParticleEffectType.Land);
         }
 
         private void EnableInvincibility(float time, float warningTime, int totalWarningBlinks, Color32 color)
