@@ -3,10 +3,10 @@ using UnityEngine;
 
 public static class PowerUpEvents
 {
-    public static event Action<float, Color32> OnInvincibilityEnabled;
+    public static event Action<float, float, int, Color32> OnInvincibilityAcquired;
 
-    public static void RaiseInvincibilityEnabled(float time, Color32 invincibilityColor)
+    public static void RaiseInvincibilityAcquired(float time, float warningTime, int totalWarningBlinks, Color32 invincibilityColor)
     {
-        OnInvincibilityEnabled?.Invoke(time, invincibilityColor);
+        OnInvincibilityAcquired?.Invoke(time, warningTime, totalWarningBlinks, invincibilityColor);
     }
 }

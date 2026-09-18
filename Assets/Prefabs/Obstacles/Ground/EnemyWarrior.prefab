@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1881600537
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -432731726981308715, guid: bff9d9d24cf015c459dc81ae60899557, type: 3}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4385025201427005365}
   - component: {fileID: 5640747766661595735}
-  - component: {fileID: -8829154982270499605}
+  - component: {fileID: -4660791426890288019}
   - component: {fileID: -5895514950988264913}
   - component: {fileID: -4875208564609428383}
   m_Layer: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6245c1fec44d404c994338c72608d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Marker.ObstacleMarker
---- !u!114 &-8829154982270499605
+--- !u!114 &-4660791426890288019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

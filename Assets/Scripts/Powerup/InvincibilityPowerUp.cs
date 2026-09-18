@@ -22,7 +22,7 @@ namespace Game.Powerup
             if (collision.gameObject.TryGetComponent<PlayerMarker>(out _))
             {
                 _animator.SetTrigger(POWER_UP_TRIGGER);
-                PowerUpEvents.RaiseInvincibilityEnabled(_data.Time, _data.InvincibilityColor);
+                PowerUpEvents.RaiseInvincibilityAcquired(_data.Time, _data.WarningTime, _data.TotalWarningBlinks, _data.InvincibilityColor);
             }
         }
     }

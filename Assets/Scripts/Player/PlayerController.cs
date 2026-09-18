@@ -3,6 +3,7 @@ using Game.Audio;
 using Game.Marker;
 using Game.Data;
 using Game.Core;
+using Game.Events;
 
 namespace Game.Player
 {
@@ -38,7 +39,8 @@ namespace Game.Player
         private void OnEnable()
         {
             _playerGroundCheck.OnJustLanded += HandleLand;
-            PowerUpEvents.OnInvincibilityEnabled += EnableInvincibility;
+            _playerInvincibility.OnInvincibilityFinalized += HandleInvincibilityFinalized;
+            PowerUpEvents.OnInvincibilityAcquired += EnableInvincibility;
         }
 
         private void Update()
@@ -50,7 +52,8 @@ namespace Game.Player
         private void OnDisable()
         {
             _playerGroundCheck.OnJustLanded -= HandleLand;
-            PowerUpEvents.OnInvincibilityEnabled -= EnableInvincibility;
+            _playerInvincibility.OnInvincibilityFinalized -= HandleInvincibilityFinalized;
+            PowerUpEvents.OnInvincibilityAcquired -= EnableInvincibility;
         }
 
         private void OnDestroy()
@@ -72,20 +75,31 @@ namespace Game.Player
             _audioPlayer.PlayAudio(AudioCategory.LandSFX);
         }
 
-        private void EnableInvincibility(float time, Color32 color)
+        private void EnableInvincibility(float time, float warningTime, int totalWarningBlinks, Color32 color)
         {
             if (_playerInvincibility.IsInvincible) return;
 
+            PlayerEvents.RaiseInvincibilityEnabled();
             _playerPowerUpEffect.PlayPowerUpEffect();
-            StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(time, color));
+
+            StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(time, warningTime, totalWarningBlinks, color));
+        }
+
+        private void HandleInvincibilityFinalized()
+        {
+            PlayerEvents.RaiseInvincibilityDisabled();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (_playerInvincibility.IsInvincible) return;
-
+        {            
             if(collision.TryGetComponent<ObstacleMarker>(out _))
             {
+                if(_playerInvincibility.IsInvincible)
+                {
+                    collision.gameObject.SetActive(false);
+                    return;
+                }
+
                 this.gameObject.SetActive(false);
             }
         }        

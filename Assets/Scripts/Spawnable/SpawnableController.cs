@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnableController : MonoBehaviour
 {
-    [SerializeField] private SpawnableObjectConfigSo _data;
+    [SerializeField] protected SpawnableObjectConfigSo _data;
 
     private SpawnableMover _spawnableMover;
 
@@ -13,7 +13,7 @@ public class SpawnableController : MonoBehaviour
         _spawnableMover = new SpawnableMover(_data, GetComponent<Rigidbody2D>());
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         RunnerEvents.OnWorldSpeedBroadcast += _spawnableMover.UpdateSpeed;
         RunnerEvents.RaiseWorldSpeedRequested();
@@ -24,7 +24,7 @@ public class SpawnableController : MonoBehaviour
         _spawnableMover.Move();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         RunnerEvents.OnWorldSpeedBroadcast -= _spawnableMover.UpdateSpeed;
     }    

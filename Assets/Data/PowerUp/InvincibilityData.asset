@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: InvincibilityData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.InvincibilityDataSo
   _time: 10
+  _warningTime: 2
+  _totalWarningBlinks: 3
   _invincibilityColor:
     serializedVersion: 2
-    rgba: 255
+    rgba: 4278190335
