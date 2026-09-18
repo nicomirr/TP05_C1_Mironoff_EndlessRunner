@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 927e79cfd83ac194eb27ffa608aa34f2, type: 3}
-  m_Name: MonkPowConfig
+  m_Name: InvincibilityPowConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectConfigSo
   _speedModifierData: {fileID: 11400000, guid: c7d352cd8e1c08b49997e9be9a01be7e, type: 2}

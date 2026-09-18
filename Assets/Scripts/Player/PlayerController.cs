@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Audio;
+using Game.Marker;
 using Game.Data;
 using Game.Core;
 
@@ -12,16 +13,24 @@ namespace Game.Player
         [SerializeField] private Transform _groundCheck;
 
         private PlayerInputs _playerInputs;
-        private PlayerJump _jumper;
+        private PlayerJump _playerJumper;
         private PlayerGroundCheck _playerGroundCheck;
+        private PlayerPowerUpEffect _playerPowerUpEffect;
+        private PlayerInvincibility _playerInvincibility;
 
         private AudioPlayer _audioPlayer;
 
         private void Awake()
         {
             _playerInputs = new PlayerInputs();
-            _jumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
+            _playerJumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
             _playerGroundCheck = new PlayerGroundCheck(_groundCheck, _data);
+
+            GameObject powerUpEffectObject = GetComponentInChildren<PlayerPowerUpEffectMarker>().gameObject;
+            _playerPowerUpEffect = new PlayerPowerUpEffect(powerUpEffectObject.GetComponent<Animator>());
+
+            GameObject playerImageObject = GetComponentInChildren<PlayerImageMarker>().gameObject;
+            _playerInvincibility = new PlayerInvincibility(playerImageObject.GetComponent<SpriteRenderer>());
 
             _audioPlayer = new AudioPlayer(_data, GetComponentInChildren<AudioSource>());
         }
@@ -29,6 +38,7 @@ namespace Game.Player
         private void OnEnable()
         {
             _playerGroundCheck.OnJustLanded += HandleLand;
+            PowerUpEvents.OnInvincibilityEnabled += EnableInvincibility;
         }
 
         private void Update()
@@ -40,6 +50,7 @@ namespace Game.Player
         private void OnDisable()
         {
             _playerGroundCheck.OnJustLanded -= HandleLand;
+            PowerUpEvents.OnInvincibilityEnabled -= EnableInvincibility;
         }
 
         private void OnDestroy()
@@ -51,7 +62,7 @@ namespace Game.Player
         {
             if(_playerInputs.JumpPressed && _playerGroundCheck.IsGrounded)
             {
-                _jumper.Jump();
+                _playerJumper.Jump();
                 _audioPlayer.PlayAudio(AudioCategory.JumpSFX);
             }
         }
@@ -61,9 +72,22 @@ namespace Game.Player
             _audioPlayer.PlayAudio(AudioCategory.LandSFX);
         }
 
+        private void EnableInvincibility(float time, Color32 color)
+        {
+            if (_playerInvincibility.IsInvincible) return;
+
+            _playerPowerUpEffect.PlayPowerUpEffect();
+            StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(time, color));
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            this.gameObject.SetActive(false);
+            if (_playerInvincibility.IsInvincible) return;
+
+            if(collision.TryGetComponent<ObstacleMarker>(out _))
+            {
+                this.gameObject.SetActive(false);
+            }
         }        
     }
 }

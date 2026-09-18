@@ -27,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 4814187328895215778}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.045, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.006, z: 0}
+  m_LocalScale: {x: -1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2380764783006686586}
@@ -79,15 +79,15 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1525084121
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: de643a10868108049a5f29a883867643, type: 3}
+  m_Sprite: {fileID: 566114000, guid: 9de99b86efd1e254f8f34f7b10febd47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9375, y: 1.109375}
+  m_Size: {x: 3.0029325, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,11 +123,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2380764783006686586}
+  - component: {fileID: 7570988054475815531}
   - component: {fileID: 493640375173510753}
   - component: {fileID: 4115197390024368173}
   - component: {fileID: 6705598645040530766}
   m_Layer: 0
-  m_Name: Priest
+  m_Name: InvincibilityPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,6 +150,19 @@ Transform:
   - {fileID: 5892230996892685980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7570988054475815531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8986172999258673750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96abb1c8f3379fb4b9628b855c67c315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Monk
+  _data: {fileID: 11400000, guid: 2c1453831c410054697beafd839d2a27, type: 2}
 --- !u!114 &493640375173510753
 MonoBehaviour:
   m_ObjectHideFlags: 0

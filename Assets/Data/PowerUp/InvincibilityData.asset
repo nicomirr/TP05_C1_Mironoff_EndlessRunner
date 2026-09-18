@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42116f09702427247b416b4cbfcc4eb2, type: 3}
-  m_Name: MovingNormalSpeedMod
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
-  _speedModifier: 1.05
+  m_Script: {fileID: 11500000, guid: 36f3fab2b85c2ae448aa43951b94f73d, type: 3}
+  m_Name: InvincibilityData
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.InvincibilityDataSo
+  _time: 10
+  _invincibilityColor:
+    serializedVersion: 2
+    rgba: 255
