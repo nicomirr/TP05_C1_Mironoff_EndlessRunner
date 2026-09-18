@@ -4,17 +4,17 @@ namespace Game.Events
 {
     public static class PlayerEvents
     {
-        public static event Action OnInvincibilityEnabled;
-        public static event Action OnInvincibilityDisabled;
+        public static event Action OnPowerUpEnabled;
+        public static event Action OnPowerUpDisabled;
 
-        public static void RaiseInvincibilityEnabled()
+        public static void RaisePowerUpEnabled()
         {
-            OnInvincibilityEnabled?.Invoke();
+            OnPowerUpEnabled?.Invoke();
         }
 
-        public static void RaiseInvincibilityDisabled()
+        public static void RaisePowerUpDisabled()
         {
-            OnInvincibilityDisabled?.Invoke();
+            OnPowerUpDisabled?.Invoke();
         }
     }
 

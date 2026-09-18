@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Core;
 using Game.Data;
+using Game.Events;
 
 namespace Game.Spawner
 {
@@ -22,10 +23,18 @@ namespace Game.Spawner
         private float _speedPerPhase;
         private bool _finalPhaseReached;
 
+        private bool _playerPoweredUp;
+
         private void Awake()
         {
             _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
             _spawnProgression = _data.SpawnProgression;
+        }
+
+        private void OnEnable()
+        {
+            PlayerEvents.OnPowerUpEnabled += HandlePlayerPowerUpEnabled;
+            PlayerEvents.OnPowerUpDisabled += HandlePlayerPowerUpDisabled;
         }
 
         private void Start()
@@ -40,6 +49,12 @@ namespace Game.Spawner
         private void Update()
         {
             UpdatePhaseIndex();
+        }
+
+        private void OnDisable()
+        {
+            PlayerEvents.OnPowerUpEnabled -= HandlePlayerPowerUpEnabled;
+            PlayerEvents.OnPowerUpDisabled -= HandlePlayerPowerUpDisabled;
         }
 
         private void StartObjectSpawners()
@@ -108,30 +123,47 @@ namespace Game.Spawner
         {
             int acummulatedWeight = 0;
 
-            foreach(SpawnCategoryWeight data in _data.CategoriesWeight)
+            foreach (SpawnCategoryWeight data in _data.CategoriesWeight)
             {
-                if(categories.Contains(data.Category))
-                    acummulatedWeight += data.Weight;
-            }                      
+                if (!categories.Contains(data.Category))
+                    continue;
+
+                if (_playerPoweredUp && data.Family == SpawnableObjectFamily.PowerUp)
+                    continue;
+
+                acummulatedWeight += data.Weight;
+            }
 
             int randomValue = Random.Range(0, acummulatedWeight);
             acummulatedWeight = 0;
 
             foreach (SpawnCategoryWeight data in _data.CategoriesWeight)
             {
-                if (categories.Contains(data.Category))
-                    acummulatedWeight += data.Weight;
+                if (!categories.Contains(data.Category))
+                    continue;
+
+                if (_playerPoweredUp && data.Family == SpawnableObjectFamily.PowerUp)
+                    continue;
+
+                acummulatedWeight += data.Weight;
 
                 if (randomValue < acummulatedWeight)
-                {
-                    if(categories.Contains(data.Category))
-                        return data.Category;
-                }
+                    return data.Category;
             }
 
-            return SpawnableObjectCategory.GroundObstacle;                        
+            return SpawnableObjectCategory.GroundObstacle;
         }
-        
+
+        private void HandlePlayerPowerUpEnabled()
+        {
+            _playerPoweredUp = true;
+        }
+
+        private void HandlePlayerPowerUpDisabled()
+        {
+            _playerPoweredUp = false;
+        }
+
     }
 }
 

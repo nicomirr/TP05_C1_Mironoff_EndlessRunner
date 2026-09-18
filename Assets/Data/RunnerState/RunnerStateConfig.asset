@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RunnerStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.RunnerStateConfigSo
   _initialWorldSpeed: 9
-  _maxWorldSpeed: 25
+  _maxWorldSpeed: 22
   _speedProgression: 1
-  _speedProgressionTime: 0.1
+  _speedProgressionTime: 10

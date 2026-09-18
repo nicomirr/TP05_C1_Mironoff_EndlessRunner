@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
   m_Name: FlyingObstacleCategoryWeight
   m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
+  _family: 0
   _category: 1
-  _weight: 20
+  _weight: 30

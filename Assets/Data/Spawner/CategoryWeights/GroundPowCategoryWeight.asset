@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
   m_Name: GroundPowCategoryWeight
   m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
+  _family: 1
   _category: 2
-  _weight: 10
+  _weight: 5

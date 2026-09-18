@@ -79,7 +79,7 @@ namespace Game.Player
         {
             if (_playerInvincibility.IsInvincible) return;
 
-            PlayerEvents.RaiseInvincibilityEnabled();
+            PlayerEvents.RaisePowerUpEnabled();
             _playerPowerUpEffect.PlayPowerUpEffect();
 
             StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(time, warningTime, totalWarningBlinks, color));
@@ -87,7 +87,7 @@ namespace Game.Player
 
         private void HandleInvincibilityFinalized()
         {
-            PlayerEvents.RaiseInvincibilityDisabled();
+            PlayerEvents.RaisePowerUpDisabled();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
