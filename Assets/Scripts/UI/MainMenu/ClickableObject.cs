@@ -10,7 +10,7 @@ namespace Game.UI.MainMenu
 {
     public class ClickableObject : MonoBehaviour
     {
-        [SerializeField] private AudioConfigSo _data;
+        [SerializeField] private AudioConfigSo _clickableData;
 
         private List<AudioCategory> _availableAudios;
         private AudioPlayer _audioPlayer;
@@ -19,11 +19,11 @@ namespace Game.UI.MainMenu
 
         private void Awake()
         {
-            _audioPlayer = new AudioPlayer(_data, GetComponent<AudioSource>());
+            _audioPlayer = new AudioPlayer(_clickableData, GetComponent<AudioSource>());
 
             _availableAudios = new List<AudioCategory>();
 
-            foreach(AudioDataSo audioData in _data.Audios)
+            foreach(AudioDataSo audioData in _clickableData.Audios)
             {
                 _availableAudios.Add(audioData.AudioCategory);
             }
@@ -35,7 +35,7 @@ namespace Game.UI.MainMenu
         {
             if (DetectClickOverObject())
             {
-                PlayRandomAudio();
+                ClickReaction();
             }            
         }
 
@@ -51,7 +51,7 @@ namespace Game.UI.MainMenu
             return hit == _collider;
         }
 
-        private void PlayRandomAudio()
+        protected virtual void ClickReaction()
         {
             int randomIndex = Random.Range(0, _availableAudios.Count);
 

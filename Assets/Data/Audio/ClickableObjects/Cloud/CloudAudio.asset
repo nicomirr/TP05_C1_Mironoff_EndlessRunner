@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758a9594c71c0f842a34da5b9ff52253, type: 3}
-  m_Name: BushAudioConfig
-  m_EditorClassIdentifier: Assembly-CSharp::AudioConfigSo
-  _audios:
-  - {fileID: 11400000, guid: 68061254b462fe744bd38b1952898d83, type: 2}
+  m_Script: {fileID: 11500000, guid: 6292536d860971e4a83b75836f07da52, type: 3}
+  m_Name: CloudAudio
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
+  _audioClip: {fileID: 8300000, guid: 8547d3f77bc20184eb42346441d3b940, type: 3}
+  _audioCategory: 10

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SheepAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: ddc0b0b23b629d84c9ad42e7da357c8b, type: 3}
-  _audioCategory: 3
+  _audioCategory: 4

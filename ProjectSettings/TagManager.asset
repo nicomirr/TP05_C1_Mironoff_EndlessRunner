@@ -42,6 +42,9 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
+    uniqueID: 297812383
+    locked: 0
+  - name: Midground
     uniqueID: 885058611
     locked: 0
   - name: Powerup

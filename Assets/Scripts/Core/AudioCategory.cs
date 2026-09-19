@@ -11,7 +11,9 @@ namespace Game.Core
         BellSFX,
         KnockSFX,
         BushSFX,
-        End = 9
+        PuffDestroySFX,
+        CloudSFX,
+        End = 11
     }
 
 }

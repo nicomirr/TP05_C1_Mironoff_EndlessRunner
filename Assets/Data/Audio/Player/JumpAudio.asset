@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: JumpAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: fc773634e1e0c1c4cb6b837aafc64a95, type: 3}
-  _audioCategory: 0
+  _audioCategory: 1

@@ -92,7 +92,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -799953655
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
@@ -167,6 +167,7 @@ Transform:
   - {fileID: 6151660875714673633}
   - {fileID: 2532576069957909836}
   - {fileID: 3789176898182735820}
+  - {fileID: 3161469159441743198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5013094049639466521
@@ -360,7 +361,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -175836271
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5774403828569277791, guid: 26ceea2fade4b6041bbfa98c359400ae, type: 3}
@@ -404,6 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7969678573944534139}
+  - component: {fileID: 877600865394354041}
   - component: {fileID: 7541445994465493260}
   m_Layer: 0
   m_Name: GroundCheck
@@ -427,6 +429,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7299091602505219222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877600865394354041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212564930229392736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa7187195e4249469250b752f74f49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Marker.GroundCheckMarker
 --- !u!212 &7541445994465493260
 SpriteRenderer:
   serializedVersion: 2
@@ -5367,7 +5381,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -370988421
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -5401,6 +5415,50 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!1 &5743420738358634599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3161469159441743198}
+  - component: {fileID: 2480277897098087137}
+  m_Layer: 0
+  m_Name: SkullSpawnerTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3161469159441743198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743420738358634599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.708, y: -0.369, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7299091602505219222}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2480277897098087137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743420738358634599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9fb74c9aee7f64b8c851f400c2025d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkullSpawnerMarker
 --- !u!1 &6463677143817424380
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,7 +5601,7 @@ GameObject:
   - component: {fileID: 1688917781286430457}
   - component: {fileID: 862093720805914367}
   m_Layer: 0
-  m_Name: ObstacleDestroyedParticles
+  m_Name: DestroyedParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5576,7 +5634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074c89522a7c25f46acf349b30cffc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.ParticleEffect.ParticleEffect
-  _data: {fileID: 11400000, guid: 33dec906c1c820c45bf78ccd821e81bf, type: 2}
+  _data: {fileID: 11400000, guid: a663f2f5203ab8b4e9b6387fefad99c8, type: 2}
 --- !u!198 &1688917781286430457
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10411,7 +10469,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -370988421
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -15326,7 +15384,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -370988421
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0

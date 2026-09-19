@@ -17,6 +17,9 @@ namespace Game.Data
         [SerializeField] private LayerMask _groundLayer;
         public LayerMask GroundLayer => _groundLayer;
 
+        [SerializeField] private GameObject _skullPrefab;
+        public GameObject SkullPrefab => _skullPrefab;
+
     }
 
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PowUpEnabledAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 150c4fbc13cd46e488e69d0998659a5c, type: 3}
-  _audioCategory: 2
+  _audioCategory: 3

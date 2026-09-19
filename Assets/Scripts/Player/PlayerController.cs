@@ -14,13 +14,13 @@ namespace Game.Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerConfigSo _data;
-        [SerializeField] private Transform _groundCheck;
 
         private PlayerInputs _playerInputs;
         private PlayerJump _playerJumper;
         private PlayerGroundCheck _playerGroundCheck;
         private PlayerPowerUpEffect _playerPowerUpEffect;
         private PlayerInvincibility _playerInvincibility;
+        private PlayerDeath _playerDeath;
 
         private ParticleEffectsPlayer _particleEffectsPlayer;
 
@@ -30,7 +30,9 @@ namespace Game.Player
         {
             _playerInputs = new PlayerInputs();
             _playerJumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
-            _playerGroundCheck = new PlayerGroundCheck(_groundCheck, _data);
+
+            Transform groundCheck = GetComponentInChildren<GroundCheckMarker>().transform;
+            _playerGroundCheck = new PlayerGroundCheck(groundCheck, _data);
 
             GameObject powerUpEffectObject = GetComponentInChildren<PlayerPowerUpEffectMarker>().gameObject;
             _playerPowerUpEffect = new PlayerPowerUpEffect(powerUpEffectObject.GetComponent<Animator>());
@@ -40,6 +42,9 @@ namespace Game.Player
 
             List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());       
             _particleEffectsPlayer = new ParticleEffectsPlayer(effects);
+
+            Transform skullSpawnPos = GetComponentInChildren<SkullSpawnerMarker>().transform;
+            _playerDeath = new PlayerDeath(skullSpawnPos, _data);
 
             _audioPlayer = new AudioPlayer(_data.AudioConfigData, GetComponentInChildren<AudioSource>());
         }
@@ -112,11 +117,16 @@ namespace Game.Player
             {
                 if(_playerInvincibility.IsInvincible)
                 {
-                    _particleEffectsPlayer.PlayEffect(ParticleEffectType.ObstacleDestroyed);
+                    _audioPlayer.PlayAudio(AudioCategory.PuffDestroySFX);
+
+                    _particleEffectsPlayer.PlayEffect(ParticleEffectType.Destroyed);
+
                     collision.gameObject.SetActive(false);
+
                     return;
                 }
 
+                _playerDeath.SpawnSkull();
                 this.gameObject.SetActive(false);
             }
         }        

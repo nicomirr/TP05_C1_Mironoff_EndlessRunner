@@ -4,6 +4,6 @@ namespace Game.Core
     {
         Jump,
         Land, 
-        ObstacleDestroyed
+        Destroyed
     }
 }

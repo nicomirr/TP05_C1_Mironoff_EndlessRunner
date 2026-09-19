@@ -2,5 +2,5 @@ using UnityEngine;
 
 namespace Game.Marker
 {
-public class PlayerImageMarker : MonoBehaviour { }
+    public class PlayerImageMarker : MonoBehaviour { }
 }

@@ -18,3 +18,4 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _skullPrefab: {fileID: 6535661674958238695, guid: 9ffa798c04d2c444ba8cfbb28f5246ba, type: 3}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 758a9594c71c0f842a34da5b9ff52253, type: 3}
-  m_Name: BushAudioConfig
-  m_EditorClassIdentifier: Assembly-CSharp::AudioConfigSo
-  _audios:
-  - {fileID: 11400000, guid: 68061254b462fe744bd38b1952898d83, type: 2}
+  m_Script: {fileID: 11500000, guid: 2871ba8880218574594505723cbe1bf5, type: 3}
+  m_Name: CloudScalerConfig
+  m_EditorClassIdentifier: Assembly-CSharp::ScalableObjectConfigSo
+  _scaleMultiplier: 0.9
+  _scaleTime: 0.2

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6292536d860971e4a83b75836f07da52, type: 3}
-  m_Name: LandAudio
+  m_Name: PuffDestroySFX
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
-  _audioClip: {fileID: 8300000, guid: 71e247c7ed56a5947878f12c3cd36197, type: 3}
-  _audioCategory: 2
+  _audioClip: {fileID: 8300000, guid: 29a1b4c7283595049a5e5976d70ae02d, type: 3}
+  _audioCategory: 9
