@@ -1,25 +1,50 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Game.Events;
+using Game.Data;
+using Game.Core;
 
 namespace Game.UI
 {
     public class UICursorAppearance : MonoBehaviour
     {
-        [SerializeField] private Texture2D _cursorTexture;
+        [SerializeField] private CursorAppearanceConfigSo _data;
+
+        private Dictionary<CursorType, Texture2D> _cursorAppearances;
+
+        private Texture2D _currentCursorTexture;
 
         private void Awake()
         {
+            _cursorAppearances = new Dictionary<CursorType, Texture2D>();
+
+            foreach (CursorAppearanceSo cursorData in _data.CursorAppearances)
+            {
+                _cursorAppearances.Add(cursorData.CursorType, cursorData.CursorTexture);
+            }
+        }
+
+        private void OnEnable()
+        {
             UIEvents.OnChangeCursorVisibilityRequest += ChangeCursorState;
+            UIEvents.OnCursorApperanceChangeRequest += ChangeCurrentCursorTexture;
         }
 
         private void Start()
         {
+            _currentCursorTexture = _cursorAppearances[CursorType.Normal];
             SetCursorTexture();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            UIEvents.OnChangeCursorVisibilityRequest -= ChangeCursorState;
+            UIEvents.OnChangeCursorVisibilityRequest -= ChangeCursorState;            
+        }
+        
+        private void ChangeCurrentCursorTexture(CursorType cursorType)
+        {
+            _currentCursorTexture = _cursorAppearances[cursorType];
+            SetCursorTexture();
         }
 
         private void ChangeCursorState(bool isVisible)
@@ -32,8 +57,8 @@ namespace Game.UI
 
         private void SetCursorTexture()
         {
-            Cursor.SetCursor(_cursorTexture, Vector2.zero, CursorMode.Auto);
-        }
+            Cursor.SetCursor(_currentCursorTexture, Vector2.zero, CursorMode.Auto);
+        }        
     }
 }
 

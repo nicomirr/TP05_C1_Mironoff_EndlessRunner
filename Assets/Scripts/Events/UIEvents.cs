@@ -1,18 +1,26 @@
 using System;
+using Game.Core;
 
 namespace Game.Events
 {
     public static class UIEvents
     {
         public static event Action<bool> OnChangeCursorVisibilityRequest;
+        public static event Action<CursorType> OnCursorApperanceChangeRequest;
 
         public static event Action OnSettingsClicked;
         public static event Action OnCreditsClicked;
         public static event Action OnBackClicked;
+
                 
         public static void RaiseChangeCursorVisibilityRequest(bool isVisible)
         {
             OnChangeCursorVisibilityRequest?.Invoke(isVisible);
+        }
+        
+        public static void RaiseCursorAppearanceChangeRequest(CursorType cursorType)
+        {
+            OnCursorApperanceChangeRequest?.Invoke(cursorType);
         }
 
         public static void RaiseSettingsClicked()
@@ -29,6 +37,7 @@ namespace Game.Events
         {
             OnBackClicked?.Invoke();
         }
+
                 
     }
 }

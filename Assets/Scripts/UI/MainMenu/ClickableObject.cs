@@ -1,14 +1,16 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
 using Game.Audio;
-using Game.Data;
 using Game.Core;
+using Game.Data;
+using Game.Events;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 
 namespace Game.UI.MainMenu
 {
-    public class ClickableObject : MonoBehaviour
+    public class ClickableObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private AudioConfigSo _clickableData;
 
@@ -37,6 +39,18 @@ namespace Game.UI.MainMenu
             {
                 ClickReaction();
             }            
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            Debug.Log("Entra");
+
+            UIEvents.RaiseCursorAppearanceChangeRequest(CursorType.Interactuable);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            UIEvents.RaiseCursorAppearanceChangeRequest(CursorType.Normal);
         }
 
         private bool DetectClickOverObject()
