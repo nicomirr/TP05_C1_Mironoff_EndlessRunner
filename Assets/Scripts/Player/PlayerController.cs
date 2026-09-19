@@ -41,7 +41,7 @@ namespace Game.Player
             List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());       
             _particleEffectsPlayer = new ParticleEffectsPlayer(effects);
 
-            _audioPlayer = new AudioPlayer(_data, GetComponentInChildren<AudioSource>());
+            _audioPlayer = new AudioPlayer(_data.AudioConfigData, GetComponentInChildren<AudioSource>());
         }
 
         private void OnEnable()
@@ -112,6 +112,7 @@ namespace Game.Player
             {
                 if(_playerInvincibility.IsInvincible)
                 {
+                    _particleEffectsPlayer.PlayEffect(ParticleEffectType.ObstacleDestroyed);
                     collision.gameObject.SetActive(false);
                     return;
                 }

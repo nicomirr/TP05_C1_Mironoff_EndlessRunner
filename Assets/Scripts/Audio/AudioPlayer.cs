@@ -10,13 +10,13 @@ namespace Game.Audio
         private AudioSource _audioSource;
         private Dictionary<AudioCategory, AudioClip> _audios;
 
-        public AudioPlayer(PlayerConfigSo data, AudioSource audioSource)
+        public AudioPlayer(AudioConfigSo data, AudioSource audioSource)
         {
             _audioSource = audioSource;
 
             _audios = new Dictionary<AudioCategory, AudioClip>();
 
-            foreach (AudioDataSo audioData in data.AudioConfigData.Audios)
+            foreach (AudioDataSo audioData in data.Audios)
             {
                 _audios.Add(audioData.AudioCategory, audioData.AudioClip);
             }

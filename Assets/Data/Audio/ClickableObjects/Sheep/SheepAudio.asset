@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
-  m_Name: GroundPowCategoryWeight
-  m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
-  _family: 1
-  _category: 2
-  _weight: 4
+  m_Script: {fileID: 11500000, guid: 6292536d860971e4a83b75836f07da52, type: 3}
+  m_Name: SheepAudio
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
+  _audioClip: {fileID: 8300000, guid: ddc0b0b23b629d84c9ad42e7da357c8b, type: 3}
+  _audioCategory: 3
