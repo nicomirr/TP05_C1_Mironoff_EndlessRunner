@@ -126,6 +126,8 @@ namespace Game.Player
                     return;
                 }
 
+                PlayerEvents.RaisePlayerDeath();
+
                 _playerDeath.SpawnSkull();
                 this.gameObject.SetActive(false);
             }

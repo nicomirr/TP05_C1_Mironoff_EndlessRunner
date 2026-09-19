@@ -7,7 +7,7 @@ public class SpeedProgression
     private readonly float _maxWorldSpeed;
      
 
-    public SpeedProgression(RunnerStateConfigSo _data)
+    public SpeedProgression(GameStateConfigSo _data)
     {
         _speedProgresion = _data.SpeedProgression;
         _maxWorldSpeed = _data.MaxWorldSpeed;

@@ -18,7 +18,8 @@ namespace Game.ScrollingObj
         {
             foreach (ScrollingObject obj in _scrollingObjects)
             {
-                obj.Move(.3f);
+                //Aca va a ir worldspeed. De esta manera va a tener que vivir en main menu worldspeed y gamestate.
+                obj.Move(0.3f);
             }
         }
 

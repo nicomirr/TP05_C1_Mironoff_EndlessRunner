@@ -11,8 +11,7 @@ namespace Game.Events
         public static event Action OnSettingsClicked;
         public static event Action OnCreditsClicked;
         public static event Action OnBackClicked;
-
-                
+                        
         public static void RaiseChangeCursorVisibilityRequest(bool isVisible)
         {
             OnChangeCursorVisibilityRequest?.Invoke(isVisible);

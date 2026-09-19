@@ -4,14 +4,16 @@ using Game.Events;
 
 namespace Game.GameState
 {
-    public class RunnerState : MonoBehaviour
+    public class GameState : MonoBehaviour
     {
-        [SerializeField] private RunnerStateConfigSo _data;
+        [SerializeField] private GameStateConfigSo _data;
 
         [SerializeField] private WorldSpeed _worldSpeed;
 
         private SpeedProgression _speedProgression;
         private SpeedProgressionTimer _speedProgressionTimer;
+
+        private bool _isWorking;
 
         private void Awake()
         {
@@ -20,16 +22,25 @@ namespace Game.GameState
             _speedProgression = new SpeedProgression(_data);
             _speedProgressionTimer = new SpeedProgressionTimer(_data);
 
+            PlayerEvents.OnPlayerDeath += SlowdownWorldMovement;
             RunnerEvents.OnWorldSpeedRequested += BroadcastCurrentSpeed;
+        }
+
+        private void Start()
+        {
+            _isWorking = true;
         }
 
         private void Update()
         {
+            if (!_isWorking) return;        
+
             HandleSpeedProgression();
         }
 
         private void OnDestroy()
         {
+            PlayerEvents.OnPlayerDeath -= SlowdownWorldMovement;
             RunnerEvents.OnWorldSpeedRequested -= BroadcastCurrentSpeed;
         }
 
@@ -45,6 +56,14 @@ namespace Game.GameState
                     RunnerEvents.RaiseWorldSpeedBroadcast(_worldSpeed.WorldCurrentSpeed);
                 }
             }
+        }
+
+        private void SlowdownWorldMovement()
+        {
+            _isWorking = false;
+
+            _worldSpeed.UpdateSpeed(_data.SlowedDownWorldSpeed);
+            RunnerEvents.RaiseWorldSpeedBroadcast(_worldSpeed.WorldCurrentSpeed);
         }
 
         private void BroadcastCurrentSpeed()

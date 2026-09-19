@@ -1,6 +1,6 @@
+using UnityEngine;
 using Game.Data;
 using Game.Events;
-using UnityEngine;
 
 public class SpawnableController : MonoBehaviour
 {
@@ -15,6 +15,8 @@ public class SpawnableController : MonoBehaviour
 
     protected virtual void OnEnable()
     {
+        PlayerEvents.OnPlayerDeath += StopEnvironmentObjects;
+
         RunnerEvents.OnWorldSpeedBroadcast += _spawnableMover.UpdateSpeed;
         RunnerEvents.RaiseWorldSpeedRequested();
     }
@@ -26,7 +28,12 @@ public class SpawnableController : MonoBehaviour
 
     protected virtual void OnDisable()
     {
+        PlayerEvents.OnPlayerDeath -= StopEnvironmentObjects;
         RunnerEvents.OnWorldSpeedBroadcast -= _spawnableMover.UpdateSpeed;
     }    
     
+    private void StopEnvironmentObjects()
+    {
+        _spawnableMover.TryStopMovement();
+    }
 }

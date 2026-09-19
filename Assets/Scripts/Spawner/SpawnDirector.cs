@@ -33,6 +33,8 @@ namespace Game.Spawner
 
         private void OnEnable()
         {
+            PlayerEvents.OnPlayerDeath += StopObjectSpawners;
+
             PlayerEvents.OnPowerUpEnabled += HandlePlayerPowerUpEnabled;
             PlayerEvents.OnPowerUpDisabled += HandlePlayerPowerUpDisabled;
         }
@@ -53,6 +55,8 @@ namespace Game.Spawner
 
         private void OnDisable()
         {
+            PlayerEvents.OnPlayerDeath -= StopObjectSpawners;
+
             PlayerEvents.OnPowerUpEnabled -= HandlePlayerPowerUpEnabled;
             PlayerEvents.OnPowerUpDisabled -= HandlePlayerPowerUpDisabled;
         }

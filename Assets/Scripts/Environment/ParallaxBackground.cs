@@ -1,7 +1,8 @@
-using Game.Data;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.Tilemaps;
+using Game.Data;
+using Game.Events;
 
 namespace Game.Environment
 {
@@ -16,6 +17,8 @@ namespace Game.Environment
 
         private ISpeedProvider _worldSpeedProvider;
 
+        private bool _isWorking;
+
         private void Awake()
         {
             _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
@@ -24,10 +27,32 @@ namespace Game.Environment
             PositionBackgrounds();
         }
 
+        private void OnEnable()
+        {
+            PlayerEvents.OnPlayerDeath += StopParallax;
+        }
+
+        private void Start()
+        {
+            _isWorking = true;
+        }
+
         private void Update()
         {
+            if (!_isWorking) return;
+
             MoveBackgrounds();
             RepositionBackgrounds();
+        }
+
+        private void OnDisable()
+        {
+            PlayerEvents.OnPlayerDeath -= StopParallax;
+        }
+
+        private void StopParallax()
+        {
+            _isWorking = false;
         }
 
         private void CompressTilemapBounds()

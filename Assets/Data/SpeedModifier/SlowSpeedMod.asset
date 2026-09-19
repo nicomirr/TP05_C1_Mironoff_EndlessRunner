@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42116f09702427247b416b4cbfcc4eb2, type: 3}
-  m_Name: EnviromentObjectsSpeedModi
+  m_Name: SlowSpeedMod
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
-  _speedModifier: 0.8
+  _speedType: 2
+  _speedModifier: 0.87

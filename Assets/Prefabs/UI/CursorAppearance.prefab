@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ec02662278174469059b188535270f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.UICursorAppearance
-  _cursorTexture: {fileID: 2800000, guid: bda4853862d90184c8ff2f591ab08482, type: 3}
+  _data: {fileID: 11400000, guid: eb826e5b38ff7bc4f8c7c5520165dec1, type: 2}

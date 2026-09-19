@@ -7,7 +7,7 @@ public class SpeedProgressionTimer
     
     private float _timer;
 
-    public SpeedProgressionTimer(RunnerStateConfigSo _data)
+    public SpeedProgressionTimer(GameStateConfigSo _data)
     {
         _speedProgressionTime = _data.SpeedProgressionTime;
     }

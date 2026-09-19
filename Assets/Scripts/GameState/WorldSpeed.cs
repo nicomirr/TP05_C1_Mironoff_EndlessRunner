@@ -11,7 +11,7 @@ public class WorldSpeed : MonoBehaviour, ISpeedProvider
     private float _worldCurrentSpeed;
     private float _worldMaxSpeed;
 
-    public void Initialize(RunnerStateConfigSo _data)
+    public void Initialize(GameStateConfigSo _data)
     {
         _worldBaseSpeed = _data.InitialWorldSpeed;
         _worldCurrentSpeed = _worldBaseSpeed;        

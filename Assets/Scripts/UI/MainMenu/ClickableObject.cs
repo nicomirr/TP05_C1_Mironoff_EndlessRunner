@@ -42,9 +42,7 @@ namespace Game.UI.MainMenu
         }
 
         public void OnPointerEnter(PointerEventData eventData)
-        {
-            Debug.Log("Entra");
-
+        {            
             UIEvents.RaiseCursorAppearanceChangeRequest(CursorType.Interactuable);
         }
 
