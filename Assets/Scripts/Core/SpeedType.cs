@@ -4,10 +4,11 @@ namespace Game.Core
     {
         None = 0,
         Environment,
+        VerySlow,
         Slow,
         Normal,
         Fast,
-        End = 5
+        End = 6
     }
 }
 

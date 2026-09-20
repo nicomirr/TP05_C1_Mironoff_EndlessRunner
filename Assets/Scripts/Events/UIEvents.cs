@@ -5,6 +5,8 @@ namespace Game.Events
 {
     public static class UIEvents
     {
+        public static event Action OnMainMenuEntered;
+
         public static event Action<bool> OnChangeCursorVisibilityRequest;
         public static event Action<CursorType> OnCursorApperanceChangeRequest;
 
@@ -12,6 +14,11 @@ namespace Game.Events
         public static event Action OnCreditsClicked;
         public static event Action OnBackClicked;
                         
+        public static void RaiseMainMenuEntered()
+        {
+            OnMainMenuEntered?.Invoke();
+        }
+
         public static void RaiseChangeCursorVisibilityRequest(bool isVisible)
         {
             OnChangeCursorVisibilityRequest?.Invoke(isVisible);

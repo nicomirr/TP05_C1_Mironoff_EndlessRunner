@@ -5,11 +5,16 @@ namespace Game.ScrollingObj
 {
     public class ScrollingObjectManager : MonoBehaviour
     {
-        [SerializeField] private Transform _initialPos;
         [SerializeField] private List<ScrollingObject> _scrollingObjects;
+        [SerializeField] private Transform _initialPos;
+
+        [SerializeField] private MonoBehaviour _worldSpeedProviderMonobehaviour;
+        private ISpeedProvider _worldSpeedProvider;
 
         private void OnEnable()
         {
+            _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
+
             foreach (ScrollingObject obj in _scrollingObjects)
                 obj.OnResetZoneCollided += SendObjectToStartingPos;
         }
@@ -18,8 +23,7 @@ namespace Game.ScrollingObj
         {
             foreach (ScrollingObject obj in _scrollingObjects)
             {
-                //Aca va a ir worldspeed. De esta manera va a tener que vivir en main menu worldspeed y gamestate.
-                obj.Move(0.3f);
+                obj.Move(_worldSpeedProvider.WorldCurrentSpeed);
             }
         }
 

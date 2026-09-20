@@ -3,8 +3,8 @@ using Game.Core;
 
 namespace Game.Data
 {
-    [CreateAssetMenu(fileName = "SpeedModifierConfig", menuName = "Scriptable Objects/SpeedModifierConfig")]
-    public class SpeedModifierConfigSo : ScriptableObject
+    [CreateAssetMenu(fileName = "SpeedModifierDataSo", menuName = "Scriptable Objects/SpeedModifierDataSo")]
+    public class SpeedModifierDataSo : ScriptableObject
     {
         [SerializeField] private SpeedType _speedType;
         public SpeedType SpeedType => _speedType;

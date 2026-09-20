@@ -21,7 +21,11 @@ namespace Game.GameState
 
             _speedProgression = new SpeedProgression(_data);
             _speedProgressionTimer = new SpeedProgressionTimer(_data);
+        }
 
+        private void OnEnable()
+        {
+            UIEvents.OnMainMenuEntered += SlowdownWorldMovement;
             PlayerEvents.OnPlayerDeath += SlowdownWorldMovement;
             RunnerEvents.OnWorldSpeedRequested += BroadcastCurrentSpeed;
         }
@@ -38,8 +42,9 @@ namespace Game.GameState
             HandleSpeedProgression();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
+            UIEvents.OnMainMenuEntered -= SlowdownWorldMovement;
             PlayerEvents.OnPlayerDeath -= SlowdownWorldMovement;
             RunnerEvents.OnWorldSpeedRequested -= BroadcastCurrentSpeed;
         }

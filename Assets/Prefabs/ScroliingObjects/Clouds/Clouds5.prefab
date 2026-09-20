@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e094acce555a4469a8d4f65dc7faae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScrollingObject
+  _data: {fileID: 11400000, guid: 3c019c0ce5e3ad142ac6181d704e58d1, type: 2}
 --- !u!212 &8319788394806673099
 SpriteRenderer:
   serializedVersion: 2
