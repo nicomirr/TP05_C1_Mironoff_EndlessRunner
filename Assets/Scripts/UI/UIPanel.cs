@@ -11,14 +11,14 @@ namespace Game.UI
             _canvasGroup = GetComponent<CanvasGroup>();
         }       
 
-        public void DisplayPanel()
+        public virtual void DisplayPanel()
         {
             _canvasGroup.alpha = 1f;
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = true;
         }
 
-        public void HidePanel()
+        public virtual void HidePanel()
         {
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
