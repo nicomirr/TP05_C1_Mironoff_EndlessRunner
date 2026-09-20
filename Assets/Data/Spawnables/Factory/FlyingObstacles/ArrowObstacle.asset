@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ecc45c4fbc3bf54db4bfe387730070e, type: 3}
-  m_Name: SheepObstacle
+  m_Name: ArrowObstacle
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectSo
   _category: 1
-  _type: 4
-  _prefab: {fileID: 2750843863573938923, guid: 403c1b07b2e5b004d82be7eb32965937, type: 3}
-  _weight: 35
+  _type: 6
+  _prefab: {fileID: 2750843863573938923, guid: 261792bdb28b6694cb9c85d0502f42bc, type: 3}
+  _weight: 65

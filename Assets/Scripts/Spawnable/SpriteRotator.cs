@@ -1,11 +1,15 @@
 using UnityEngine;
 
-public class SpriteRotator : MonoBehaviour
+namespace Game.Spawnable
 {
-    [SerializeField] private float _rotationSpeed = 90f;
-
-    private void Update()
+    public class SpriteRotator : MonoBehaviour
     {
-        transform.Rotate(0f, 0f, _rotationSpeed * Time.deltaTime);
+        [SerializeField] private float _rotationSpeed = 90f;
+
+        private void Update()
+        {
+            transform.Rotate(0f, 0f, _rotationSpeed * Time.deltaTime);
+        }
     }
+
 }

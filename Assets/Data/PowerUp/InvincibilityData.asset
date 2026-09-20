@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f3fab2b85c2ae448aa43951b94f73d, type: 3}
   m_Name: InvincibilityData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.InvincibilityDataSo
-  _time: 10
+  _time: 5
   _warningTime: 2
   _totalWarningBlinks: 3
   _invincibilityColor:

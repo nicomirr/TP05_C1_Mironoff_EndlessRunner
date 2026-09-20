@@ -1324,6 +1324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Spawner.SpawnableObjectFactory
   _spawnableObjects:
   - {fileID: 11400000, guid: beef76278fdafa1459b97c9d80d87755, type: 2}
+  - {fileID: 11400000, guid: 1868eea6bdc5be349835efc3c3cb53bb, type: 2}
 --- !u!4 &603081230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7299091602505219222, guid: 431606b46bdb217469b8994cb674ad8c, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FourtPhase
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPhaseSo
   _availableCategories: 000000000100000002000000
-  _availableTypes: 0100000000000000040000000300000005000000
+  _availableTypes: 0100000000000000030000000500000006000000

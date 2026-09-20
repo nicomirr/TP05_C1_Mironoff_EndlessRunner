@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 namespace Game.UI.MainMenu
 {
-    public class ClickableObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class ClickableObject : MonoBehaviour
     {
         [SerializeField] private AudioConfigSo _clickableData;
 
@@ -39,17 +39,7 @@ namespace Game.UI.MainMenu
             {
                 ClickReaction();
             }            
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {            
-            UIEvents.RaiseCursorAppearanceChangeRequest(CursorType.Interactuable);
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            UIEvents.RaiseCursorAppearanceChangeRequest(CursorType.Normal);
-        }
+        }        
 
         private bool DetectClickOverObject()
         {

@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 2303619647951505435}
   - component: {fileID: -651252478025833285}
   - component: {fileID: 6972428048550256385}
-  - component: {fileID: 5593759608367308942}
+  - component: {fileID: 4259191893674247079}
   - component: {fileID: 4682954236843253822}
   - component: {fileID: -5987721136052758149}
   m_Layer: 0
-  m_Name: SheepObstacle
+  m_Name: ArrowObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8422749720073447307}
@@ -61,9 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399943a18a3eda64fae6849cf64dab49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnableController
-  _data: {fileID: 11400000, guid: 01b7a5bc861176d46b7fbf53310c3a9d, type: 2}
---- !u!58 &5593759608367308942
-CircleCollider2D:
+  _data: {fileID: 11400000, guid: a4bf34337e06c1c4c8102568195e6b17, type: 2}
+  _movementPatternMonoBehaviour: {fileID: 8235407843287665191, guid: dd6bff409c9adf6458805e31a565875f, type: 3}
+--- !u!61 &4259191893674247079
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,8 +97,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.45
+  m_Offset: {x: -0.0055799484, y: 0.0042662024}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.70588493, y: 0.21786422}
+  m_EdgeRadius: 0
 --- !u!50 &4682954236843253822
 Rigidbody2D:
   serializedVersion: 5
@@ -136,7 +147,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 87692959518471473, guid: 8e5cd539b327b9346b055c0c9906bf5d, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: ddc0b0b23b629d84c9ad42e7da357c8b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 13f2a01c1ef88fb45af9ea46c3f8e5af, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -231,7 +242,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8422749720073447307}
-  - component: {fileID: 5430100779583892662}
   - component: {fileID: 5995306595472789244}
   m_Layer: 0
   m_Name: Image
@@ -249,25 +259,12 @@ Transform:
   m_GameObject: {fileID: 8984080057548674095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
+  m_LocalPosition: {x: 0.1801, y: 0.0086, z: 0}
+  m_LocalScale: {x: 1.3602021, y: 1.0172, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2303619647951505435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5430100779583892662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8984080057548674095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857a5fb5317a8aa46860be7ccae01ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteRotator
-  _rotationSpeed: 150
 --- !u!212 &5995306595472789244
 SpriteRenderer:
   serializedVersion: 2
@@ -314,10 +311,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 959255701
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: ba6edcdc1b0923147a4e1f7df9c3a705, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ff159d47223c464290bf668e4197ea8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

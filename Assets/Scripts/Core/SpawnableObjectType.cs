@@ -7,7 +7,8 @@ namespace Game.Core
         SmallRockGround,
         StumpGround,
         ShipFly,
-        InvincibilityPowGround,       
+        InvincibilityPowGround,   
+        Arrow
     }
 }
 

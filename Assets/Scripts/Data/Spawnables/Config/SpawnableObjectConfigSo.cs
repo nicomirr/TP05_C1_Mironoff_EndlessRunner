@@ -7,6 +7,7 @@ namespace Game.Data
     {
         [SerializeField] private SpeedModifierDataSo _speedModifierData;
         public SpeedModifierDataSo SpeedModifierData => _speedModifierData;
+
     }
 }
 

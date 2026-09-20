@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -433039169
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: f3230f2e85151924c9f2349268359b3b, type: 3}
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnableController
   _data: {fileID: 11400000, guid: ae50ac105d678a34da1fc68c7e02ef9a, type: 2}
+  _movementPatternMonoBehaviour: {fileID: 8235407843287665191, guid: dd6bff409c9adf6458805e31a565875f, type: 3}
 --- !u!61 &5616820685254571061
 BoxCollider2D:
   m_ObjectHideFlags: 0
