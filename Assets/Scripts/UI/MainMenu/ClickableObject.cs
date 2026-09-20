@@ -1,11 +1,11 @@
 using Game.Audio;
 using Game.Core;
 using Game.Data;
-using Game.Events;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 namespace Game.UI.MainMenu
@@ -45,12 +45,33 @@ namespace Game.UI.MainMenu
         {
             if (!Mouse.current.leftButton.wasPressedThisFrame) return false;
 
+            if (IsPointerOverUI()) return false;
+
             Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
             Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
             Collider2D hit = Physics2D.OverlapPoint(mouseWorldPosition);
 
             return hit == _collider;
+        }
+
+        private bool IsPointerOverUI()
+        {
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);            
+
+            pointerData.position = Mouse.current.position.ReadValue();
+
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            foreach (RaycastResult result in results)
+            {
+                if (result.module is GraphicRaycaster)
+                    return true;
+            }
+
+            return false;
         }
 
         protected virtual void ClickReaction()
