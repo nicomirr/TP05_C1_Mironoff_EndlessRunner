@@ -15,16 +15,6 @@
                     "interactions": "",
                     "initialStateCheck": false,
                     "priority": 0
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "c658c987-54f4-4c65-b051-73a30b922ae4",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false,
-                    "priority": 0
                 }
             ],
             "bindings": [
@@ -49,22 +39,29 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Global",
+            "id": "fdbcf418-1d16-4210-a623-237d2970bec1",
+            "actions": [
                 {
-                    "name": "",
-                    "id": "a362f330-a3c4-44ac-80bb-68202dfd35f8",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "2d015f40-ab75-433e-92b3-0f18ffa1accf",
+                    "expectedControlType": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "3b2343f2-d612-4fb1-942b-f4df914159e7",
-                    "path": "<Gamepad>/start",
+                    "id": "83d1bc13-c069-4cdc-a329-f8cae2b77a72",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

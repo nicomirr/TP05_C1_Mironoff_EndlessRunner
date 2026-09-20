@@ -27,7 +27,8 @@ namespace Game.Player
         private AudioPlayer _audioPlayer;
 
         private void Awake()
-        {
+        {            
+
             _playerInputs = new PlayerInputs();
             _playerJumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
 
@@ -40,7 +41,8 @@ namespace Game.Player
             GameObject playerImageObject = GetComponentInChildren<PlayerImageMarker>().gameObject;
             _playerInvincibility = new PlayerInvincibility(playerImageObject.GetComponent<SpriteRenderer>());
 
-            List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());       
+            List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());
+                       
             _particleEffectsPlayer = new ParticleEffectsPlayer(effects);
 
             Transform skullSpawnPos = GetComponentInChildren<SkullSpawnerMarker>().transform;
@@ -54,6 +56,10 @@ namespace Game.Player
             _playerGroundCheck.OnJustLanded += HandleLand;
             _playerInvincibility.OnInvincibilityFinalized += HandlePowerUpFinalized;
             PowerUpEvents.OnInvincibilityAcquired += EnableInvincibility;
+
+            PauseEvents.OnGamePausedByInput += _playerInputs.DisablePlayerInputs;
+            PauseEvents.OnGameUnpausedByInput += _playerInputs.EnablePlayerInputs;
+            PauseEvents.OnContinueButtonClicked += _playerInputs.EnablePlayerInputs;
         }
 
         private void Update()
@@ -67,6 +73,10 @@ namespace Game.Player
             _playerGroundCheck.OnJustLanded -= HandleLand;
             _playerInvincibility.OnInvincibilityFinalized -= HandlePowerUpFinalized;
             PowerUpEvents.OnInvincibilityAcquired -= EnableInvincibility;
+
+            PauseEvents.OnGamePausedByInput -= _playerInputs.DisablePlayerInputs;
+            PauseEvents.OnGameUnpausedByInput -= _playerInputs.EnablePlayerInputs;
+            PauseEvents.OnContinueButtonClicked -= _playerInputs.EnablePlayerInputs;
         }
 
         private void OnDestroy()

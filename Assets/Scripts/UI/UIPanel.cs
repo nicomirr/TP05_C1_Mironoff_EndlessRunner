@@ -12,7 +12,7 @@ namespace Game.UI
         }       
 
         public virtual void DisplayPanel()
-        {
+        {            
             _canvasGroup.alpha = 1f;
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = true;

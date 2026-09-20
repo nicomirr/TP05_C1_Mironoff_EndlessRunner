@@ -7,7 +7,6 @@ namespace Game.UI
     {
         [SerializeField] protected UIPanel _mainPanel;
         [SerializeField] private UIPanel _settingsPanel;
-        [SerializeField] private UIPanel _creditsPanel;
 
         protected UIPanel _currentPanel;
         protected UIPanel _previousPanel;
@@ -16,8 +15,6 @@ namespace Game.UI
         {          
             UIEvents.OnSettingsClicked += OpenSettings;
 
-            UIEvents.OnCreditsClicked += OpenCredits;
-
             UIEvents.OnBackClicked += GoBack;
         }
 
@@ -25,26 +22,19 @@ namespace Game.UI
         {            
             UIEvents.OnSettingsClicked -= OpenSettings;
 
-            UIEvents.OnCreditsClicked -= OpenCredits;
-
             UIEvents.OnBackClicked -= GoBack;
         }
         
         private void OpenSettings()
         {
             OpenPanel(_settingsPanel);
-        }
+        }        
 
-        private void OpenCredits()
-        {
-            OpenPanel(_creditsPanel);
-        }
-
-        private void OpenPanel(UIPanel panel)
+        protected void OpenPanel(UIPanel panel)
         {
             _previousPanel = _currentPanel;
 
-            _currentPanel.HidePanel();
+            _previousPanel.HidePanel();
             panel.DisplayPanel();
 
             _currentPanel = panel;

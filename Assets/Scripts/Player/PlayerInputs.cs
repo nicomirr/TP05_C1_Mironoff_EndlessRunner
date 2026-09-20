@@ -5,31 +5,31 @@ namespace Game.Player
     public class PlayerInputs
     {
         public bool JumpPressed => _jumpAction.WasPressedThisFrame();
-        public bool PausePressed => _pauseInput.WasPressedThisFrame();
 
         private readonly GameControls _playerControls;
 
         private InputAction _jumpAction;
-        private InputAction _pauseInput;
 
         public PlayerInputs()
         {
             _playerControls = new GameControls();
             EnablePlayerInputs();
+            _jumpAction = _playerControls.Player.Jump;
         }
 
-        private void EnablePlayerInputs()
+        public void EnablePlayerInputs()
         {
-            _jumpAction = _playerControls.Player.Jump;
-            _pauseInput = _playerControls.Player.Pause;
+            _playerControls.Player.Enable();
+        }
 
-            _jumpAction.Enable();
-            _pauseInput.Enable();
+        public void DisablePlayerInputs()
+        {
+            _playerControls.Player.Disable();
         }
 
         public void Deinitialize()
         {
-            _playerControls.Disable();
+            _playerControls.Player.Disable();           
             _playerControls.Dispose();
         }
 

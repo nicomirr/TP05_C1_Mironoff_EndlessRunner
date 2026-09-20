@@ -8,63 +8,42 @@ namespace Game.UI
     {
         [SerializeField] private Button _btnPlay;
         [SerializeField] private Button _btnSettings;
-        [SerializeField] private Button _btnCredits;
-        [SerializeField] private Button _btnExit;
-
-        private AudioSource _audioSource;
+    
+        protected AudioSource _audioSource;
 
         protected override void Awake()
         {
             base.Awake();
-
-            _audioSource = GetComponent<AudioSource>();
-
-            _btnPlay.onClick.AddListener(OnPlayClicked);
-            _btnSettings.onClick.AddListener(OnSettingsClicked);
-            _btnCredits.onClick.AddListener(OnCreditsClicked);
-            _btnExit.onClick.AddListener(OnExitClicked);            
+            _audioSource = GetComponent<AudioSource>();                
         }
-               
-        private void OnDestroy()
+
+        protected virtual void OnEnable()
+        {
+            _btnPlay.onClick.AddListener(OnPlayClicked);
+            _btnSettings.onClick.AddListener(OnSettingsClicked);         
+        }
+
+        protected virtual void OnDisable()
         {
             _btnPlay.onClick.RemoveAllListeners();
-            _btnSettings.onClick.RemoveAllListeners();
-            _btnCredits.onClick.RemoveAllListeners();
-            _btnExit.onClick.RemoveAllListeners();
+            _btnSettings.onClick.RemoveAllListeners();            
         }
 
         protected virtual void OnPlayClicked()
         {
             _audioSource.Play();
 
-            UIEvents.RaiseChangeCursorVisibilityRequest(false);       
+            UIEvents.RaiseChangeCursorVisibilityRequest(false);
 
             HidePanel();
+
         }
 
         private void OnSettingsClicked()
-        {      
+        {            
             _audioSource.Play();
             HidePanel();
             UIEvents.RaiseSettingsClicked();
-        }
-
-        private void OnCreditsClicked()
-        {
-            _audioSource.Play();
-            HidePanel();
-            UIEvents.RaiseCreditsClicked();
-        }
-
-        private void OnExitClicked()
-        {
-            _audioSource.Play();
-
-            Application.Quit();
-
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        }
+        }       
     }
 }

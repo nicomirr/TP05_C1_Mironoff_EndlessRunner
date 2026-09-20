@@ -47,6 +47,9 @@ TagManager:
   - name: Midground
     uniqueID: 885058611
     locked: 0
+  - name: TrailRenderer
+    uniqueID: 2139046271
+    locked: 0
   - name: Powerup
     uniqueID: 1525084121
     locked: 0

@@ -7,8 +7,8 @@ namespace Game.UI
 {
     public class UIPausePanel : UIMainPanel
     {
-        [SerializeField] private SceneToLoadSo _sceneToLoad;
         [SerializeField] private Button _mainMenuButton;
+        [SerializeField] private SceneToLoadSo _sceneToLoad;
 
         protected override void Awake()
         {
@@ -28,9 +28,7 @@ namespace Game.UI
         }
 
         private void OnMainMenuClicked()
-        {
-            
-
+        {           
             PauseEvents.RaiseContinueClicked();
             UIEvents.RaiseChangeCursorVisibilityRequest(true);
 

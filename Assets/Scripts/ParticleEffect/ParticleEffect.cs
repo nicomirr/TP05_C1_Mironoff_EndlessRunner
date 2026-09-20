@@ -7,20 +7,8 @@ namespace Game.ParticleEffects
     public class ParticleEffect : MonoBehaviour
     {
         [SerializeField] private ParticleEffectDataSo _data;
-
-        private ParticleSystem _particleSystem;
-
-        public ParticleSystem ParticleSystem => _particleSystem;
-
-        private ParticleEffectType _particleEffectType;
-        public ParticleEffectType ParticleEffectType => _particleEffectType;
-
-        private void Awake()
-        {
-            _particleEffectType = _data.ParticleEffectType;
-            _particleSystem = GetComponent<ParticleSystem>();
-        }
-        
+        public ParticleSystem ParticleSystem => GetComponent<ParticleSystem>();
+        public ParticleEffectType ParticleEffectType => _data.ParticleEffectType;    
     }
 }
 

@@ -24,6 +24,7 @@ namespace Game.Spawner
         private bool _finalPhaseReached;
 
         private bool _playerPoweredUp;
+        private bool _powerUpLastSpawn;
 
         private void Awake()
         {
@@ -132,7 +133,7 @@ namespace Game.Spawner
                 if (!categories.Contains(data.Category))
                     continue;
 
-                if (_playerPoweredUp && data.Family == SpawnableObjectFamily.PowerUp)
+                if ((_playerPoweredUp || _powerUpLastSpawn) && data.Family == SpawnableObjectFamily.PowerUp)
                     continue;
 
                 acummulatedWeight += data.Weight;
@@ -146,13 +147,16 @@ namespace Game.Spawner
                 if (!categories.Contains(data.Category))
                     continue;
 
-                if (_playerPoweredUp && data.Family == SpawnableObjectFamily.PowerUp)
+                if ((_playerPoweredUp || _powerUpLastSpawn ) && data.Family == SpawnableObjectFamily.PowerUp)
                     continue;
 
                 acummulatedWeight += data.Weight;
 
                 if (randomValue < acummulatedWeight)
+                {
+                    _powerUpLastSpawn = data.Family == SpawnableObjectFamily.PowerUp;
                     return data.Category;
+                }
             }
 
             return SpawnableObjectCategory.GroundObstacle;
