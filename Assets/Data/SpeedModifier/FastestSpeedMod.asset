@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FastestSpeedMod
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
   _speedType: 6
-  _speedModifier: 1.3
+  _speedModifier: 1.2

@@ -11,9 +11,13 @@ namespace Game.UI
         [SerializeField] private Button _btnCredits;
         [SerializeField] private Button _btnExit;
 
+        private AudioSource _audioSource;
+
         protected override void Awake()
         {
             base.Awake();
+
+            _audioSource = GetComponent<AudioSource>();
 
             _btnPlay.onClick.AddListener(OnPlayClicked);
             _btnSettings.onClick.AddListener(OnSettingsClicked);
@@ -31,26 +35,31 @@ namespace Game.UI
 
         protected virtual void OnPlayClicked()
         {
+            _audioSource.Play();
+
             UIEvents.RaiseChangeCursorVisibilityRequest(false);       
 
             HidePanel();
         }
 
         private void OnSettingsClicked()
-        {            
+        {      
+            _audioSource.Play();
             HidePanel();
             UIEvents.RaiseSettingsClicked();
         }
 
         private void OnCreditsClicked()
-        {            
-
+        {
+            _audioSource.Play();
             HidePanel();
             UIEvents.RaiseCreditsClicked();
         }
 
         private void OnExitClicked()
-        {            
+        {
+            _audioSource.Play();
+
             Application.Quit();
 
 #if UNITY_EDITOR
