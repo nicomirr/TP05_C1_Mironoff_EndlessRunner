@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfigSo
   _audioConfigData: {fileID: 11400000, guid: 6603a1e5a8d14ca47964f117ecd727bf, type: 2}
+  _maxHealth: 3
+  _maxInitialHealth: 3
   _jumpForce: 100
   _groundCheckDistance: 0.2
   _groundLayer:

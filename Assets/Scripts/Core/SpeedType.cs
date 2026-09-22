@@ -11,7 +11,7 @@ namespace Game.Core
         Normal,
         Fast,
         Fastest,
-        End = 7
+        End = 9
     }
 }
 

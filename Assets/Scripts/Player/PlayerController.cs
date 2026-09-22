@@ -16,6 +16,7 @@ namespace Game.Player
         [SerializeField] private PlayerConfigSo _data;
 
         private PlayerInputs _playerInputs;
+        private PlayerHealth _playerHealth;
         private PlayerJump _playerJumper;
         private PlayerGroundCheck _playerGroundCheck;
         private PlayerPowerUpEffect _playerPowerUpEffect;
@@ -30,6 +31,9 @@ namespace Game.Player
         {            
 
             _playerInputs = new PlayerInputs();
+
+            _playerHealth = new PlayerHealth(_data);
+
             _playerJumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
 
             Transform groundCheck = GetComponentInChildren<GroundCheckMarker>().transform;
@@ -60,6 +64,11 @@ namespace Game.Player
             PauseEvents.OnGamePausedByInput += _playerInputs.DisablePlayerInputs;
             PauseEvents.OnGameUnpausedByInput += _playerInputs.EnablePlayerInputs;
             PauseEvents.OnContinueButtonClicked += _playerInputs.EnablePlayerInputs;
+        }
+
+        private void Start()
+        {
+            UIEvents.RaiseInitializePlayerUIHealth(_playerHealth.CurrentMaxHealth);
         }
 
         private void Update()
@@ -121,27 +130,50 @@ namespace Game.Player
             PlayerEvents.RaisePowerUpDisabled();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {            
-            if(collision.TryGetComponent<ObstacleMarker>(out _))
+       
+        
+        private void HandleEnemyDestroy(GameObject gameObject)
+        {
+            _audioPlayer.PlayAudio(AudioCategory.PuffDestroySFX);
+
+            _particleEffectsPlayer.PlayEffect(ParticleEffectType.Destroyed);
+
+            gameObject.SetActive(false);
+        }
+
+        private void HandlePlayerDamaged()
+        {
+            _playerHealth.SubstractHealth();
+            PlayerEvents.RaisePlayerDamaged();
+
+            if(_playerHealth.CurrentHealth <= 0)
             {
-                if(_playerInvincibility.IsInvincible)
+                HandlePlayerDeath();
+            }
+        }
+
+        private void HandlePlayerDeath()
+        {
+            PlayerEvents.RaisePlayerDeath();
+
+            _playerDeath.SpawnSkull();
+            this.gameObject.SetActive(false);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent<ObstacleMarker>(out _))
+            {
+                if (_playerInvincibility.IsInvincible)
                 {
-                    _audioPlayer.PlayAudio(AudioCategory.PuffDestroySFX);
-
-                    _particleEffectsPlayer.PlayEffect(ParticleEffectType.Destroyed);
-
-                    collision.gameObject.SetActive(false);
-
+                    HandleEnemyDestroy(collision.gameObject);
                     return;
                 }
 
-                PlayerEvents.RaisePlayerDeath();
-
-                _playerDeath.SpawnSkull();
-                this.gameObject.SetActive(false);
+                HandlePlayerDamaged();
+                
             }
-        }        
+        }
     }
 }
 
