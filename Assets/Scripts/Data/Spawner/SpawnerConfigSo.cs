@@ -10,8 +10,8 @@ namespace Game.Data
         public SpawnProgressionSo SpawnProgression => _spawnProgression;
 
         [Tooltip("Controla la probabilidad de que salga una categoria")]
-        [SerializeField] private List<SpawnCategoryWeight> _categoriesWeight;
-        public List<SpawnCategoryWeight> CategoriesWeight => _categoriesWeight;
+        [SerializeField] private List<SpawnCategoryWeightSo> _categoriesWeight;
+        public List<SpawnCategoryWeightSo> CategoriesWeight => _categoriesWeight;
 
         [Tooltip("El valor se divide por 10")]
         [Range(7,20)][SerializeField] private int _minSpawnTime;

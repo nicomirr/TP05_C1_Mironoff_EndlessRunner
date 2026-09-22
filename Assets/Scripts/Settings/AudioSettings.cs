@@ -7,7 +7,7 @@ namespace Game.Settings
 {
     public class AudioSettings : MonoBehaviour
     {
-        [SerializeField] private AudioGroupsSo _data;
+        [SerializeField] private AudioSettingsConfigSo _data;
 
         private static AudioSettings _instance;
 
@@ -28,9 +28,9 @@ namespace Game.Settings
 
             _volumes = new Dictionary<string, float>();
 
-            foreach(string group in _data.AudioGroups)
+            foreach(string group in _data.Group.AudioGroups)
             {
-                _volumes.Add(group, 1f);
+                _volumes.Add(group, _data.DefaultVolume);
             }
 
             AudioEvents.OnInitializeVolumeRequest += InitializeVolume;

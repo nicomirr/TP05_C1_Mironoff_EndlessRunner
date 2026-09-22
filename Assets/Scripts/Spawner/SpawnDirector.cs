@@ -128,7 +128,7 @@ namespace Game.Spawner
         {
             int acummulatedWeight = 0;
 
-            foreach (SpawnCategoryWeight data in _data.CategoriesWeight)
+            foreach (SpawnCategoryWeightSo data in _data.CategoriesWeight)
             {
                 if (!categories.Contains(data.Category))
                     continue;
@@ -142,7 +142,7 @@ namespace Game.Spawner
             int randomValue = Random.Range(0, acummulatedWeight);
             acummulatedWeight = 0;
 
-            foreach (SpawnCategoryWeight data in _data.CategoriesWeight)
+            foreach (SpawnCategoryWeightSo data in _data.CategoriesWeight)
             {
                 if (!categories.Contains(data.Category))
                     continue;

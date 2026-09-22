@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586c460203b7d474b828655525cfe71d, type: 3}
+  m_Script: {fileID: 11500000, guid: 422c360eae7486a4d89be747c202c0e7, type: 3}
   m_Name: GroundPowCategoryWeight
   m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
   _family: 1
   _category: 2
-  _weight: 4
+  _weight: 5
