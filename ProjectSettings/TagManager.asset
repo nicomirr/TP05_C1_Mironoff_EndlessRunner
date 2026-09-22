@@ -41,10 +41,13 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Mountains
+    uniqueID: 293323199
+    locked: 0
   - name: Background
     uniqueID: 297812383
     locked: 0
-  - name: Midground
+  - name: Floor
     uniqueID: 885058611
     locked: 0
   - name: TrailRenderer

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42116f09702427247b416b4cbfcc4eb2, type: 3}
   m_Name: NormalSpeedMod
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
-  _speedType: 4
+  _speedType: 6
   _speedModifier: 1.03
