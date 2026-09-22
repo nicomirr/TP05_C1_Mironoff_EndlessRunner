@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507f2d216a00f8d46b8656638bd2c476, type: 3}
   m_Name: GameStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.RunnerStateConfigSo
-  _initialWorldSpeed: 9
-  _maxWorldSpeed: 22
+  _initialWorldSpeed: 7
+  _maxWorldSpeed: 17
   _slowedDownWorldSpeed: 3
   _speedProgression: 1
-  _speedProgressionTime: 10
+  _speedProgressionTime: 13

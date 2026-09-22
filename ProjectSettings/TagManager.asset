@@ -74,5 +74,8 @@ TagManager:
   - name: ParticleEffects
     uniqueID: 3923978875
     locked: 0
+  - name: Arrow
+    uniqueID: 3744220987
+    locked: 0
   m_RenderingLayers:
   - Default

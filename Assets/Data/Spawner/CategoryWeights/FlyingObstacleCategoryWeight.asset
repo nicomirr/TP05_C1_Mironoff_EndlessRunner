@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FlyingObstacleCategoryWeight
   m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
   _family: 0
-  _category: 0
-  _weight: 37
+  _category: 1
+  _weight: 30
