@@ -8,9 +8,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 
-namespace Game.UI.MainMenu
+namespace Game.UI
 {
-    public class ClickableObject : MonoBehaviour
+    public class UIClickableObject : MonoBehaviour
     {
         [SerializeField] private AudioConfigSo _clickableData;
 

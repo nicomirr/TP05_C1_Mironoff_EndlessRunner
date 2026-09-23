@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 using Game.Data;
 
-namespace Game.UI.MainMenu
+namespace Game.UI
 {
-    public class ClickableScalableObject : ClickableObject
+    public class UIClickableScalableObject : UIClickableObject
     {
         [SerializeField] private ScalableObjectConfigSo _scalerData;
 

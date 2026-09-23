@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParallaxDataSo
   _speedModifierData: {fileID: 11400000, guid: 2c0cbedfbf1fb3941be2afd53a6c42b3, type: 2}
   _minXPos: -18
+  _worldStoppedSpeedModifier: 1

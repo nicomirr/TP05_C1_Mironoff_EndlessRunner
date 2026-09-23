@@ -12,6 +12,10 @@ namespace Game.Data
         [SerializeField] private float _minXPos;
         public float MinXPos => _minXPos;
 
+        [Tooltip("0 frena el parallax")]
+        [Range(0,1)] [SerializeField] private int _worldStoppedSpeedModifier;
+        public int WorldStoppedSpeedModifier => _worldStoppedSpeedModifier;
+
     }
 }
 

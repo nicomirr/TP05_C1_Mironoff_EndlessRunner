@@ -58,7 +58,7 @@ namespace Game.Score
             if(_scoreTimer >= _data.BaseScoringTime)
             {
                 _playerScore++;
-                UIEvents.RaisePlayerScoreUpdated(_playerScore);
+                UIEvents.RaisePlayerScoreUpdated(_playerScore / _data.ScoreUnitsPerKilometer);
 
                 _scoreTimer -= _data.BaseScoringTime;
             }
@@ -67,6 +67,7 @@ namespace Game.Score
         private void StopScoring()
         {
             _isWorking = false;
+            UIEvents.RaiseDisplayScoreboard(_playerScore / _data.ScoreUnitsPerKilometer);
         }
     }
 }

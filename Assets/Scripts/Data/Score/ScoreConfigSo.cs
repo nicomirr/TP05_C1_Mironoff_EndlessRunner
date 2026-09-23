@@ -7,6 +7,9 @@ namespace Game.Data
     {
         [SerializeField] private float _baseScoringTime;
         public float BaseScoringTime => _baseScoringTime;
+
+        [SerializeField] private float _scoreUnitsPerKilometer;
+        public float ScoreUnitsPerKilometer => _scoreUnitsPerKilometer;
     }
 
 }

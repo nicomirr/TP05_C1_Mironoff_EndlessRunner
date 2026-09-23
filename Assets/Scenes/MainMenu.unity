@@ -665,7 +665,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 246117502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a0e30545e4cf4e44e80db68ddc377e1b, type: 2}
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 318088599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: baad08257df6e8e4a8dde4d34a387393, type: 2}
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 618720950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: 857a375231e8197439423e9f595aa569, type: 2}
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 640517946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: 857a375231e8197439423e9f595aa569, type: 2}
@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 640900214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: faf47ad1f90b5614cb85b6f5a823e6b9, type: 2}
@@ -2475,7 +2475,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 751581788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a2ea854afef49014791e4f6a17bbf08a, type: 2}
@@ -2778,7 +2778,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 836291978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a2ea854afef49014791e4f6a17bbf08a, type: 2}
@@ -3388,7 +3388,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 917171069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: 857a375231e8197439423e9f595aa569, type: 2}
@@ -5033,7 +5033,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159950682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a2ea854afef49014791e4f6a17bbf08a, type: 2}
@@ -5343,7 +5343,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1172297486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a0e30545e4cf4e44e80db68ddc377e1b, type: 2}
@@ -5510,7 +5510,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1193522924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: faf47ad1f90b5614cb85b6f5a823e6b9, type: 2}
@@ -6667,7 +6667,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1543666722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: 857a375231e8197439423e9f595aa569, type: 2}
@@ -6931,7 +6931,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1564650971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a0e30545e4cf4e44e80db68ddc377e1b, type: 2}
@@ -7310,7 +7310,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1673722285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: 857a375231e8197439423e9f595aa569, type: 2}
@@ -7714,7 +7714,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805941513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: a0e30545e4cf4e44e80db68ddc377e1b, type: 2}
@@ -7947,7 +7947,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1818790676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915406272fd122342ae0bc745794853b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1677fdc18c5fe124c8db9964e901fee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.MainMenu.ClickableObject
   _clickableData: {fileID: 11400000, guid: faf47ad1f90b5614cb85b6f5a823e6b9, type: 2}

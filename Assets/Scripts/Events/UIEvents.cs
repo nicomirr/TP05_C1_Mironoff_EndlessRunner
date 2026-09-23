@@ -12,7 +12,9 @@ namespace Game.Events
 
         public static event Action<int> OnInitializePlayerUIHealth;
 
-        public static event Action<int> OnPlayerScoreUpdated;
+        public static event Action<float> OnPlayerScoreUpdated;
+
+        public static event Action<float> OnDisplayScoreboard;
 
         public static event Action OnSettingsClicked;
         public static event Action OnCreditsClicked;
@@ -38,9 +40,14 @@ namespace Game.Events
             OnInitializePlayerUIHealth?.Invoke(health);
         }
 
-        public static void RaisePlayerScoreUpdated(int score)
+        public static void RaisePlayerScoreUpdated(float score)
         {
             OnPlayerScoreUpdated?.Invoke(score);
+        }
+
+        public static void RaiseDisplayScoreboard(float score)
+        {
+            OnDisplayScoreboard?.Invoke(score);
         }
 
         public static void RaiseSettingsClicked()

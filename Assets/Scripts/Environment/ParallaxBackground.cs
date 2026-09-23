@@ -17,7 +17,7 @@ namespace Game.Environment
 
         private float _backgroundWidth;
 
-        private bool _isWorking;
+        private float _worldStoppedSpeedModifier;
 
         private void Awake()
         {
@@ -43,13 +43,11 @@ namespace Game.Environment
 
         private void Start()
         {
-            _isWorking = true;
+            _worldStoppedSpeedModifier = 1;
         }
 
         private void Update()
         {
-            if (!_isWorking) return;
-
             MoveBackgrounds();
             RepositionBackgrounds();
         }
@@ -61,7 +59,7 @@ namespace Game.Environment
 
         private void StopParallax()
         {
-            _isWorking = false;
+            _worldStoppedSpeedModifier = _data.WorldStoppedSpeedModifier;
         }
 
         private void MoveBackgrounds()
@@ -69,7 +67,7 @@ namespace Game.Environment
             foreach (Transform background in _backgrounds)
             {
                 background.position += Vector3.left * (_worldSpeedProvider.WorldCurrentSpeed * 
-                    _data.SpeedModifierData.SpeedModifier * Time.deltaTime);
+                    _data.SpeedModifierData.SpeedModifier * Time.deltaTime * _worldStoppedSpeedModifier);
             }
         }
 

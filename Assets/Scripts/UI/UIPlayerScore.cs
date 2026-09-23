@@ -7,7 +7,6 @@ namespace Game.UI
 {
     public class UIPlayerScore : MonoBehaviour
     {
-        [SerializeField] private UIScoreConfigSo _data;
         private TMP_Text _scoreText;
 
         private void Awake()
@@ -18,11 +17,13 @@ namespace Game.UI
         private void OnEnable()
         {
             UIEvents.OnPlayerScoreUpdated += UpdateScoreText;
+            UIEvents.OnDisplayScoreboard += EmptyScoreText;
         }
 
         private void OnDisable()
         {
             UIEvents.OnPlayerScoreUpdated -= UpdateScoreText;
+            UIEvents.OnDisplayScoreboard -= EmptyScoreText;
         }
 
         private void Start()
@@ -30,11 +31,16 @@ namespace Game.UI
             _scoreText.text = "0.00 km";
         }
 
-        private void UpdateScoreText(int score)
+        private void UpdateScoreText(float score)
         {
-            float scoreInKm = score / _data.ScoreUnitsPerKilometer;
+            float scoreInKm = score;
 
             _scoreText.text = scoreInKm.ToString("F2") + " km";
+        }
+
+        private void EmptyScoreText(float _)
+        {
+            _scoreText.text = "";
         }
     }
 

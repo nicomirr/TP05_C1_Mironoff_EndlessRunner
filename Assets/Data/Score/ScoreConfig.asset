@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ScoreConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ScoreConfigSo
   _baseScoringTime: 1
+  _scoreUnitsPerKilometer: 100
