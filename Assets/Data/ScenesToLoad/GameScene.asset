@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28e7189daed5e9341a9a15d7d4b0f796, type: 3}
-  m_Name: GameToMainMenu
+  m_Name: GameScene
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SceneToLoadSo
-  _sceneToLoadName: MainMenu
+  _sceneToLoadName: Game
   _transitionTime: 2

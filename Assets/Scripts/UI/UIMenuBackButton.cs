@@ -7,18 +7,18 @@ namespace Game.UI
     public class UIMenuBackButton : MonoBehaviour
     {
         private AudioSource _audioSource;
-        private Button _btnBack;
+        private Button _buttonBack;
 
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            _btnBack = GetComponent<Button>();
-            _btnBack.onClick.AddListener(OnBackClicked);
+            _buttonBack = GetComponent<Button>();
+            _buttonBack.onClick.AddListener(OnBackClicked);
         }
 
         private void OnDestroy()
         {
-            _btnBack.onClick.RemoveListener(OnBackClicked);
+            _buttonBack.onClick.RemoveListener(OnBackClicked);
         }
 
         private void OnBackClicked()

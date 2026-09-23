@@ -15,7 +15,7 @@ namespace Game.Environment
 
         private ISpeedProvider _worldSpeedProvider;
 
-        private float _backgroundWidth;
+        private float _effectiveWidth;
 
         private float _worldStoppedSpeedModifier;
 
@@ -25,12 +25,14 @@ namespace Game.Environment
 
             SpriteRenderer spriteRenderer = _backgrounds[0].GetComponent<SpriteRenderer>();
 
-            _backgroundWidth = spriteRenderer.bounds.size.x;
+            float backgroundWidth = spriteRenderer.bounds.size.x;
+
+            _effectiveWidth = backgroundWidth - 0.01f;
 
             for (int i = 1; i < _backgrounds.Count; i++)
             {
                 Vector3 position = _backgrounds[0].position;
-                position.x += _backgroundWidth * i;
+                position.x += _effectiveWidth * i;
 
                 _backgrounds[i].position = position;
             }
@@ -79,7 +81,7 @@ namespace Game.Environment
                 {
                     Vector3 position = background.position;
 
-                    position.x += _backgroundWidth * _backgrounds.Count;
+                    position.x += _effectiveWidth * _backgrounds.Count;
 
                     background.position = position;
                 }

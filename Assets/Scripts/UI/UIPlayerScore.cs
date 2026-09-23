@@ -1,7 +1,7 @@
 using UnityEngine;
+using System.Globalization;
 using TMPro;
 using Game.Events;
-using Game.Data;
 
 namespace Game.UI
 {
@@ -35,7 +35,7 @@ namespace Game.UI
         {
             float scoreInKm = score;
 
-            _scoreText.text = scoreInKm.ToString("F2") + " km";
+            _scoreText.text = scoreInKm.ToString("F2", CultureInfo.InvariantCulture) + " km";
         }
 
         private void EmptyScoreText(float _)

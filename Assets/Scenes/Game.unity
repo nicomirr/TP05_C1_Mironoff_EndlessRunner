@@ -287,6 +287,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8985265719287238378, guid: bcf99551896637648bc370b1f8963550, type: 3}
   m_PrefabInstance: {fileID: 318138238280245619}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &409709235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409709234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4de384c38ec25649ae9f246d3b7695b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPlayAgainButton
+  _data: {fileID: 11400000, guid: 6113e7d6aa0fbbe4798d201512646592, type: 2}
 --- !u!1 &448430945
 GameObject:
   m_ObjectHideFlags: 0
@@ -5236,6 +5249,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5962941338240467378, guid: bcf99551896637648bc370b1f8963550, type: 3}
   m_PrefabInstance: {fileID: 318138238280245619}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2017405860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017405859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4de384c38ec25649ae9f246d3b7695b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIMainMenuButton
+  _data: {fileID: 11400000, guid: 20862393497322940ad086db33fa0e36, type: 2}
 --- !u!1 &2040526324
 GameObject:
   m_ObjectHideFlags: 0
@@ -5393,6 +5419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c4702376f1e034787f90543b71d96d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.UI.UIScoreboard
+  _data: {fileID: 11400000, guid: f60c143bfc6e4a2448ef0e871c751784, type: 2}
   _scoreValueText: {fileID: 643792549}
   _scoreMenuButtons:
   - {fileID: 409709234}
@@ -5586,6 +5613,10 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8985265719287238378, guid: bcf99551896637648bc370b1f8963550, type: 3}
+      propertyPath: m_Name
+      value: PlayAgainButton
+      objectReference: {fileID: 0}
     - target: {fileID: 9217185882733986136, guid: bcf99551896637648bc370b1f8963550, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -218
@@ -5681,6 +5712,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8660755193124324435, guid: bcf99551896637648bc370b1f8963550, type: 3}
       insertIndex: 1
       addedObject: {fileID: 2066659725}
+    - targetCorrespondingSourceObject: {fileID: 8985265719287238378, guid: bcf99551896637648bc370b1f8963550, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 409709235}
+    - targetCorrespondingSourceObject: {fileID: 5962941338240467378, guid: bcf99551896637648bc370b1f8963550, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2017405860}
   m_SourcePrefab: {fileID: 100100000, guid: bcf99551896637648bc370b1f8963550, type: 3}
 --- !u!1001 &1037981560304388541
 PrefabInstance:
