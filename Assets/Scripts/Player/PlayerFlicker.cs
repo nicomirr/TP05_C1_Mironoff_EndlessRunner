@@ -6,6 +6,9 @@ public class PlayerFlicker
     private readonly SpriteRenderer _spriteRenderer;
     private readonly Color32 _playerOriginalColor;
 
+    private bool _isFlickering;
+    public bool IsFlickering => _isFlickering;
+
     public PlayerFlicker(SpriteRenderer spriteRenderer)
     {
         _spriteRenderer = spriteRenderer;
@@ -14,6 +17,8 @@ public class PlayerFlicker
 
     public IEnumerator FlickerRoutine(float time, int totalBlinks, Color32 flickerColor)
     {
+        _isFlickering = true;
+
         int totalChanges = totalBlinks * 2;
         float flickInterval = time / totalChanges;
 
@@ -28,5 +33,7 @@ public class PlayerFlicker
         }
 
         _spriteRenderer.color = _playerOriginalColor;
+
+        _isFlickering = false;
     }
 }

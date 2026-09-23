@@ -155,6 +155,8 @@ namespace Game.Player
                 return;
             }
 
+            _audioPlayer.PlayAudio(AudioCategory.DamageSFX);
+
             StartCoroutine(_playerFlicker.FlickerRoutine(_data.DamageFlickerData.Time, _data.DamageFlickerData.TotalBlinks, 
                 _data.DamageFlickerData.FlickerColor));
         }
@@ -177,8 +179,9 @@ namespace Game.Player
                     return;
                 }
 
-                HandlePlayerDamaged();
-                
+                if (_playerFlicker.IsFlickering) return;
+
+                HandlePlayerDamaged();                
             }
         }
     }

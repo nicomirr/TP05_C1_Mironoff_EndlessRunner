@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7152b6e384c922c4181c240a75b5a287, type: 3}
   m_Name: PlayerDamageFlicker
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.DamageFlickerDataSo
-  _time: 0.15
-  _totalBlinks: 2
+  _time: 0.2
+  _totalBlinks: 3
   _flickerColor:
     serializedVersion: 2
     rgba: 16777215

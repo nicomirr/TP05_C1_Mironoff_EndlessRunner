@@ -13,7 +13,8 @@ namespace Game.Core
         BushSFX,
         PuffDestroySFX,
         CloudSFX,
-        End = 11
+        DamageSFX,
+        End = 12
     }
 
 }

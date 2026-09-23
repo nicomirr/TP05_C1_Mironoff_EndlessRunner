@@ -12,6 +12,8 @@ namespace Game.Events
 
         public static event Action<int> OnInitializePlayerUIHealth;
 
+        public static event Action<int> OnPlayerScoreUpdated;
+
         public static event Action OnSettingsClicked;
         public static event Action OnCreditsClicked;
         public static event Action OnBackClicked;
@@ -34,6 +36,11 @@ namespace Game.Events
         public static void RaiseInitializePlayerUIHealth(int health)
         {
             OnInitializePlayerUIHealth?.Invoke(health);
+        }
+
+        public static void RaisePlayerScoreUpdated(int score)
+        {
+            OnPlayerScoreUpdated?.Invoke(score);
         }
 
         public static void RaiseSettingsClicked()
