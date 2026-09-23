@@ -8,6 +8,9 @@ namespace Game.Data
         [SerializeField] private AudioConfigSo _audioConfigData;
         public AudioConfigSo AudioConfigData => _audioConfigData;
 
+        [SerializeField] private DamageFlickerDataSo _damageFlickerData;
+        public DamageFlickerDataSo DamageFlickerData => _damageFlickerData;
+
         [SerializeField] private int _maxHealth;
         public int MaxHealth => _maxHealth;
 

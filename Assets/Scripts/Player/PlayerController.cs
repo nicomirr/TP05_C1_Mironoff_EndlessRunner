@@ -20,6 +20,7 @@ namespace Game.Player
         private PlayerJump _playerJumper;
         private PlayerGroundCheck _playerGroundCheck;
         private PlayerPowerUpEffect _playerPowerUpEffect;
+        private PlayerFlicker _playerFlicker;
         private PlayerInvincibility _playerInvincibility;
         private PlayerDeath _playerDeath;
 
@@ -43,7 +44,11 @@ namespace Game.Player
             _playerPowerUpEffect = new PlayerPowerUpEffect(powerUpEffectObject.GetComponent<Animator>());
 
             GameObject playerImageObject = GetComponentInChildren<PlayerImageMarker>().gameObject;
-            _playerInvincibility = new PlayerInvincibility(playerImageObject.GetComponent<SpriteRenderer>());
+            SpriteRenderer playerSpriteRenderer = playerImageObject.GetComponent<SpriteRenderer>();
+
+            _playerFlicker = new PlayerFlicker(playerSpriteRenderer);
+
+            _playerInvincibility = new PlayerInvincibility(playerSpriteRenderer);
 
             List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());
                        
@@ -115,7 +120,7 @@ namespace Game.Player
 
             HandlePowerUpEnablement();
 
-            StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(time, warningTime, totalWarningBlinks, color));
+            StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(_playerFlicker, time, warningTime, totalWarningBlinks, color));
         }
 
         private void HandlePowerUpEnablement()
@@ -128,9 +133,7 @@ namespace Game.Player
         private void HandlePowerUpFinalized()
         {
             PlayerEvents.RaisePowerUpDisabled();
-        }
-
-       
+        }       
         
         private void HandleEnemyDestroy(GameObject gameObject)
         {
@@ -149,7 +152,11 @@ namespace Game.Player
             if(_playerHealth.CurrentHealth <= 0)
             {
                 HandlePlayerDeath();
+                return;
             }
+
+            StartCoroutine(_playerFlicker.FlickerRoutine(_data.DamageFlickerData.Time, _data.DamageFlickerData.TotalBlinks, 
+                _data.DamageFlickerData.FlickerColor));
         }
 
         private void HandlePlayerDeath()
