@@ -10,8 +10,9 @@ namespace Game.Core
         Slow,
         Normal,
         Fast,
+        Faster,
         Fastest,
-        End = 9
+        End = 10
     }
 }
 

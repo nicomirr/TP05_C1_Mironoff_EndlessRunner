@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42116f09702427247b416b4cbfcc4eb2, type: 3}
-  m_Name: FastestSpeedMod
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpeedModifierConfig
-  _speedType: 9
-  _speedModifier: 1.32
+  m_Script: {fileID: 11500000, guid: 422c360eae7486a4d89be747c202c0e7, type: 3}
+  m_Name: FlyingPowCategoryWeight
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
+  _family: 1
+  _category: 3
+  _weight: 2

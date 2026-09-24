@@ -8,7 +8,8 @@ namespace Game.Core
         StumpGround,
         SheepFly,
         InvincibilityPowGround,   
-        Arrow
+        Arrow,
+        HealPowFly
     }
 }
 

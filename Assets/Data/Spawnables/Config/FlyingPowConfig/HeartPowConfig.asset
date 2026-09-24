@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927e79cfd83ac194eb27ffa608aa34f2, type: 3}
+  m_Name: HeartPowConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.SpawnableObjectConfigSo
+  _speedModifierData: {fileID: 11400000, guid: 036ad34377c925f459b696dd10aba14f, type: 2}

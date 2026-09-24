@@ -4,7 +4,8 @@ namespace Game.Core
     {
         GroundObstacle,
         FlyingObstacle,
-        GroundPowerUp
+        GroundPowerUp,
+        FlyingPowerUp
     }
 }
 

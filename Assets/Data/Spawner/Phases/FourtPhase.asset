@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f458e6e12c169934f8a5111a82df09e2, type: 3}
   m_Name: FourtPhase
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPhaseSo
-  _availableCategories: 000000000100000002000000
-  _availableTypes: 0100000000000000030000000500000006000000
+  _availableCategories: 00000000010000000200000003000000
+  _availableTypes: 010000000000000003000000050000000600000007000000

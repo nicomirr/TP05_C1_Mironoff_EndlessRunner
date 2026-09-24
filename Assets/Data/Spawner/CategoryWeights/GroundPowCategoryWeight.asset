@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnCategoryWeight
   _family: 1
   _category: 2
-  _weight: 5
+  _weight: 4
