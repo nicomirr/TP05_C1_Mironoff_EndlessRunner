@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0436a284cc867a945a2570c576b5cd6d, type: 3}
-  m_Name: CloudParallax
+  m_Name: MidBackgroundParallax
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParallaxDataSo
-  _speedModifierData: {fileID: 11400000, guid: 2c0cbedfbf1fb3941be2afd53a6c42b3, type: 2}
-  _minXPos: -18
-  _worldStoppedSpeedModifier: 1
+  _parallaxType: 2
+  _background: {fileID: 4366446250314819926, guid: 203a62a7ad573f64b9e61dd0bced73cc, type: 3}
+  _speedModifierData: {fileID: 11400000, guid: 5716400c77015364b9c2ffce5a800d53, type: 2}
+  _minXPos: -40
+  _worldStoppedSpeedModifier: 0

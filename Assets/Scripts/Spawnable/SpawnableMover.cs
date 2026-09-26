@@ -39,7 +39,7 @@ namespace Game.Spawnable
 
         public void TryStopMovement()
         {
-            if (_speedType != SpeedType.Floor) return;
+            if (_speedType != SpeedType.Ground) return;
 
             _canMove = false;
             _rb.linearVelocity = Vector2.zero;

@@ -1,10 +1,18 @@
 using UnityEngine;
+using System.Collections.Generic;
+using Game.Core;
 
 namespace Game.Data
 {
     [CreateAssetMenu(fileName = "ParallaxDataSo", menuName = "Scriptable Objects/ParallaxDataSo")]
     public class ParallaxDataSo : ScriptableObject
     {
+        [SerializeField] private ParallaxType _parallaxType;
+        public ParallaxType ParallaxType => _parallaxType;
+
+        [SerializeField] private GameObject _background;
+        public GameObject Background => _background; 
+
         [SerializeField] private SpeedModifierDataSo _speedModifierData;
         public SpeedModifierDataSo SpeedModifierData => _speedModifierData;
 

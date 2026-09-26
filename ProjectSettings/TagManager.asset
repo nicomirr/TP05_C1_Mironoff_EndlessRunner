@@ -80,5 +80,8 @@ TagManager:
   - name: Arrow
     uniqueID: 3744220987
     locked: 0
+  - name: Top
+    uniqueID: 3963626209
+    locked: 0
   m_RenderingLayers:
   - Default

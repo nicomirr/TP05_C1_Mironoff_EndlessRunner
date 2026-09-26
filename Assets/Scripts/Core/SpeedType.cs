@@ -3,10 +3,10 @@ namespace Game.Core
     public enum SpeedType
     {
         None = 0,
-        Clouds,
-        Mountain,
-        Background,
-        Floor,
+        FarBackground,
+        MidBackground,
+        NearBackground,
+        Ground,
         Slow,
         Normal,
         Fast,

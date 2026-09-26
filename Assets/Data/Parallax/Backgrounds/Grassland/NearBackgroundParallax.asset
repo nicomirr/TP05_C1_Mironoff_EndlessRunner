@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0436a284cc867a945a2570c576b5cd6d, type: 3}
-  m_Name: FloorParallax
+  m_Name: NearBackgroundParallax
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParallaxDataSo
-  _speedModifierData: {fileID: 11400000, guid: 0bdfad7e6abd5d742bb02e055c051e22, type: 2}
-  _minXPos: -16
+  _parallaxType: 1
+  _background: {fileID: 7885844379768213349, guid: b093729e1da941847862da41a7d75949, type: 3}
+  _speedModifierData: {fileID: 11400000, guid: d31655a5d9c5064439081ebf32c65758, type: 2}
+  _minXPos: -18
+  _worldStoppedSpeedModifier: 0
