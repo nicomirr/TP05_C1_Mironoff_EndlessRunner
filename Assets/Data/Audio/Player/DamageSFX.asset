@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DamageSFX
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 0e2298c225090da49be87e467e8365c5, type: 3}
-  _audioCategory: 11
+  _audioCategory: 10

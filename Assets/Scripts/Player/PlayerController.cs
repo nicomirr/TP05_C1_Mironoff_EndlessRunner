@@ -44,13 +44,15 @@ namespace Game.Player
             SpriteRenderer playerSpriteRenderer = playerImageObject.GetComponent<SpriteRenderer>();
             SpriteFlicker spriteFlicker = new SpriteFlicker(playerSpriteRenderer);
 
-            PlayerInvincibilityPowerUp invincibilityPow = new PlayerInvincibilityPowerUp(_data.PowerUpsData.InvincibilityDataSo,
-                spriteFlicker, playerSpriteRenderer, this, _playerFsm);
+            _playerHealth = new PlayerHealth(_data);
+
+            PlayerInvincibilityPowerUp invincibilityPow = new PlayerInvincibilityPowerUp(this, _playerFsm, _data.PowerUpsData.InvincibilityDataSo,
+                spriteFlicker, playerSpriteRenderer);
+
+            PlayerHealPowerUp healthPow = new PlayerHealPowerUp(this, _playerFsm, _data.PowerUpsData.HealthPowData, _playerHealth);
 
             _playerPowerUps.AddPowerUp(PowerUpType.Invincibility, invincibilityPow);
-
-            _playerHealth = new PlayerHealth(_data);
-            
+            _playerPowerUps.AddPowerUp(PowerUpType.Health, healthPow);            
             
             Transform skullSpawnPos = GetComponentInChildren<SkullSpawnerMarker>().transform;
             PlayerDeath playerDeath = new PlayerDeath(skullSpawnPos, _data);
@@ -84,7 +86,7 @@ namespace Game.Player
 
         private void Start()
         {
-            UIEvents.RaiseInitializePlayerUIHealth(_playerHealth.CurrentMaxHealth);
+            UIEvents.RaiseInitializePlayerUIHealth(_playerHealth.MaxHealth);
         }
 
         private void Update()

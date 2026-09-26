@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CloudAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 8547d3f77bc20184eb42346441d3b940, type: 3}
-  _audioCategory: 10
+  _audioCategory: 9

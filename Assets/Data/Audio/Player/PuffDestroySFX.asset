@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PuffDestroySFX
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 29a1b4c7283595049a5e5976d70ae02d, type: 3}
-  _audioCategory: 9
+  _audioCategory: 8

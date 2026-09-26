@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TreeAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: cca71538aac41c745a3385889d51ef69, type: 3}
-  _audioCategory: 5
+  _audioCategory: 4

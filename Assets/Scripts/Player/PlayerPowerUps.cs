@@ -1,7 +1,9 @@
+using UnityEngine;
 using System.Collections.Generic;
 using Game.Core;
 using Game.Events;
 using Game.Audio;
+using Game.Data;
 
 namespace Game.Player
 {
@@ -18,27 +20,26 @@ namespace Game.Player
             _powerUpEffect = powerUpEffect;
         }
 
-        //ver como poner para cada Pow un audio y un efecto
         public void AddPowerUp(PowerUpType powerUpType, PowerUp powerUp)
         {
             _powerUps[powerUpType] = powerUp;
             powerUp.OnPowerUpFinalized += HandlePowerUpFinalized;
         }
 
-        public void TryEnablePowerUp(PowerUpType powerUpType)
+        public void TryEnablePowerUp(PowerUpEnablerDataSo powerUpData)
         {
-            bool powerUpEnabled = _powerUps[powerUpType].TryEnablePowerUp();
+            bool powerUpEnabled = _powerUps[powerUpData.PowerUpType].TryEnablePowerUp();
 
             if (!powerUpEnabled) return;
 
-            HandlePowerUpEnablement();
+            HandlePowerUpEnablement(powerUpData);
         }
 
-        private void HandlePowerUpEnablement()
+        private void HandlePowerUpEnablement(PowerUpEnablerDataSo powerUpData)
         {
             PlayerEvents.RaisePowerUpEnabled();
-            _audioPlayer.PlayAudio(AudioCategory.PowUpEnabledSFX);
-            _powerUpEffect.PlayPowerUpEffect();
+            _audioPlayer.PlayAudio(powerUpData.PowerUpSfx);
+            _powerUpEffect.PlayPowerUpEffect(powerUpData.AnimationTriggerHash);
         }
 
         private void HandlePowerUpFinalized()

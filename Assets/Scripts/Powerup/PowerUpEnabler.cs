@@ -2,8 +2,6 @@ using UnityEngine;
 using Game.Marker;
 using Game.Data;
 
-//CAMBIAR
-
 namespace Game.Powerup
 {
     public class PowerUpEnabler : MonoBehaviour
@@ -24,7 +22,7 @@ namespace Game.Powerup
             if (collision.gameObject.TryGetComponent<PlayerMarker>(out _))
             {
                 _animator.SetTrigger(POWER_UP_TRIGGER);
-                PowerUpEvents.RaisePowerUpAquired(_data.PowerUpType);
+                PowerUpEvents.RaisePowerUpAquired(_data);
             }
         }
     }

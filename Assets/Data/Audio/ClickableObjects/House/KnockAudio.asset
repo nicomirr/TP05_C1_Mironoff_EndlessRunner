@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: KnockAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 2eb6f797fc7586247be8d61921265197, type: 3}
-  _audioCategory: 7
+  _audioCategory: 6

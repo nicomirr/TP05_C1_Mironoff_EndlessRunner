@@ -40,7 +40,7 @@ namespace Game.Player
         }
 
         public void TryDamage()
-        {
+        {            
             if (!_stateChanger.TryChangeState(PlayerState.Damaged)) return;
 
             _playerHealth.SubstractHealth();

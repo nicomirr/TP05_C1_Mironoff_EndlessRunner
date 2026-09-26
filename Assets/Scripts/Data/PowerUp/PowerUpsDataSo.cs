@@ -7,6 +7,9 @@ namespace Game.Data
     {
         [SerializeField] private InvincibilityPowDataSo _invisibilityPowData;
         public InvincibilityPowDataSo InvincibilityDataSo => _invisibilityPowData;
+
+        [SerializeField] private PowDataSo _healthPowData;
+        public PowDataSo HealthPowData => _healthPowData;
        
     }
 

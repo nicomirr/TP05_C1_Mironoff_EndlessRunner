@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FromNormalTransitions
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.StateMachineTransitionSo
   _state: 1
-  _availableTransitions: 0200000003000000
+  _availableTransitions: 020000000300000004000000

@@ -10,46 +10,36 @@ namespace Game.Player
         private readonly SpriteRenderer _spriteRenderer;
         private readonly SpriteFlicker _spriteFlicker;
 
-        private readonly ICoroutineRunner _coroutineRunner;
-        private readonly IPlayerStateChanger _playerStateChanger;
+        private readonly InvincibilityPowDataSo _data;
 
-        private readonly float _invincibilityTime;
-        private readonly float _finishInvincibilityWarningTime;
-        private readonly int _totalWarningBlinks;
-        private readonly Color32 _invincibilityColor;
-
-        public PlayerInvincibilityPowerUp(InvincibilityPowDataSo data, SpriteFlicker spriteFlicker, SpriteRenderer spriteRenderer, ICoroutineRunner coroutineRunner, IPlayerStateChanger stateChanger)
+        public PlayerInvincibilityPowerUp(ICoroutineRunner coroutineRunner, IPlayerStateChanger stateChanger, InvincibilityPowDataSo data, SpriteFlicker spriteFlicker, 
+            SpriteRenderer spriteRenderer)
         {
-            _invincibilityTime = data.Time;
-            _finishInvincibilityWarningTime = data.WarningTime;
-            _totalWarningBlinks = data.TotalWarningBlinks;
-            _invincibilityColor = data.InvincibilityColor;
-
             _coroutineRunner = coroutineRunner;
             _playerStateChanger = stateChanger;
+
+            _data = data;
 
             _spriteFlicker = spriteFlicker;
             _spriteRenderer = spriteRenderer;
         }
 
         public override bool TryEnablePowerUp()
-        {
-            bool stateChanged = _playerStateChanger.TryChangeState(PlayerState.Invincible);
+        {           
+            if (!_playerStateChanger.TryChangeState(PlayerState.Invincible)) return false;
 
-            if (!stateChanged) return false;
-
-            _coroutineRunner.RunCoroutine(InvincibilityTimerRoutine());
+            _coroutineRunner.RunCoroutine(InvincibilityRoutine());
 
             return true;
         }
 
-        public IEnumerator InvincibilityTimerRoutine()
+        public IEnumerator InvincibilityRoutine()
         {            
-            _spriteRenderer.color = _invincibilityColor;
+            _spriteRenderer.color = _data.InvincibilityColor;
 
-            yield return new WaitForSeconds(_invincibilityTime - _finishInvincibilityWarningTime);
+            yield return new WaitForSeconds( _data.Time - _data.WarningTime);
 
-            yield return _spriteFlicker.FlickerRoutine(_finishInvincibilityWarningTime, _totalWarningBlinks, _invincibilityColor);
+            yield return _spriteFlicker.FlickerRoutine(_data.WarningTime, _data.TotalWarningBlinks, _data.InvincibilityColor);
 
             if (!_playerStateChanger.TryChangeState(PlayerState.Normal))
                 Debug.LogError("ERROR. Debería poder salir a normal siempre al terminar invencibilidad");

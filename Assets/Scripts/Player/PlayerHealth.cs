@@ -1,10 +1,13 @@
 using Game.Data;
+using Game.Events;
+
 
 namespace Game.Player
 {
     public class PlayerHealth
     {
         private readonly int _maxHealth;
+        public int MaxHealth => _maxHealth;
 
         private int _currentMaxHealth;
         public int CurrentMaxHealth => _currentMaxHealth;
@@ -24,6 +27,17 @@ namespace Game.Player
             _currentHealth--;
         }
 
+        public void AddHealth()
+        {
+            if (_currentHealth >= _maxHealth)
+            {
+                _currentHealth = _maxHealth;
+                return;
+            }                       
+
+            _currentHealth++;
+            PlayerEvents.RaisePlayerHealed();
+        }
     }
 
 }

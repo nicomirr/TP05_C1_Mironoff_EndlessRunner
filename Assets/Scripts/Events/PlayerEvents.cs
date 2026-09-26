@@ -5,11 +5,17 @@ namespace Game.Events
 {
     public static class PlayerEvents
     {
+        public static event Action OnPlayerHealed;
         public static event Action OnPlayerDamaged;
         public static event Action OnPlayerDeath;
 
         public static event Action OnPowerUpEnabled;
         public static event Action OnPowerUpDisabled;
+
+        public static void RaisePlayerHealed()
+        {
+            OnPlayerHealed?.Invoke();
+        }
 
         public static void RaisePlayerDamaged()
         {

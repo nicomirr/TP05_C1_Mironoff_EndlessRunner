@@ -17,7 +17,7 @@ MonoBehaviour:
   _audioConfigData: {fileID: 11400000, guid: 6603a1e5a8d14ca47964f117ecd727bf, type: 2}
   _damageFlickerData: {fileID: 11400000, guid: 4214d7d381b54df41b01f5d4f41dd4fa, type: 2}
   _maxHealth: 3
-  _maxInitialHealth: 3
+  _maxInitialHealth: 1
   _jumpForce: 100
   _groundCheckDistance: 0.2
   _groundLayer:

@@ -26,7 +26,7 @@ namespace Game.Player
         }
 
         
-        bool IPlayerStateChanger.TryChangeState(PlayerState newState)
+        public bool TryChangeState(PlayerState newState)
         {
             HashSet<PlayerState> availableStates = _stateTransitions[_currentState];
 

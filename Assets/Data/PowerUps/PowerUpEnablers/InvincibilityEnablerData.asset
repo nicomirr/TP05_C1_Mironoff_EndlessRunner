@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: InvincibilityEnablerData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PowerUpEnablerDataSo
   _powerUpType: 0
-  PowerUpType: 0
+  _powerUpSfx: 11
+  _animationTrigger: invincibility

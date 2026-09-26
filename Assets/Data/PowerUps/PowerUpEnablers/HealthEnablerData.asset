@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: HealthEnablerData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PowerUpEnablerDataSo
   _powerUpType: 1
+  _powerUpSfx: 12
+  _animationTrigger: heal

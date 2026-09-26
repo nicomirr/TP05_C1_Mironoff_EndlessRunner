@@ -1,7 +1,9 @@
-using Game.Core;
-using UnityEngine;
-
-public interface IPlayerStateReader
+namespace Game.Core
 {
-    public PlayerState CurrentState { get; }
+    public interface IPlayerStateReader
+    {
+        public PlayerState CurrentState { get; }
+    }
+
 }
+

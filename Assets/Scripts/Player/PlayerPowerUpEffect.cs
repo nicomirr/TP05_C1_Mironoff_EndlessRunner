@@ -3,9 +3,7 @@ using UnityEngine;
 namespace Game.Player
 {
     public class PlayerPowerUpEffect
-    {
-        private static readonly int POWERUP_TRIGGER = Animator.StringToHash("powerUp");
-
+    {        
         private readonly Animator _animator;
 
         public PlayerPowerUpEffect(Animator animator)
@@ -13,9 +11,9 @@ namespace Game.Player
             _animator = animator;
         }
 
-        public void PlayPowerUpEffect()
+        public void PlayPowerUpEffect(int triggerHash)
         {
-            _animator.SetTrigger(POWERUP_TRIGGER);
+            _animator.SetTrigger(triggerHash);
         }
     }
 }

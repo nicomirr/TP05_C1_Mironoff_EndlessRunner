@@ -6,7 +6,8 @@ namespace Game.Core
         Normal,
         Damaged,
         Invincible,
-        End = 4
+        Healing,
+        End = 5
     }
 
 }

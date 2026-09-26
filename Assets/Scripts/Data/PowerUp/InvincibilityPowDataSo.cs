@@ -3,11 +3,8 @@ using UnityEngine;
 namespace Game.Data
 {
     [CreateAssetMenu(fileName = "InvincibilityDataSo", menuName = "Scriptable Objects/InvincibilityDataSo")]
-    public class InvincibilityPowDataSo : ScriptableObject
-    {
-        [SerializeField] private float _time;
-        public float Time => _time;
-
+    public class InvincibilityPowDataSo : PowDataSo
+    {        
         [SerializeField] private float _warningTime;
         public float WarningTime => _warningTime;
 

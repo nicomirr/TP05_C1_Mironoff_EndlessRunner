@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6292536d860971e4a83b75836f07da52, type: 3}
-  m_Name: PowUpEnabledAudio
+  m_Name: InvincibilityPowUpAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 150c4fbc13cd46e488e69d0998659a5c, type: 3}
-  _audioCategory: 3
+  _audioCategory: 11

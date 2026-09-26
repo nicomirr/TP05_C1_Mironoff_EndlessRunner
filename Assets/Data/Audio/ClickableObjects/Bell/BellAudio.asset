@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BellAudio
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.AudioDataSo
   _audioClip: {fileID: 8300000, guid: 6848cb4e2a6754e40b942eef26fbfabc, type: 3}
-  _audioCategory: 6
+  _audioCategory: 5

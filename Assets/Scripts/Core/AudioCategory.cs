@@ -5,7 +5,6 @@ namespace Game.Core
         None = 0,
         JumpSFX,
         LandSFX,
-        PowUpEnabledSFX,
         SheepSFX,
         TreeSFX,
         BellSFX,
@@ -14,6 +13,8 @@ namespace Game.Core
         PuffDestroySFX,
         CloudSFX,
         DamageSFX,
+        InvincibilityPowUpSFX,
+        HealthPowUpSFX,
         End = 12
     }
 
