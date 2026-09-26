@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801723e339cfc494ca0ecd5abeef4dc2, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfigSo
+  _fsmTransitionsData: {fileID: 11400000, guid: 49fddd74aee2ae142b4b39fb0ece3a2c, type: 2}
+  _powerUpsData: {fileID: 11400000, guid: 2d1cf83b353766b46ad3e86f6cbddb9e, type: 2}
   _audioConfigData: {fileID: 11400000, guid: 6603a1e5a8d14ca47964f117ecd727bf, type: 2}
   _damageFlickerData: {fileID: 11400000, guid: 4214d7d381b54df41b01f5d4f41dd4fa, type: 2}
   _maxHealth: 3

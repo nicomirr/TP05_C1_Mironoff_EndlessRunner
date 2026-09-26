@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using Game.Audio;
 using Game.Marker;
@@ -7,22 +8,20 @@ using Game.Core;
 using Game.Events;
 using Game.ParticleEffects;
 
-
 namespace Game.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ICoroutineRunner
     {
         [SerializeField] private PlayerConfigSo _data;
 
         private PlayerInputs _playerInputs;
+        private PlayerStateMachine _playerFsm; 
+        private PlayerPowerUps _playerPowerUps;
         private PlayerHealth _playerHealth;
+        private PlayerObstacleHandler _playerObstacleHandler;
         private PlayerJump _playerJumper;
         private PlayerGroundCheck _playerGroundCheck;
-        private PlayerPowerUpEffect _playerPowerUpEffect;
-        private PlayerFlicker _playerFlicker;
-        private PlayerInvincibility _playerInvincibility;
-        private PlayerDeath _playerDeath;
 
         private ParticleEffectsPlayer _particleEffectsPlayer;
 
@@ -30,41 +29,53 @@ namespace Game.Player
 
         private void Awake()
         {            
-
             _playerInputs = new PlayerInputs();
 
+            _playerFsm = new PlayerStateMachine(_data);
+
+            GameObject powerUpEffectObject = GetComponentInChildren<PlayerPowerUpEffectMarker>().gameObject;
+            PlayerPowerUpEffect powerUpEffect = new PlayerPowerUpEffect(powerUpEffectObject.GetComponent<Animator>());
+
+            _audioPlayer = new AudioPlayer(_data.AudioConfigData, GetComponentInChildren<AudioSource>());
+            
+            _playerPowerUps = new PlayerPowerUps(_audioPlayer, powerUpEffect);
+
+            GameObject playerImageObject = GetComponentInChildren<PlayerImageMarker>().gameObject;
+            SpriteRenderer playerSpriteRenderer = playerImageObject.GetComponent<SpriteRenderer>();
+            SpriteFlicker spriteFlicker = new SpriteFlicker(playerSpriteRenderer);
+
+            PlayerInvincibilityPowerUp invincibilityPow = new PlayerInvincibilityPowerUp(_data.PowerUpsData.InvincibilityDataSo,
+                spriteFlicker, playerSpriteRenderer, this, _playerFsm);
+
+            _playerPowerUps.AddPowerUp(PowerUpType.Invincibility, invincibilityPow);
+
             _playerHealth = new PlayerHealth(_data);
+            
+            
+            Transform skullSpawnPos = GetComponentInChildren<SkullSpawnerMarker>().transform;
+            PlayerDeath playerDeath = new PlayerDeath(skullSpawnPos, _data);
+
+            PlayerDamageHandler damageHandler = new PlayerDamageHandler(_data, _playerHealth, playerDeath, spriteFlicker, 
+                _audioPlayer, this, _playerFsm, this.gameObject);
+
+            List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());
+
+            _particleEffectsPlayer = new ParticleEffectsPlayer(effects);
+
+            _playerObstacleHandler = new PlayerObstacleHandler(_playerFsm, damageHandler, _audioPlayer, _particleEffectsPlayer);
 
             _playerJumper = new PlayerJump(GetComponent<Rigidbody2D>(), _data);
 
             Transform groundCheck = GetComponentInChildren<GroundCheckMarker>().transform;
-            _playerGroundCheck = new PlayerGroundCheck(groundCheck, _data);
+            _playerGroundCheck = new PlayerGroundCheck(groundCheck, _data);                     
 
-            GameObject powerUpEffectObject = GetComponentInChildren<PlayerPowerUpEffectMarker>().gameObject;
-            _playerPowerUpEffect = new PlayerPowerUpEffect(powerUpEffectObject.GetComponent<Animator>());
-
-            GameObject playerImageObject = GetComponentInChildren<PlayerImageMarker>().gameObject;
-            SpriteRenderer playerSpriteRenderer = playerImageObject.GetComponent<SpriteRenderer>();
-
-            _playerFlicker = new PlayerFlicker(playerSpriteRenderer);
-
-            _playerInvincibility = new PlayerInvincibility(playerSpriteRenderer);
-
-            List<ParticleEffect> effects = new(this.gameObject.GetComponentsInChildren<ParticleEffect>());
-                       
-            _particleEffectsPlayer = new ParticleEffectsPlayer(effects);
-
-            Transform skullSpawnPos = GetComponentInChildren<SkullSpawnerMarker>().transform;
-            _playerDeath = new PlayerDeath(skullSpawnPos, _data);
-
-            _audioPlayer = new AudioPlayer(_data.AudioConfigData, GetComponentInChildren<AudioSource>());
         }
 
         private void OnEnable()
         {
             _playerGroundCheck.OnJustLanded += HandleLand;
-            _playerInvincibility.OnInvincibilityFinalized += HandlePowerUpFinalized;
-            PowerUpEvents.OnInvincibilityAcquired += EnableInvincibility;
+
+            PowerUpEvents.OnPowerUpAquired += _playerPowerUps.TryEnablePowerUp;
 
             PauseEvents.OnGamePausedByInput += _playerInputs.DisablePlayerInputs;
             PauseEvents.OnGameUnpausedByInput += _playerInputs.EnablePlayerInputs;
@@ -85,8 +96,8 @@ namespace Game.Player
         private void OnDisable()
         {
             _playerGroundCheck.OnJustLanded -= HandleLand;
-            _playerInvincibility.OnInvincibilityFinalized -= HandlePowerUpFinalized;
-            PowerUpEvents.OnInvincibilityAcquired -= EnableInvincibility;
+
+            PowerUpEvents.OnPowerUpAquired -= _playerPowerUps.TryEnablePowerUp;
 
             PauseEvents.OnGamePausedByInput -= _playerInputs.DisablePlayerInputs;
             PauseEvents.OnGameUnpausedByInput -= _playerInputs.EnablePlayerInputs;
@@ -94,8 +105,9 @@ namespace Game.Player
         }
 
         private void OnDestroy()
-        {
+        {            
             _playerInputs.Deinitialize();
+            _playerPowerUps.Deinitialize();
         }
 
         private void HandleJump()
@@ -114,75 +126,17 @@ namespace Game.Player
             _particleEffectsPlayer.PlayEffect(ParticleEffectType.Land);
         }
 
-        private void EnableInvincibility(float time, float warningTime, int totalWarningBlinks, Color32 color)
-        {
-            if (_playerInvincibility.IsInvincible) return;
-
-            HandlePowerUpEnablement();
-
-            StartCoroutine(_playerInvincibility.InvincibilityTimerRoutine(_playerFlicker, time, warningTime, totalWarningBlinks, color));
-        }
-
-        private void HandlePowerUpEnablement()
-        {
-            PlayerEvents.RaisePowerUpEnabled();
-            _audioPlayer.PlayAudio(AudioCategory.PowUpEnabledSFX);
-            _playerPowerUpEffect.PlayPowerUpEffect();
-        }
-
-        private void HandlePowerUpFinalized()
-        {
-            PlayerEvents.RaisePowerUpDisabled();
-        }       
-        
-        private void HandleEnemyDestroy(GameObject gameObject)
-        {
-            _audioPlayer.PlayAudio(AudioCategory.PuffDestroySFX);
-
-            _particleEffectsPlayer.PlayEffect(ParticleEffectType.Destroyed);
-
-            gameObject.SetActive(false);
-        }
-
-        private void HandlePlayerDamaged()
-        {
-            _playerHealth.SubstractHealth();
-            PlayerEvents.RaisePlayerDamaged();
-
-            if(_playerHealth.CurrentHealth <= 0)
-            {
-                HandlePlayerDeath();
-                return;
-            }
-
-            _audioPlayer.PlayAudio(AudioCategory.DamageSFX);
-
-            StartCoroutine(_playerFlicker.FlickerRoutine(_data.DamageFlickerData.Time, _data.DamageFlickerData.TotalBlinks, 
-                _data.DamageFlickerData.FlickerColor));
-        }
-
-        private void HandlePlayerDeath()
-        {
-            PlayerEvents.RaisePlayerDeath();
-
-            _playerDeath.SpawnSkull();
-            this.gameObject.SetActive(false);
-        }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<ObstacleMarker>(out _))
             {
-                if (_playerInvincibility.IsInvincible)
-                {
-                    HandleEnemyDestroy(collision.gameObject);
-                    return;
-                }
-
-                if (_playerFlicker.IsFlickering) return;
-
-                HandlePlayerDamaged();                
+                _playerObstacleHandler.HandleCollision(collision.gameObject);
             }
+        }
+
+        public Coroutine RunCoroutine(IEnumerator routine)
+        {
+            return StartCoroutine(routine);
         }
     }
 }

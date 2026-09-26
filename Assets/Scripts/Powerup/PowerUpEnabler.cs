@@ -2,11 +2,13 @@ using UnityEngine;
 using Game.Marker;
 using Game.Data;
 
+//CAMBIAR
+
 namespace Game.Powerup
 {
-    public class InvincibilityPowerUp : MonoBehaviour
+    public class PowerUpEnabler : MonoBehaviour
     {
-        [SerializeField] private InvincibilityDataSo _data;
+        [SerializeField] private PowerUpEnablerDataSo _data;
 
         private static readonly int POWER_UP_TRIGGER = Animator.StringToHash("powerUp");
 
@@ -22,7 +24,7 @@ namespace Game.Powerup
             if (collision.gameObject.TryGetComponent<PlayerMarker>(out _))
             {
                 _animator.SetTrigger(POWER_UP_TRIGGER);
-                PowerUpEvents.RaiseInvincibilityAcquired(_data.Time, _data.WarningTime, _data.TotalWarningBlinks, _data.InvincibilityColor);
+                PowerUpEvents.RaisePowerUpAquired(_data.PowerUpType);
             }
         }
     }

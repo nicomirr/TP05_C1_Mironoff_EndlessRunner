@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f3fab2b85c2ae448aa43951b94f73d, type: 3}
-  m_Name: InvincibilityData
+  m_Script: {fileID: 11500000, guid: ee38ddcf089760140bc7977f610ed487, type: 3}
+  m_Name: InvincibilityPowData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.InvincibilityDataSo
   _time: 5
   _warningTime: 2

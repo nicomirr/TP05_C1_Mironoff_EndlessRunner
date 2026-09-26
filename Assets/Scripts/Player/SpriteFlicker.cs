@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerFlicker
+public class SpriteFlicker
 {
     private readonly SpriteRenderer _spriteRenderer;
     private readonly Color32 _playerOriginalColor;
@@ -9,7 +9,7 @@ public class PlayerFlicker
     private bool _isFlickering;
     public bool IsFlickering => _isFlickering;
 
-    public PlayerFlicker(SpriteRenderer spriteRenderer)
+    public SpriteFlicker(SpriteRenderer spriteRenderer)
     {
         _spriteRenderer = spriteRenderer;
         _playerOriginalColor = _spriteRenderer.color;

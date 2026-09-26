@@ -1,12 +1,12 @@
 using System;
-using UnityEngine;
+using Game.Core;
 
 public static class PowerUpEvents
 {
-    public static event Action<float, float, int, Color32> OnInvincibilityAcquired;
+    public static event Action<PowerUpType> OnPowerUpAquired;
 
-    public static void RaiseInvincibilityAcquired(float time, float warningTime, int totalWarningBlinks, Color32 invincibilityColor)
+    public static void RaisePowerUpAquired(PowerUpType powerUpType)
     {
-        OnInvincibilityAcquired?.Invoke(time, warningTime, totalWarningBlinks, invincibilityColor);
+        OnPowerUpAquired?.Invoke(powerUpType);
     }
 }

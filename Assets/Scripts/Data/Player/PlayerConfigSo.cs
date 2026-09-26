@@ -5,6 +5,12 @@ namespace Game.Data
     [CreateAssetMenu(fileName = "PlayerConfigSo", menuName = "Scriptable Objects/PlayerConfigSo")]
     public class PlayerConfigSo : ScriptableObject
     {
+        [SerializeField] private StateMachineTransitionsConfigSo _fsmTransitionsData;
+        public StateMachineTransitionsConfigSo FsmTransitionsData => _fsmTransitionsData;
+
+        [SerializeField] private PowerUpsDataSo _powerUpsData;
+        public PowerUpsDataSo PowerUpsData => _powerUpsData;
+
         [SerializeField] private AudioConfigSo _audioConfigData;
         public AudioConfigSo AudioConfigData => _audioConfigData;
 
