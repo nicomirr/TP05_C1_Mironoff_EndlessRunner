@@ -6,14 +6,17 @@ using UnityEngine;
 namespace Game.Player
 {
     public class PlayerHealPowerUp : PowerUp
-    {
-        private readonly PowDataSo _data;
+    {        
         private readonly PlayerHealth _playerHealth;
 
-        public PlayerHealPowerUp(ICoroutineRunner coroutineRunner, IPlayerStateChanger stateChanger, PowDataSo data, PlayerHealth playeHealth)
+        public PlayerHealPowerUp(ICoroutineRunner coroutineRunner, IPlayerStateChanger stateChanger,
+            SpriteFlicker spriteFlicker, SpriteRenderer spriteRenderer, PowDataSo data, PlayerHealth playeHealth)
         {
             _coroutineRunner = coroutineRunner;
             _playerStateChanger = stateChanger;
+
+            _spriteFlicker = spriteFlicker;
+            _spriteRenderer = spriteRenderer;
 
             _data = data;
             _playerHealth = playeHealth;           
@@ -34,7 +37,7 @@ namespace Game.Player
         {            
            _playerHealth.AddHealth();
 
-            yield return new WaitForSeconds(1);
+            yield return _spriteFlicker.FlickerRoutine(_data.Time, _data.TotalBlinks, _data.FlickerColor);
 
             if (!_playerStateChanger.TryChangeState(PlayerState.Normal))
                 Debug.LogError("ERROR. Debería poder salir a normal siempre al terminar de curarse");

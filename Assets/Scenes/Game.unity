@@ -759,8 +759,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539989134}
-  - component: {fileID: 539989133}
+  - component: {fileID: 539989136}
   - component: {fileID: 539989135}
+  - component: {fileID: 539989133}
   m_Layer: 0
   m_Name: MusicBackground
   m_TagString: Untagged
@@ -892,6 +893,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb2a559af2ac87439489e168b10e349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Audio.AudioStopper
+--- !u!114 &539989136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539989132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a24ace7147d564c8e6856162fd2d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Audio.AudioClipSwitcher
+  _data: {fileID: 11400000, guid: e097c6e2332cee94a9995bc73bea19d8, type: 2}
 --- !u!1 &564513739
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2203,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Score.ScoreManager
   _data: {fileID: 11400000, guid: 08b47ecfe59b10e41a7b06980b922888, type: 2}
   _worldSpeedProviderMonobehaviour: {fileID: 785835998}
+--- !u!1001 &1385893755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.0623655
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343237706244251610, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635681861836143698, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
+      propertyPath: m_Name
+      value: CloudsParallax
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4fc2a21aa2285d4a91e44782eed5883, type: 3}
 --- !u!1 &1453497374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,7 +3279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617019407842847530, guid: 431606b46bdb217469b8994cb674ad8c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7299091602505219222, guid: 431606b46bdb217469b8994cb674ad8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3884,3 +3955,4 @@ SceneRoots:
   - {fileID: 309771092}
   - {fileID: 1528508821}
   - {fileID: 1190706870}
+  - {fileID: 1385893755}

@@ -24,8 +24,8 @@ namespace Game.Spawnable
         {
             PlayerEvents.OnPlayerDeath += StopEnvironmentObjects;
 
-            RunnerEvents.OnWorldSpeedBroadcast += _spawnableMover.UpdateSpeed;
-            RunnerEvents.RaiseWorldSpeedRequested();
+            GameStateEvents.OnWorldSpeedBroadcast += _spawnableMover.UpdateSpeed;
+            GameStateEvents.RaiseWorldSpeedRequested();
         }
 
         private void FixedUpdate()
@@ -36,7 +36,7 @@ namespace Game.Spawnable
         protected virtual void OnDisable()
         {
             PlayerEvents.OnPlayerDeath -= StopEnvironmentObjects;
-            RunnerEvents.OnWorldSpeedBroadcast -= _spawnableMover.UpdateSpeed;
+            GameStateEvents.OnWorldSpeedBroadcast -= _spawnableMover.UpdateSpeed;
         }
 
         private void StopEnvironmentObjects()

@@ -1,11 +1,14 @@
-using Game.Data;
 using UnityEngine;
+using Game.Data;
+using System;
 
 public class SpeedProgression
 {
     private readonly float _speedProgresion;
     private readonly float _maxWorldSpeed;
-     
+
+    private bool _speedLimitReached;
+    public event Action OnLimitReached;
 
     public SpeedProgression(GameStateConfigSo _data)
     {
@@ -23,6 +26,22 @@ public class SpeedProgression
             return true;
         }        
 
+        if(!_speedLimitReached)
+        {
+            RaiseLimitReached();
+            _speedLimitReached = true;
+        }
+
         return false;   
+    }
+
+    private void RaiseLimitReached()
+    {
+        OnLimitReached?.Invoke();
+    }
+
+    public void Reset()
+    {
+        _speedLimitReached = false;
     }
 }

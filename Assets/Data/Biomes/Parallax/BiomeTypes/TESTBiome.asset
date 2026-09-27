@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca97a41d08b4294c9fc5472dedda060, type: 3}
+  m_Name: TESTBiome
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.BiomeDataSo
+  _biomeType: 2
+  _parallaxBackgroundsData:
+  - {fileID: 11400000, guid: c89891ce3f87e114abf081735983793d, type: 2}
+  - {fileID: 11400000, guid: 77b08bb9c96286943948f46a382f148f, type: 2}
+  - {fileID: 11400000, guid: 7b283a59ce6ef7b4d9925514c9327b46, type: 2}
+  - {fileID: 11400000, guid: a03899b0549f9344b840f91411033986, type: 2}
+  _backgroundColor:
+    serializedVersion: 2
+    rgba: 16763303

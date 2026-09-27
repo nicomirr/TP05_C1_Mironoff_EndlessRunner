@@ -16,7 +16,8 @@ namespace Game.Spawner
         private ISpeedProvider _worldSpeedProvider;
         private Coroutine _spawnCoroutine;
 
-        private SpawnProgressionSo _spawnProgression;
+        private readonly Dictionary<BiomeType, List<SpawnPhaseSo>> _biomePhases = new();
+        private List<SpawnPhaseSo> _currentPhases;
         
         private int _currentPhaseIndex;
 
@@ -28,27 +29,24 @@ namespace Game.Spawner
 
         private void Awake()
         {
-            _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
-            _spawnProgression = _data.SpawnProgression;
+            foreach(BiomeSpawnPhaseSo biomePhase in _data.SpawnProgression.BiomePhases)
+            {
+                _biomePhases.Add(biomePhase.BiomeType, biomePhase.Phases);
+            }
+
+            _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;        
         }
 
         private void OnEnable()
         {
+            GameStateEvents.OnBiomeTypeBroadcast += ChangeBiome;
+
             PlayerEvents.OnPlayerDeath += StopObjectSpawners;
 
             PlayerEvents.OnPowerUpEnabled += HandlePlayerPowerUpEnabled;
             PlayerEvents.OnPowerUpDisabled += HandlePlayerPowerUpDisabled;
         }
-
-        private void Start()
-        {
-            _currentPhaseIndex = 0;
-
-            _speedPerPhase = (_worldSpeedProvider.WorldMaxSpeed - _worldSpeedProvider.WorldBaseSpeed) / _spawnProgression.SpawnPhases.Count;
-
-            StartObjectSpawners();
-        }
-
+               
         private void Update()
         {
             UpdatePhaseIndex();
@@ -56,10 +54,29 @@ namespace Game.Spawner
 
         private void OnDisable()
         {
+            GameStateEvents.OnBiomeTypeBroadcast -= ChangeBiome;
+
             PlayerEvents.OnPlayerDeath -= StopObjectSpawners;
 
             PlayerEvents.OnPowerUpEnabled -= HandlePlayerPowerUpEnabled;
             PlayerEvents.OnPowerUpDisabled -= HandlePlayerPowerUpDisabled;
+        }
+
+        private void ChangeBiome(BiomeType biomeType)
+        {
+            _currentPhases = _biomePhases[biomeType];
+            _currentPhaseIndex = 0;
+            _finalPhaseReached = false;
+
+            _speedPerPhase = (_worldSpeedProvider.WorldMaxSpeed - _worldSpeedProvider.WorldBaseSpeed) / _currentPhases.Count;
+
+            if(_spawnCoroutine != null)
+            {
+                StopCoroutine(_spawnCoroutine);
+                _spawnCoroutine = null;
+            }
+
+            StartObjectSpawners();
         }
 
         private void StartObjectSpawners()
@@ -86,13 +103,13 @@ namespace Game.Spawner
 
             int newPhaseIndex = Mathf.FloorToInt(speedProgress / _speedPerPhase);
 
-            newPhaseIndex = Mathf.Min(newPhaseIndex, _spawnProgression.SpawnPhases.Count - 1);
+            newPhaseIndex = Mathf.Min(newPhaseIndex, _currentPhases.Count - 1);
 
             if (newPhaseIndex != _currentPhaseIndex)
             {
                 _currentPhaseIndex = newPhaseIndex;
 
-                if (_currentPhaseIndex == _spawnProgression.SpawnPhases.Count - 1)
+                if (_currentPhaseIndex == _currentPhases.Count - 1)
                     _finalPhaseReached = true;
             }
         }
@@ -108,8 +125,8 @@ namespace Game.Spawner
 
                 yield return new WaitForSeconds(finalSpawnTime);
 
-                List<SpawnableObjectCategory> availableCategories = _spawnProgression.SpawnPhases[_currentPhaseIndex].AvailableCategories;
-                List<SpawnableObjectType> availableTypes = _spawnProgression.SpawnPhases[_currentPhaseIndex].AvailableTypes;
+                List<SpawnableObjectCategory> availableCategories = _currentPhases[_currentPhaseIndex].AvailableCategories;
+                List<SpawnableObjectType> availableTypes = _currentPhases[_currentPhaseIndex].AvailableTypes;
 
                 SpawnableObjectCategory randomCategory = GetRandomCategory(availableCategories);
 

@@ -15,5 +15,6 @@ MonoBehaviour:
   _initialWorldSpeed: 9
   _maxWorldSpeed: 17
   _slowedDownWorldSpeed: 3
-  _speedProgression: 0.1
+  _speedProgression: 10.1
   _speedProgressionTime: 1.6
+  _biomePhasesData: {fileID: 11400000, guid: 59bb108d8c8547143b3d554d29bccf91, type: 2}

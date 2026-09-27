@@ -23,4 +23,9 @@ public class WorldSpeed : MonoBehaviour, ISpeedProvider
         _worldCurrentSpeed = speed;
     }
 
+    public void Reset()
+    {
+        _worldCurrentSpeed = _worldBaseSpeed;
+    }
+
 }

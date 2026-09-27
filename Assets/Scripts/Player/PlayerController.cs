@@ -46,10 +46,11 @@ namespace Game.Player
 
             _playerHealth = new PlayerHealth(_data);
 
-            PlayerInvincibilityPowerUp invincibilityPow = new PlayerInvincibilityPowerUp(this, _playerFsm, _data.PowerUpsData.InvincibilityDataSo,
-                spriteFlicker, playerSpriteRenderer);
+            PlayerInvincibilityPowerUp invincibilityPow = new PlayerInvincibilityPowerUp(this, _playerFsm, spriteFlicker,
+                playerSpriteRenderer, _data.PowerUpsData.InvincibilityDataSo);
 
-            PlayerHealPowerUp healthPow = new PlayerHealPowerUp(this, _playerFsm, _data.PowerUpsData.HealthPowData, _playerHealth);
+            PlayerHealPowerUp healthPow = new PlayerHealPowerUp(this, _playerFsm, spriteFlicker, playerSpriteRenderer,
+                _data.PowerUpsData.HealthPowData, _playerHealth);
 
             _playerPowerUps.AddPowerUp(PowerUpType.Invincibility, invincibilityPow);
             _playerPowerUps.AddPowerUp(PowerUpType.Health, healthPow);            

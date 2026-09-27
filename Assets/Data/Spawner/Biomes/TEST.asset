@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d6720f78dc0de4db88386e9ac07e7e, type: 3}
+  m_Name: TEST
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Data.BiomeSpawnPhaseSo
+  _biomeType: 2
+  _phases:
+  - {fileID: 11400000, guid: 2166f434146beac47a0f70003cd3953a, type: 2}
+  - {fileID: 11400000, guid: d31cce4d56141ed49ab4db628866de43, type: 2}
+  - {fileID: 11400000, guid: 93eec98013259f84aa14fdf8004f3200, type: 2}
+  - {fileID: 11400000, guid: 55f4b21bfda8157429e9d5704d250c09, type: 2}
+  - {fileID: 11400000, guid: 0acf34e6b7ee86041a36b03fb6764c81, type: 2}
+  - {fileID: 11400000, guid: 99992ad66e74e3e4aa2e589c0f566e54, type: 2}

@@ -6,14 +6,9 @@ using Game.Core;
 namespace Game.Player
 {
     public class PlayerInvincibilityPowerUp : PowerUp
-    {
-        private readonly SpriteRenderer _spriteRenderer;
-        private readonly SpriteFlicker _spriteFlicker;
-
-        private readonly InvincibilityPowDataSo _data;
-
-        public PlayerInvincibilityPowerUp(ICoroutineRunner coroutineRunner, IPlayerStateChanger stateChanger, InvincibilityPowDataSo data, SpriteFlicker spriteFlicker, 
-            SpriteRenderer spriteRenderer)
+    {          
+        public PlayerInvincibilityPowerUp(ICoroutineRunner coroutineRunner, IPlayerStateChanger stateChanger,  
+            SpriteFlicker spriteFlicker, SpriteRenderer spriteRenderer, PowDataSo data)
         {
             _coroutineRunner = coroutineRunner;
             _playerStateChanger = stateChanger;
@@ -35,11 +30,11 @@ namespace Game.Player
 
         public IEnumerator InvincibilityRoutine()
         {            
-            _spriteRenderer.color = _data.InvincibilityColor;
+            _spriteRenderer.color = _data.FlickerColor;
 
             yield return new WaitForSeconds( _data.Time - _data.WarningTime);
 
-            yield return _spriteFlicker.FlickerRoutine(_data.WarningTime, _data.TotalWarningBlinks, _data.InvincibilityColor);
+            yield return _spriteFlicker.FlickerRoutine(_data.WarningTime, _data.TotalBlinks, _data.FlickerColor);
 
             if (!_playerStateChanger.TryChangeState(PlayerState.Normal))
                 Debug.LogError("ERROR. Debería poder salir a normal siempre al terminar invencibilidad");

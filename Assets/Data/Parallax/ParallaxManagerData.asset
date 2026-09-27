@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32682ba7da93f7e42a5f0512375ccd8b, type: 3}
   m_Name: ParallaxManagerData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.ParallaxManagerDataSo
-  _parallaxBackgroundsData:
-  - {fileID: 11400000, guid: dd2d1776cd5162948b471e6fffc69d21, type: 2}
-  - {fileID: 11400000, guid: 4775184e6ed90814ea635ab37c93c6f7, type: 2}
-  - {fileID: 11400000, guid: b0d5d169724d54c49a46ad59519e4bb5, type: 2}
-  - {fileID: 11400000, guid: 8d56bf93c94e6264795a4864ae1ce28b, type: 2}
+  _biomesConfig: {fileID: 11400000, guid: 6e0bbc1f90de6cb4992541b7895b6653, type: 2}

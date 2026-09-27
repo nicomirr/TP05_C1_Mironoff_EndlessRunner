@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PoweUpsData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.PowerUpsDataSo
   _invisibilityPowData: {fileID: 11400000, guid: 2c1453831c410054697beafd839d2a27, type: 2}
+  _healthPowData: {fileID: 11400000, guid: 39524610e24ba9641a7eb6e7cf66b3d5, type: 2}

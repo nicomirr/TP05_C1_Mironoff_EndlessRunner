@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2427c9c41a03d8488dabcec04ebecfe, type: 3}
   m_Name: SpawnProgression
   m_EditorClassIdentifier: Assembly-CSharp::SpawnProgressionSo
-  _spawnPhases:
-  - {fileID: 11400000, guid: b3ff81328e3044f4f91056109dcb86fd, type: 2}
-  - {fileID: 11400000, guid: c88f299dd7fceb341848e4289983840d, type: 2}
-  - {fileID: 11400000, guid: 61d9362ff7aa45446b6715f17f02f356, type: 2}
-  - {fileID: 11400000, guid: 49167ab4100615f4f916b296335e154c, type: 2}
-  - {fileID: 11400000, guid: 86022e49eb1b6544691598b7879f008a, type: 2}
-  - {fileID: 11400000, guid: b000cdf2f2c303e4783a89c6272c83de, type: 2}
+  _biomePhases:
+  - {fileID: 11400000, guid: 21549155a675cf4409eff5e8a605e4cd, type: 2}
+  - {fileID: 11400000, guid: 5ad353544f1636040947813b35b546f5, type: 2}

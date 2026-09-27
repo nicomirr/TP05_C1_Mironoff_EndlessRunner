@@ -1,3 +1,4 @@
+using Game.Core;
 using UnityEngine;
 
 namespace Game.Data
@@ -21,6 +22,8 @@ namespace Game.Data
         [SerializeField] private float _speedProgressionTime;
         public float SpeedProgressionTime => _speedProgressionTime;
 
+        [SerializeField] private BiomePhasesSo _biomePhasesData;
+        public BiomePhasesSo BiomePhasesData => _biomePhasesData;
     }
 
 }

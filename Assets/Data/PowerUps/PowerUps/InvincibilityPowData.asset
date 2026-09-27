@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee38ddcf089760140bc7977f610ed487, type: 3}
+  m_Script: {fileID: 11500000, guid: f737556fc60097545ba358af6da5009c, type: 3}
   m_Name: InvincibilityPowData
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.InvincibilityDataSo
   _time: 5
   _warningTime: 2
   _totalWarningBlinks: 3
-  _invincibilityColor:
+  _flickerColor:
     serializedVersion: 2
     rgba: 4278190335

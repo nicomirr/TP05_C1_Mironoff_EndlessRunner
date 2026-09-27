@@ -1,10 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "SpawnProgressionSo", menuName = "Scriptable Objects/SpawnProgressionSo")]
-public class SpawnProgressionSo : ScriptableObject
+namespace Game.Data
 {
-    [SerializeField] private List<SpawnPhaseSo> _spawnPhases;
-    public List<SpawnPhaseSo> SpawnPhases => _spawnPhases;
-    
+    [CreateAssetMenu(fileName = "SpawnProgressionSo", menuName = "Scriptable Objects/SpawnProgressionSo")]
+    public class SpawnProgressionSo : ScriptableObject
+    {
+        [SerializeField] private List<BiomeSpawnPhaseSo> _biomePhases;
+        public List<BiomeSpawnPhaseSo> BiomePhases => _biomePhases;
+
+    }
+
 }
+
