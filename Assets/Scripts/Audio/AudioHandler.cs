@@ -5,14 +5,14 @@ namespace Game.Audio
 {
     public class AudioHandler : MonoBehaviour
     {
-        private AudioSource _audioSource;
+        protected AudioSource _audioSource;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             PlayerEvents.OnPlayerDeath += StopAudio;
             
@@ -21,7 +21,7 @@ namespace Game.Audio
             PauseEvents.OnContinueButtonClicked += UnpauseAudio;
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             PlayerEvents.OnPlayerDeath -= StopAudio;
 

@@ -10,9 +10,7 @@ namespace Game.Events
 
         public static event Action OnGameUnpausedByInput;
 
-        public static event Action OnContinueButtonClicked;
-
-        public static event Action OnPauseInputDisableRequest;
+        public static event Action OnContinueButtonClicked;       
 
         public static void RaisePauseInputPressed()
         {
@@ -34,10 +32,7 @@ namespace Game.Events
             OnContinueButtonClicked?.Invoke();
         }
 
-        public static void RaisePauseInputDisableRequest()
-        {
-            OnPauseInputDisableRequest?.Invoke();
-        }
+        
     }
 }
 

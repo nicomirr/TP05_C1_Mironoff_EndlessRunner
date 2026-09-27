@@ -24,6 +24,9 @@ namespace Game.Data
 
         [SerializeField] private BiomePhasesSo _biomePhasesData;
         public BiomePhasesSo BiomePhasesData => _biomePhasesData;
+
+        [SerializeField] private float _biomesTransitionTime;
+        public float BiomesTransitionTime => _biomesTransitionTime;
     }
 
 }

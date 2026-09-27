@@ -91,11 +91,15 @@ namespace Game.GameState
 
             GameStateEvents.RaiseStopSpawners();
 
-            yield return new WaitForSeconds(4);
+            GameStateEvents.RaisePauseInputDisableRequest();
+
+            yield return new WaitForSeconds(_data.BiomesTransitionTime);
 
             UIEvents.RaiseRequestFadeOut();
 
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(_data.BiomesTransitionTime);
+
+            GameStateEvents.RaisePauseInputEnableRequest();
 
             _worldSpeed.Reset();
             _speedProgression.Reset();

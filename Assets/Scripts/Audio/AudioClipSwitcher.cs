@@ -6,16 +6,16 @@ using System.Collections.Generic;
 
 namespace Game.Audio
 {
-    public class AudioClipSwitcher : MonoBehaviour
+    public class AudioClipSwitcher : AudioHandler
     {
         [SerializeField] private BiomeAudiosSo _data;
 
         private readonly Dictionary<BiomeType, AudioClip> _biomeAudios = new();
 
-        private AudioSource _audioSource;
-
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             foreach(BiomeAudioDataSo audioData in _data.BiomeAudios)
             {
                 _biomeAudios.Add(audioData.BiomeType, audioData.MusicClip);
@@ -24,19 +24,20 @@ namespace Game.Audio
             _audioSource = GetComponent<AudioSource>();
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             GameStateEvents.OnBiomeTypeBroadcast += ChangeMusic;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             GameStateEvents.OnBiomeTypeBroadcast -= ChangeMusic;
         }
 
         private void ChangeMusic(BiomeType biomeType)
         {
-            _audioSource.Pause();
             _audioSource.clip = _biomeAudios[biomeType];
             _audioSource.Play();
         }

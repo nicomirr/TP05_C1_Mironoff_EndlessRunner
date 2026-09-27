@@ -11,7 +11,11 @@ namespace Game.Events
         public static event Action OnStopSpawners;
 
         public static event Action<BiomeType> OnBiomeTypeBroadcast;
-               
+
+        public static event Action OnPauseInputEnableRequest;
+
+        public static event Action OnPauseInputDisableRequest;
+
         public static void RaiseWorldSpeedRequested()
         {
             OnWorldSpeedRequested?.Invoke();
@@ -30,6 +34,16 @@ namespace Game.Events
         public static void RaiseBiomeTypeBroadcast(BiomeType biomeType)
         {
             OnBiomeTypeBroadcast?.Invoke(biomeType);
+        }
+
+        public static void RaisePauseInputEnableRequest()
+        {
+            OnPauseInputEnableRequest?.Invoke();
+        }
+
+        public static void RaisePauseInputDisableRequest()
+        {
+            OnPauseInputDisableRequest?.Invoke();
         }
     }
 }
