@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Game.Events;
+using System.Collections;
 
 namespace Game.Inputs
 {
@@ -19,12 +20,15 @@ namespace Game.Inputs
 
         private void OnEnable()
         {
-            _globalControls.Global.Enable();
-
             _pauseInput.performed += OnPausePressed;
             GameStateEvents.OnPauseInputEnableRequest += EnableGlobalInputs;
             GameStateEvents.OnPauseInputDisableRequest += DisableGlobalInputs;
             PlayerEvents.OnPlayerDeath += DisableGlobalInputs;
+        }
+
+        private void Start()
+        {
+            StartCoroutine(EnablePauseRoutine());
         }
 
         private void OnDisable()
@@ -35,6 +39,12 @@ namespace Game.Inputs
             PlayerEvents.OnPlayerDeath -= DisableGlobalInputs;
 
             _globalControls.Global.Disable();
+        }
+
+        private IEnumerator EnablePauseRoutine()
+        {
+            yield return new WaitForSeconds(0.4f);
+            _globalControls.Global.Enable();
         }
 
         private void OnPausePressed(InputAction.CallbackContext ctx)
