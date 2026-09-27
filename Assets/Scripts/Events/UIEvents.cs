@@ -5,10 +5,11 @@ namespace Game.Events
 {
     public static class UIEvents
     {
-        public static event Action OnMainMenuEntered;
-
         public static event Action<bool> OnChangeCursorVisibilityRequest;
         public static event Action<CursorType> OnCursorApperanceChangeRequest;
+
+        public static event Action OnRequestFadeIn;
+        public static event Action OnRequestFadeOut;
 
         public static event Action<int> OnInitializePlayerUIHealth;
 
@@ -19,17 +20,22 @@ namespace Game.Events
         public static event Action OnSettingsClicked;
         public static event Action OnCreditsClicked;
         public static event Action OnBackClicked;
-                        
-        public static void RaiseMainMenuEntered()
-        {
-            OnMainMenuEntered?.Invoke();
-        }
-
+                       
         public static void RaiseChangeCursorVisibilityRequest(bool isVisible)
         {
             OnChangeCursorVisibilityRequest?.Invoke(isVisible);
         }
-        
+
+        public static void RaiseRequestFadeIn()
+        {
+            OnRequestFadeIn?.Invoke();
+        }
+
+        public static void RaiseRequestFadeOut()
+        {
+            OnRequestFadeOut?.Invoke();
+        }
+
         public static void RaiseCursorAppearanceChangeRequest(CursorType cursorType)
         {
             OnCursorApperanceChangeRequest?.Invoke(cursorType);

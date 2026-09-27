@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TESTPhase
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.BiomePhaseSo
   _biomeType: 2
-  _changeTime: 100
+  _changeTime: 40

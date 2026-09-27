@@ -17,9 +17,9 @@ namespace Game.ScrollingObj
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        public void Move(float speed)
+        public void Move()
         {
-            _rb.linearVelocity = Vector2.left * speed * _data.SpeedModifierData.SpeedModifier;
+            _rb.linearVelocity = Vector2.left * _data.Speed;
         }
 
         public void GoToInitialPos(Vector2 pos)

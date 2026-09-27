@@ -36,6 +36,7 @@ namespace Game.Audio
 
         private void ChangeMusic(BiomeType biomeType)
         {
+            _audioSource.Pause();
             _audioSource.clip = _biomeAudios[biomeType];
             _audioSource.Play();
         }

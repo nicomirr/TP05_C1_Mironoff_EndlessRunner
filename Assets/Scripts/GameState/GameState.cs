@@ -31,10 +31,10 @@ namespace Game.GameState
         }
 
         private void OnEnable()
-        {
-            UIEvents.OnMainMenuEntered += SlowdownWorldMovement;
+        {            
             PlayerEvents.OnPlayerDeath += SlowdownWorldMovement;
             GameStateEvents.OnWorldSpeedRequested += BroadcastCurrentSpeed;
+
             _speedProgression.OnLimitReached += ChangeBiome;
         }
 
@@ -49,13 +49,11 @@ namespace Game.GameState
             if (!_isWorking)
                 return;
 
-
             HandleSpeedProgression();
         }
 
         private void OnDisable()
         {
-            UIEvents.OnMainMenuEntered -= SlowdownWorldMovement;
             PlayerEvents.OnPlayerDeath -= SlowdownWorldMovement;
             GameStateEvents.OnWorldSpeedRequested -= BroadcastCurrentSpeed;
 
@@ -91,10 +89,20 @@ namespace Game.GameState
         {
             yield return _biomeProgression.ChangeBiomeRoutine();
 
+            GameStateEvents.RaiseStopSpawners();
+
+            yield return new WaitForSeconds(4);
+
+            UIEvents.RaiseRequestFadeOut();
+
+            yield return new WaitForSeconds(4);
+
             _worldSpeed.Reset();
             _speedProgression.Reset();
             
             GameStateEvents.RaiseBiomeTypeBroadcast(_biomeProgression.CurrentBiome);
+
+            UIEvents.RaiseRequestFadeIn();
 
             _changeBiomeCoroutine = null;
         }

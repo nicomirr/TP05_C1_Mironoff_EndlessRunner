@@ -2,21 +2,20 @@ using UnityEngine;
 using System.Collections.Generic;
 using Game.Data;
 
+
 namespace Game.Parallax
 {
     public class ParallaxBackground
     {
         private ParallaxDataSo _data;
 
-        private readonly float _effectiveSingularWidth;
+        private readonly float _effectiveWidth;
 
         private float _worldStoppedSpeedModifier;
 
         private List<Transform> _backgrounds = new();
 
         private GameObject _background;
-
-        private bool _markedForDisposal;
 
         public ParallaxBackground(ParallaxDataSo data, Transform parent)
         {
@@ -33,17 +32,17 @@ namespace Game.Parallax
 
             float backgroundWidth = spriteRenderer.bounds.size.x;
 
-            _effectiveSingularWidth = backgroundWidth - 0.01f;
-            
+            _effectiveWidth = backgroundWidth - 0.01f;
+
             for (int i = 1; i < _backgrounds.Count; i++)
             {
                 Vector3 position = _backgrounds[0].position;
 
-                position.x += _effectiveSingularWidth * i;
+                position.x += _effectiveWidth * i;
 
                 _backgrounds[i].position = position;
             }
-            
+
             _worldStoppedSpeedModifier = 1;
         }
 
@@ -58,53 +57,22 @@ namespace Game.Parallax
 
         public void RepositionBackgrounds()
         {
-            for (int i = _backgrounds.Count - 1; i >= 0; i--)
+            foreach (Transform background in _backgrounds)
             {
-                Transform background = _backgrounds[i];
-
                 if (background.position.x <= _data.MinXPos)
                 {
-                    if (_markedForDisposal)
-                    {
-                        _backgrounds.RemoveAt(i);
-                        Object.Destroy(background.gameObject);
-
-                        if (_backgrounds.Count == 0)
-                        {
-                            Object.Destroy(_background);
-                            return;
-                        }
-
-                        continue;
-                    }
-
                     Vector3 position = background.position;
 
-                    position.x += _effectiveSingularWidth * _backgrounds.Count;
+                    position.x += _effectiveWidth * _backgrounds.Count;
 
                     background.position = position;
                 }
             }
         }
-
-        public void MarkForDisposal()
+        
+        public void DisposeBackground()
         {
-            _markedForDisposal = true;
-        }
-
-        public void SendToBack(ParallaxBackground previousBackground)
-        {
-            float maxX = float.MinValue;
-
-            foreach (Transform background in previousBackground._backgrounds)
-            {
-                if (background.position.x > maxX)
-                    maxX = background.position.x;
-            }
-
-            float difference = maxX + _effectiveSingularWidth - _backgrounds[0].position.x;
-
-            _background.transform.position += Vector3.right * difference;
+            Object.Destroy(_background);
         }
 
         public void StopParallax()

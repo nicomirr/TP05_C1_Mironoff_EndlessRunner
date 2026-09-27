@@ -12,12 +12,7 @@ namespace Game.UI
         [SerializeField] private Button _btnExit;
 
         [SerializeField] private SceneToLoadSo _gameplayScene;
-
-        private void Start()
-        {
-            UIEvents.RaiseMainMenuEntered();
-        }
-
+                
         protected override void OnEnable()
         {
             base.OnEnable();

@@ -18,6 +18,8 @@ public class SpeedProgression
 
     public bool TryIncreaseWorldSpeed(ref float speed)
     {
+        if (_speedLimitReached) return false;
+
         if(speed < _maxWorldSpeed)
         {
             speed += _speedProgresion;

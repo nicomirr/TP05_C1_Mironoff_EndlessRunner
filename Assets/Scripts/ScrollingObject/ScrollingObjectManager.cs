@@ -8,34 +8,30 @@ namespace Game.ScrollingObj
         [SerializeField] private List<ScrollingObject> _scrollingObjects;
         [SerializeField] private Transform _initialPos;
 
-        [SerializeField] private MonoBehaviour _worldSpeedProviderMonobehaviour;
-        private ISpeedProvider _worldSpeedProvider;
 
         private void OnEnable()
         {
-            _worldSpeedProvider = _worldSpeedProviderMonobehaviour as ISpeedProvider;
-
-            foreach (ScrollingObject obj in _scrollingObjects)
-                obj.OnResetZoneCollided += SendObjectToStartingPos;
+            foreach (ScrollingObject scrollingObject in _scrollingObjects)
+                scrollingObject.OnResetZoneCollided += SendObjectToStartingPos;
         }
 
         private void FixedUpdate()
         {
-            foreach (ScrollingObject obj in _scrollingObjects)
+            foreach (ScrollingObject scrollingObject in _scrollingObjects)
             {
-                obj.Move(_worldSpeedProvider.WorldCurrentSpeed);
+                scrollingObject.Move();
             }
         }
 
         private void OnDisable()
         {
-            foreach (ScrollingObject obj in _scrollingObjects)
-                obj.OnResetZoneCollided -= SendObjectToStartingPos;
+            foreach (ScrollingObject scrollingObject in _scrollingObjects)
+                scrollingObject.OnResetZoneCollided -= SendObjectToStartingPos;
         }
 
-        private void SendObjectToStartingPos(ScrollingObject obj)
+        private void SendObjectToStartingPos(ScrollingObject scrollingObject)
         {
-            obj.GoToInitialPos(new Vector2(_initialPos.position.x, obj.transform.position.y));
+            scrollingObject.GoToInitialPos(new Vector2(_initialPos.position.x, scrollingObject.transform.position.y));
         }        
     }
 }

@@ -41,6 +41,8 @@ namespace Game.Spawner
         {
             GameStateEvents.OnBiomeTypeBroadcast += ChangeBiome;
 
+            GameStateEvents.OnStopSpawners += StopObjectSpawners;
+
             PlayerEvents.OnPlayerDeath += StopObjectSpawners;
 
             PlayerEvents.OnPowerUpEnabled += HandlePlayerPowerUpEnabled;
@@ -56,6 +58,8 @@ namespace Game.Spawner
         {
             GameStateEvents.OnBiomeTypeBroadcast -= ChangeBiome;
 
+            GameStateEvents.OnStopSpawners -= StopObjectSpawners;
+
             PlayerEvents.OnPlayerDeath -= StopObjectSpawners;
 
             PlayerEvents.OnPowerUpEnabled -= HandlePlayerPowerUpEnabled;
@@ -69,13 +73,7 @@ namespace Game.Spawner
             _finalPhaseReached = false;
 
             _speedPerPhase = (_worldSpeedProvider.WorldMaxSpeed - _worldSpeedProvider.WorldBaseSpeed) / _currentPhases.Count;
-
-            if(_spawnCoroutine != null)
-            {
-                StopCoroutine(_spawnCoroutine);
-                _spawnCoroutine = null;
-            }
-
+                        
             StartObjectSpawners();
         }
 

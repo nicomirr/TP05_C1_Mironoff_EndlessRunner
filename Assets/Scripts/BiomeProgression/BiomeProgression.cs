@@ -23,14 +23,13 @@ namespace Game.GameState
             _currentBiomeIndex = 0;
 
             _currentBiome = _biomePhases[_currentBiomeIndex].BiomeType;
-        }
+        }       
 
         public IEnumerator ChangeBiomeRoutine()
         {
-            yield return new WaitForSeconds(_biomePhases[_currentBiomeIndex].ChangeTime);
-
             _currentBiomeIndex++;
             _currentBiome = _biomePhases[_currentBiomeIndex].BiomeType;
+            yield return new WaitForSeconds(_biomePhases[_currentBiomeIndex].ChangeTime);
         }
     }
 }

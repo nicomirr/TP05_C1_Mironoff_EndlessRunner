@@ -8,6 +8,8 @@ namespace Game.Events
         public static event Action OnWorldSpeedRequested;
         public static event Action<float> OnWorldSpeedBroadcast;
 
+        public static event Action OnStopSpawners;
+
         public static event Action<BiomeType> OnBiomeTypeBroadcast;
                
         public static void RaiseWorldSpeedRequested()
@@ -19,6 +21,11 @@ namespace Game.Events
         {
             OnWorldSpeedBroadcast?.Invoke(speed);
         }
+                
+        public static void RaiseStopSpawners()
+        {
+            OnStopSpawners?.Invoke();
+        }        
 
         public static void RaiseBiomeTypeBroadcast(BiomeType biomeType)
         {

@@ -10,7 +10,6 @@ namespace Game.SceneTransitions
     public class SceneTransitionManager : MonoBehaviour
     {
         [SerializeField] private List<GameObject> _sceneObjectsToDisableOnTransition = new List<GameObject>();
-        [SerializeField] private FadeBackgroundController _fadeBackground;
 
         private TransitionObjectsDisabler _transitionObjectsDisabler;
 
@@ -34,7 +33,7 @@ namespace Game.SceneTransitions
         {
             Time.timeScale = 1f;
 
-            _fadeBackground.FadeOut();
+            UIEvents.RaiseRequestFadeOut();
             _transitionObjectsDisabler.DisableObjects(_sceneObjectsToDisableOnTransition);
                         
             yield return new WaitForSeconds(transitionTime);
