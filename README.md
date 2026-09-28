@@ -4,3 +4,5 @@ CONTROLES:
 CLICK IZQUIERDO -> SALTAR
 
 CLICK DERECHO -> PAUSA
+
+https://nicomironoff.itch.io/medieval-run
