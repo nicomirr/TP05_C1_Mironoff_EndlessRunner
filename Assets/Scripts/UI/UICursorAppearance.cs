@@ -38,9 +38,10 @@ namespace Game.UI
 
         private void OnDisable()
         {
-            UIEvents.OnChangeCursorVisibilityRequest -= ChangeCursorState;            
+            UIEvents.OnChangeCursorVisibilityRequest -= ChangeCursorState;    
+            UIEvents.OnCursorApperanceChangeRequest -= ChangeCurrentCursorTexture;
         }
-        
+
         private void ChangeCurrentCursorTexture(CursorType cursorType)
         {
             _currentCursorTexture = _cursorAppearances[cursorType];

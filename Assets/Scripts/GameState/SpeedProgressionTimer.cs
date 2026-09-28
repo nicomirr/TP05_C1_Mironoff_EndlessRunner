@@ -24,4 +24,9 @@ public class SpeedProgressionTimer
 
         return false;
     }
+
+    public void Reset()
+    {
+        _timer = 0;
+    }
 }

@@ -103,6 +103,7 @@ namespace Game.GameState
 
             _worldSpeed.Reset();
             _speedProgression.Reset();
+            _speedProgressionTimer.Reset();
             
             GameStateEvents.RaiseBiomeTypeBroadcast(_biomeProgression.CurrentBiome);
 
