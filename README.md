@@ -18,7 +18,7 @@ With increasingly challenging gameplay and simple, fast-paced mechanics, Medieva
  ## Credits
  
  - **Nicolas Mironoff** - *Programming*
- - **Nicolas Mironoff** - *Art*
+ - **PixelFrog** - *Art*
  - **Pixabay** - *Audio*
  
  This game was also possible thanks to the support of these professor:
