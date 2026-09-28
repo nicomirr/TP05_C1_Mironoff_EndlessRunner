@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 507f2d216a00f8d46b8656638bd2c476, type: 3}
-  m_Name: GameStateConfig
+  m_Name: TESTGameStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::Game.Data.RunnerStateConfigSo
   _initialWorldSpeed: 9
   _maxWorldSpeed: 17
   _slowedDownWorldSpeed: 3
   _speedProgression: 0.1
   _speedProgressionTime: 1.6
-  _biomePhasesData: {fileID: 11400000, guid: 59bb108d8c8547143b3d554d29bccf91, type: 2}
+  _biomePhasesData: {fileID: 11400000, guid: 50aa238824838774185b783c9796b9c5, type: 2}
   _biomesTransitionTime: 4

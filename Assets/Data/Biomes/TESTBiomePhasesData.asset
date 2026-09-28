@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b37d4dbb62fe33947a3093eb5fc6b740, type: 3}
-  m_Name: BiomePhasesData
+  m_Name: TESTBiomePhasesData
   m_EditorClassIdentifier: Assembly-CSharp::BiomePhasesSo
   _biomes:
   - {fileID: 11400000, guid: 43bc86ca602022449af0c9075977d95d, type: 2}
+  - {fileID: 11400000, guid: 132816fddc040b74b9dfba44528b4226, type: 2}

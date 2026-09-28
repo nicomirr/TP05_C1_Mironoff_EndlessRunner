@@ -760,6 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 539989134}
   - component: {fileID: 539989136}
+  - component: {fileID: 539989135}
   - component: {fileID: 539989133}
   m_Layer: 0
   m_Name: MusicBackground
@@ -780,7 +781,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 4298414300093250447, guid: 8e5cd539b327b9346b055c0c9906bf5d, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ed9c54dc4e66a7749add7277c8c24dcd, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -880,6 +881,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 359223502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &539989135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539989132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb2a559af2ac87439489e168b10e349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Audio.AudioStopper
 --- !u!114 &539989136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,7 +1350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &782581179
 Transform:
   m_ObjectHideFlags: 0
@@ -3178,7 +3191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617019407842847530, guid: 431606b46bdb217469b8994cb674ad8c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7299091602505219222, guid: 431606b46bdb217469b8994cb674ad8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3233,6 +3246,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1552564406}
     m_Modifications:
+    - target: {fileID: 430094419313376287, guid: b07a604391e75624887db0d7a7d9f27c, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 32671e4a474e8f04cbcf18aa321b3d60, type: 2}
     - target: {fileID: 430094419313376287, guid: b07a604391e75624887db0d7a7d9f27c, type: 3}
       propertyPath: _worldSpeed
       value: 
