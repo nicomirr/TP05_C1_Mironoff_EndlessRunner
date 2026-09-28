@@ -30,7 +30,7 @@ namespace Game.UI
         private void OnMainMenuClicked()
         {           
             PauseEvents.RaiseContinueClicked();
-            UIEvents.RaiseChangeCursorVisibilityRequest(true);
+            CursorEvents.RaiseChangeCursorVisibilityRequest(true);
 
             SceneTransitionEvents.RaiseSceneChangeRequested(_sceneToLoad);
         }

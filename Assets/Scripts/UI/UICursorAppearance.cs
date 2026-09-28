@@ -26,8 +26,8 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            UIEvents.OnChangeCursorVisibilityRequest += ChangeCursorState;
-            UIEvents.OnCursorApperanceChangeRequest += ChangeCurrentCursorTexture;
+            CursorEvents.OnChangeCursorVisibilityRequest += ChangeCursorState;
+            CursorEvents.OnCursorApperanceChangeRequest += ChangeCurrentCursorTexture;
         }
 
         private void Start()
@@ -38,8 +38,8 @@ namespace Game.UI
 
         private void OnDisable()
         {
-            UIEvents.OnChangeCursorVisibilityRequest -= ChangeCursorState;    
-            UIEvents.OnCursorApperanceChangeRequest -= ChangeCurrentCursorTexture;
+            CursorEvents.OnChangeCursorVisibilityRequest -= ChangeCursorState;
+            CursorEvents.OnCursorApperanceChangeRequest -= ChangeCurrentCursorTexture;
         }
 
         private void ChangeCurrentCursorTexture(CursorType cursorType)

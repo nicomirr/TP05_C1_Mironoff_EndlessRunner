@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Game.Data;
 using Game.Core;
+using Game.VisualEffects;
 
 namespace Game.Player
 {

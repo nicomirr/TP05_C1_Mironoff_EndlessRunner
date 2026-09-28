@@ -2,7 +2,6 @@ using UnityEngine;
 using Game.Data;
 using Game.Core;
 
-
 namespace Game.Spawnable
 {
     public class SpawnableMover

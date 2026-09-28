@@ -16,14 +16,14 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            UIEvents.OnPlayerScoreUpdated += UpdateScoreText;
-            UIEvents.OnDisplayScoreboard += EmptyScoreText;
+            ScoreEvents.OnPlayerScoreUpdated += UpdateScoreText;
+            UIEvents.OnDisplayScoreboardRequest += EmptyScoreText;
         }
 
         private void OnDisable()
         {
-            UIEvents.OnPlayerScoreUpdated -= UpdateScoreText;
-            UIEvents.OnDisplayScoreboard -= EmptyScoreText;
+            ScoreEvents.OnPlayerScoreUpdated -= UpdateScoreText;
+            UIEvents.OnDisplayScoreboardRequest -= EmptyScoreText;
         }
 
         private void Start()

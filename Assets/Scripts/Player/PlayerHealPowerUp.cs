@@ -1,7 +1,8 @@
+using UnityEngine;
+using System.Collections;
 using Game.Core;
 using Game.Data;
-using System.Collections;
-using UnityEngine;
+using Game.VisualEffects;
 
 namespace Game.Player
 {

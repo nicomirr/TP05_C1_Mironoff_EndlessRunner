@@ -13,7 +13,7 @@ namespace Game.UI
                
         private void OnEnable()
         {
-            UIEvents.OnInitializePlayerUIHealth += InitializePlayerHearths;
+            PlayerEvents.OnPlayerHealthInitialized += InitializePlayerHearths;
 
             PlayerEvents.OnPlayerHealed += AddHearth;
             PlayerEvents.OnPlayerDamaged += RemoveHearth;
@@ -21,7 +21,7 @@ namespace Game.UI
 
         private void OnDisable()
         {
-            UIEvents.OnInitializePlayerUIHealth -= InitializePlayerHearths;
+            PlayerEvents.OnPlayerHealthInitialized -= InitializePlayerHearths;
 
             PlayerEvents.OnPlayerHealed -= AddHearth;
             PlayerEvents.OnPlayerDamaged -= RemoveHearth;
@@ -35,9 +35,7 @@ namespace Game.UI
                 _playerHearts[i].SetActive(false);
             }
 
-            _playerHearts[0].SetActive(true);
-
-            
+            _playerHearts[0].SetActive(true);            
         }  
         
         private void RemoveHearth()

@@ -33,7 +33,7 @@ namespace Game.UI
         {
             _audioSource.Play();
 
-            UIEvents.RaiseChangeCursorVisibilityRequest(false);
+            CursorEvents.RaiseChangeCursorVisibilityRequest(false);
 
             HidePanel();
 

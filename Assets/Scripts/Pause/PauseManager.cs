@@ -23,7 +23,7 @@ namespace Game.Pause
         {           
             _gamePaused = !_gamePaused;
 
-            UIEvents.RaiseChangeCursorVisibilityRequest(_gamePaused);
+            CursorEvents.RaiseChangeCursorVisibilityRequest(_gamePaused);
 
             Time.timeScale = _gamePaused ? 0f : 1f;
 

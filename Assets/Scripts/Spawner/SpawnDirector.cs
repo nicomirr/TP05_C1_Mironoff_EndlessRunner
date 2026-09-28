@@ -39,9 +39,9 @@ namespace Game.Spawner
 
         private void OnEnable()
         {
-            GameStateEvents.OnBiomeTypeBroadcast += ChangeBiome;
+            WorldEvents.OnBiomeTypeBroadcast += ChangeBiome;
 
-            GameStateEvents.OnStopSpawners += StopObjectSpawners;
+            SpawnerEvents.OnStopSpawners += StopObjectSpawners;
 
             PlayerEvents.OnPlayerDeath += StopObjectSpawners;
 
@@ -56,9 +56,9 @@ namespace Game.Spawner
 
         private void OnDisable()
         {
-            GameStateEvents.OnBiomeTypeBroadcast -= ChangeBiome;
+            WorldEvents.OnBiomeTypeBroadcast -= ChangeBiome;
 
-            GameStateEvents.OnStopSpawners -= StopObjectSpawners;
+            SpawnerEvents.OnStopSpawners -= StopObjectSpawners;
 
             PlayerEvents.OnPlayerDeath -= StopObjectSpawners;
 

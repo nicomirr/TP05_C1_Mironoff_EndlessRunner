@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Game.Core;
 using Game.Data;
 using Game.Events;
-using System.Collections.ObjectModel;
 
 namespace Game.Parallax
 {
@@ -38,7 +37,7 @@ namespace Game.Parallax
 
         private void OnEnable()
         {
-            GameStateEvents.OnBiomeTypeBroadcast += ChangeBiome;
+            WorldEvents.OnBiomeTypeBroadcast += ChangeBiome;
             PlayerEvents.OnPlayerDeath += StopParallax;
         }
 
@@ -54,7 +53,7 @@ namespace Game.Parallax
         private void OnDisable()
         {
             PlayerEvents.OnPlayerDeath -= StopParallax;
-            GameStateEvents.OnBiomeTypeBroadcast -= ChangeBiome;
+            WorldEvents.OnBiomeTypeBroadcast -= ChangeBiome;
         }
 
         private void ChangeBiome(BiomeType biomeType)

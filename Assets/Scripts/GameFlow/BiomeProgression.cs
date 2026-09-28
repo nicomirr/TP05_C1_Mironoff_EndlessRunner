@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Game.Core;
 using Game.Data;
 
-namespace Game.GameState
+namespace Game.GameFlow
 {
     public class BiomeProgression
     {

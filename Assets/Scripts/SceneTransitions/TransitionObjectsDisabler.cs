@@ -1,13 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class TransitionObjectsDisabler 
+namespace Game.SceneTransitions
 {
-    public void DisableObjects(List<GameObject> sceneObjects)
+    public class TransitionObjectsDisabler
     {
-        foreach(GameObject obj in sceneObjects)
+        public void DisableObjects(List<GameObject> sceneObjects)
         {
-            obj.SetActive(false);
+            foreach (GameObject obj in sceneObjects)
+            {
+                obj.SetActive(false);
+            }
         }
     }
 }
+

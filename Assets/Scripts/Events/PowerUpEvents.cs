@@ -1,12 +1,16 @@
 using System;
 using Game.Data;
 
-public static class PowerUpEvents
+namespace Game.Events
 {
-    public static event Action<PowerUpEnablerDataSo> OnPowerUpAquired;
-
-    public static void RaisePowerUpAquired(PowerUpEnablerDataSo powerUpData)
+    public static class PowerUpEvents
     {
-        OnPowerUpAquired?.Invoke(powerUpData);
+        public static event Action<PowerUpEnablerDataSo> OnPowerUpAcquired;
+
+        public static void RaisePowerUpAcquired(PowerUpEnablerDataSo powerUpData)
+        {
+            OnPowerUpAcquired?.Invoke(powerUpData);
+        }
     }
+
 }

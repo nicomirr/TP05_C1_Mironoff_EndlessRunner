@@ -1,8 +1,8 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Game.Core;
 using Game.Data;
 using Game.Events;
-using System.Collections.Generic;
 
 namespace Game.Audio
 {
@@ -27,13 +27,13 @@ namespace Game.Audio
         protected override void OnEnable()
         {
             base.OnEnable();
-            GameStateEvents.OnBiomeTypeBroadcast += ChangeMusic;
+            WorldEvents.OnBiomeTypeBroadcast += ChangeMusic;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            GameStateEvents.OnBiomeTypeBroadcast -= ChangeMusic;
+            WorldEvents.OnBiomeTypeBroadcast -= ChangeMusic;
         }
 
         private void ChangeMusic(BiomeType biomeType)

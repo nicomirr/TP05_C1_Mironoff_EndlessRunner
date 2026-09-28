@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.EventSystems;
 using Game.Core;
 using Game.Events;
@@ -12,12 +12,12 @@ namespace Game.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            UIEvents.RaiseCursorAppearanceChangeRequest(_cursorAppearance.CursorType);
+            CursorEvents.RaiseCursorAppearanceChangeRequest(_cursorAppearance.CursorType);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            UIEvents.RaiseCursorAppearanceChangeRequest(CursorType.Normal);
+            CursorEvents.RaiseCursorAppearanceChangeRequest(CursorType.Normal);
         }
     }
 }

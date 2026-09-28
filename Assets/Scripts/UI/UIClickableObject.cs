@@ -1,11 +1,11 @@
-using Game.Audio;
-using Game.Core;
-using Game.Data;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using Game.Audio;
+using Game.Core;
+using Game.Data;
 
 
 namespace Game.UI

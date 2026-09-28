@@ -23,12 +23,12 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            UIEvents.OnDisplayScoreboard += DisplayScoreboard;
+            UIEvents.OnDisplayScoreboardRequest += DisplayScoreboard;
         }
 
         private void OnDisable()
         {
-            UIEvents.OnDisplayScoreboard -= DisplayScoreboard;
+            UIEvents.OnDisplayScoreboardRequest -= DisplayScoreboard;
         }
 
         private void DisplayScoreboard(float scoreValue)
@@ -38,7 +38,7 @@ namespace Game.UI
 
         private IEnumerator DisplayScoreboardRoutine(float scoreValue)
         {
-            UIEvents.RaiseChangeCursorVisibilityRequest(true);
+            CursorEvents.RaiseChangeCursorVisibilityRequest(true);
 
             yield return new WaitForSeconds(_data.BoardDelayTime);
 

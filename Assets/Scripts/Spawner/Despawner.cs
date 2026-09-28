@@ -1,9 +1,14 @@
 using UnityEngine;
 
-public class Despawner : MonoBehaviour
+namespace Game.Spawner
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class Despawner : MonoBehaviour
     {
-        collision.gameObject.SetActive(false);
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
+
 }
+

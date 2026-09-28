@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game.Data;
 using Game.Events;
+using Game.Core;
 
 namespace Game.Score
 {
@@ -58,7 +59,7 @@ namespace Game.Score
             if(_scoreTimer >= _data.BaseScoringTime)
             {
                 _playerScore++;
-                UIEvents.RaisePlayerScoreUpdated(_playerScore / _data.ScoreUnitsPerKilometer);
+                ScoreEvents.RaisePlayerScoreUpdated(_playerScore / _data.ScoreUnitsPerKilometer);
 
                 _scoreTimer -= _data.BaseScoringTime;
             }

@@ -33,7 +33,7 @@ namespace Game.SceneTransitions
         {
             Time.timeScale = 1f;
 
-            UIEvents.RaiseRequestFadeOut();
+            ScreenTransitionEvents.RaiseRequestFadeOut();
             _transitionObjectsDisabler.DisableObjects(_sceneObjectsToDisableOnTransition);
                         
             yield return new WaitForSeconds(transitionTime);

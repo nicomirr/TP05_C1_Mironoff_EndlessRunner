@@ -1,5 +1,5 @@
-using Game.Events;
 using UnityEngine;
+using Game.Events;
 
 namespace Game.UI
 {

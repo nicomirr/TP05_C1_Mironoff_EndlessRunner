@@ -1,6 +1,7 @@
-using Game.Data;
-using System;
 using UnityEngine;
+using System;
+using Game.Data;
+using Game.VisualEffects;
 
 namespace Game.Core
 {

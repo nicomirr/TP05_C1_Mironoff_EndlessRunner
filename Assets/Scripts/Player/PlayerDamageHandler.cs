@@ -4,6 +4,7 @@ using Game.Audio;
 using Game.Core;
 using Game.Data;
 using Game.Events;
+using Game.VisualEffects;
 
 namespace Game.Player
 {

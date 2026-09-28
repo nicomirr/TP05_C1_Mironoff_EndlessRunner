@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game.Marker;
 using Game.Data;
+using Game.Events;
 
 namespace Game.Powerup
 {
@@ -22,7 +23,7 @@ namespace Game.Powerup
             if (collision.gameObject.TryGetComponent<PlayerMarker>(out _))
             {
                 _animator.SetTrigger(POWER_UP_TRIGGER);
-                PowerUpEvents.RaisePowerUpAquired(_data);
+                PowerUpEvents.RaisePowerUpAcquired(_data);
             }
         }
     }

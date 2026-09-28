@@ -1,6 +1,6 @@
 using UnityEngine;
-using Game.Core;
 using System.Collections.Generic;
+using Game.Core;
 
 namespace Game.ParticleEffects
 {

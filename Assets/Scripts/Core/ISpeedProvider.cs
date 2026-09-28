@@ -1,8 +1,13 @@
-public interface ISpeedProvider
+namespace Game.Core
 {
-    public float WorldBaseSpeed { get; }
-    public float WorldCurrentSpeed { get; }
+    public interface ISpeedProvider
+    {
+        public float WorldBaseSpeed { get; }
+        public float WorldCurrentSpeed { get; }
 
-    public float WorldMaxSpeed { get; }
-        
+        public float WorldMaxSpeed { get; }
+
+    }
+
 }
+

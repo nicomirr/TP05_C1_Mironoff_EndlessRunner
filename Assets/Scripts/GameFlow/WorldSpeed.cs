@@ -1,5 +1,6 @@
-using Game.Data;
 using UnityEngine;
+using Game.Data;
+using Game.Core;
 
 public class WorldSpeed : MonoBehaviour, ISpeedProvider
 {

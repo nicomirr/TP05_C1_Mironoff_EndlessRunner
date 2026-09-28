@@ -1,5 +1,5 @@
-using Game.Events;
 using UnityEngine;
+using Game.Events;
 
 namespace Game.UI
 {
@@ -17,14 +17,14 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            UIEvents.OnRequestFadeIn += FadeIn;
-            UIEvents.OnRequestFadeOut += FadeOut;
+            ScreenTransitionEvents.OnRequestFadeIn += FadeIn;
+            ScreenTransitionEvents.OnRequestFadeOut += FadeOut;
         }
 
         private void OnDisable()
         {
-            UIEvents.OnRequestFadeIn -= FadeIn;
-            UIEvents.OnRequestFadeOut -= FadeOut;
+            ScreenTransitionEvents.OnRequestFadeIn -= FadeIn;
+            ScreenTransitionEvents.OnRequestFadeOut -= FadeOut;
         }
 
         private void FadeIn()

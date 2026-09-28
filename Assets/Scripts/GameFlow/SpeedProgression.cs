@@ -1,19 +1,23 @@
 using UnityEngine;
-using Game.Data;
 using System;
+using Game.Data;
 
 public class SpeedProgression
 {
+    private SpeedProgressionTimer _speedProgressionTimer;
+
     private readonly float _speedProgresion;
     private readonly float _maxWorldSpeed;
 
     private bool _speedLimitReached;
     public event Action OnLimitReached;
 
-    public SpeedProgression(GameStateConfigSo _data)
+    public SpeedProgression(GameStateConfigSo data)
     {
-        _speedProgresion = _data.SpeedProgression;
-        _maxWorldSpeed = _data.MaxWorldSpeed;
+        _speedProgressionTimer = new SpeedProgressionTimer(data);
+
+        _speedProgresion = data.SpeedProgression;
+        _maxWorldSpeed = data.MaxWorldSpeed;
     }
 
     public bool TryIncreaseWorldSpeed(ref float speed)
@@ -26,13 +30,10 @@ public class SpeedProgression
             speed = Mathf.Min(speed, _maxWorldSpeed);
 
             return true;
-        }        
-
-        if(!_speedLimitReached)
-        {
-            RaiseLimitReached();
-            _speedLimitReached = true;
         }
+
+        RaiseLimitReached();
+        _speedLimitReached = true;        
 
         return false;   
     }
@@ -45,5 +46,13 @@ public class SpeedProgression
     public void Reset()
     {
         _speedLimitReached = false;
+        _speedProgressionTimer.Reset();
+    }
+
+    public bool HandleSpeedProgression(ref float speed)
+    {
+        if (!_speedProgressionTimer.UpdateTimer()) return false;
+
+        return TryIncreaseWorldSpeed(ref speed);                       
     }
 }

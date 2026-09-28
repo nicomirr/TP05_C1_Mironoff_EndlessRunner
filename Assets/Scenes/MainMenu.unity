@@ -8623,11 +8623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6660736206599577824, guid: 6571b388a15c02f4095a2f0582d92850, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 6660736206599577824, guid: 6571b388a15c02f4095a2f0582d92850, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 76
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7736752165563008249, guid: 6571b388a15c02f4095a2f0582d92850, type: 3}
       propertyPath: m_Pivot.x
@@ -9897,6 +9897,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 626250011}
     m_Modifications:
+    - target: {fileID: 438230308444178941, guid: 266b731820ecdee4092c792a583182c2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -242
+      objectReference: {fileID: 0}
     - target: {fileID: 1340876285482190273, guid: 266b731820ecdee4092c792a583182c2, type: 3}
       propertyPath: m_Name
       value: HelpCanvas
@@ -9979,6 +9983,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2408884831075275000, guid: 266b731820ecdee4092c792a583182c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991626341416537105, guid: 266b731820ecdee4092c792a583182c2, type: 3}
+      propertyPath: m_text
+      value: Beware of the enemies.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991626341416537105, guid: 266b731820ecdee4092c792a583182c2, type: 3}
+      propertyPath: m_lineSpacing
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715692506276574713, guid: 266b731820ecdee4092c792a583182c2, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129247993813798462, guid: 266b731820ecdee4092c792a583182c2, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

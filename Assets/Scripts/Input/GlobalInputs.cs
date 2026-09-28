@@ -21,8 +21,8 @@ namespace Game.Inputs
         private void OnEnable()
         {
             _pauseInput.performed += OnPausePressed;
-            GameStateEvents.OnPauseInputEnableRequest += EnableGlobalInputs;
-            GameStateEvents.OnPauseInputDisableRequest += DisableGlobalInputs;
+            InputEvents.OnPauseInputEnableRequest += EnableGlobalInputs;
+            InputEvents.OnPauseInputDisableRequest += DisableGlobalInputs;
             PlayerEvents.OnPlayerDeath += DisableGlobalInputs;
         }
 
@@ -34,8 +34,8 @@ namespace Game.Inputs
         private void OnDisable()
         {
             _pauseInput.performed -= OnPausePressed;
-            GameStateEvents.OnPauseInputEnableRequest -= EnableGlobalInputs;
-            GameStateEvents.OnPauseInputDisableRequest -= DisableGlobalInputs;
+            InputEvents.OnPauseInputEnableRequest -= EnableGlobalInputs;
+            InputEvents.OnPauseInputDisableRequest -= DisableGlobalInputs;
             PlayerEvents.OnPlayerDeath -= DisableGlobalInputs;
 
             _globalControls.Global.Disable();

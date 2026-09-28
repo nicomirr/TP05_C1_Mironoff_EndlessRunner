@@ -1,39 +1,43 @@
 using UnityEngine;
 using System.Collections;
 
-public class SpriteFlicker
+namespace Game.VisualEffects
 {
-    private readonly SpriteRenderer _spriteRenderer;
-    private readonly Color32 _playerOriginalColor;
-
-    private bool _isFlickering;
-    public bool IsFlickering => _isFlickering;
-
-    public SpriteFlicker(SpriteRenderer spriteRenderer)
+    public class SpriteFlicker
     {
-        _spriteRenderer = spriteRenderer;
-        _playerOriginalColor = _spriteRenderer.color;
-    }
+        private readonly SpriteRenderer _spriteRenderer;
+        private readonly Color32 _playerOriginalColor;
 
-    public IEnumerator FlickerRoutine(float time, int totalBlinks, Color32 flickerColor)
-    {
-        _isFlickering = true;
+        private bool _isFlickering;
+        public bool IsFlickering => _isFlickering;
 
-        int totalChanges = totalBlinks * 2;
-        float flickInterval = time / totalChanges;
-
-        for (int i = 0; i < totalChanges; i++)
+        public SpriteFlicker(SpriteRenderer spriteRenderer)
         {
-            if (_spriteRenderer.color == _playerOriginalColor)
-                _spriteRenderer.color = flickerColor;
-            else
-                _spriteRenderer.color = _playerOriginalColor;
-
-            yield return new WaitForSeconds(flickInterval);
+            _spriteRenderer = spriteRenderer;
+            _playerOriginalColor = _spriteRenderer.color;
         }
 
-        _spriteRenderer.color = _playerOriginalColor;
+        public IEnumerator FlickerRoutine(float time, int totalBlinks, Color32 flickerColor)
+        {
+            _isFlickering = true;
 
-        _isFlickering = false;
+            int totalChanges = totalBlinks * 2;
+            float flickInterval = time / totalChanges;
+
+            for (int i = 0; i < totalChanges; i++)
+            {
+                if (_spriteRenderer.color == _playerOriginalColor)
+                    _spriteRenderer.color = flickerColor;
+                else
+                    _spriteRenderer.color = _playerOriginalColor;
+
+                yield return new WaitForSeconds(flickInterval);
+            }
+
+            _spriteRenderer.color = _playerOriginalColor;
+
+            _isFlickering = false;
+        }
     }
 }
+

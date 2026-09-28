@@ -1,6 +1,6 @@
-using Game.Data;
-using System;
 using UnityEngine;
+using System;
+using Game.Data;
 
 public class PlayerGroundCheck 
 {
