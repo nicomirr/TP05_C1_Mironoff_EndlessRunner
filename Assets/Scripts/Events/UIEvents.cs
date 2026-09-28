@@ -18,6 +18,7 @@ namespace Game.Events
         public static event Action<float> OnDisplayScoreboard;
 
         public static event Action OnSettingsClicked;
+        public static event Action OnHelpClicked;
         public static event Action OnCreditsClicked;
         public static event Action OnBackClicked;
                        
@@ -59,6 +60,11 @@ namespace Game.Events
         public static void RaiseSettingsClicked()
         {
             OnSettingsClicked?.Invoke();
+        }
+
+        public static void RaiseHelpClicked()
+        {
+            OnHelpClicked?.Invoke();
         }
 
         public static void RaiseCreditsClicked()

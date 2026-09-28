@@ -6,11 +6,13 @@ namespace Game.UI
     public class UIMainMenuManager : UIManager
     {
         [SerializeField] private UIPanel _creditsPanel;
+        [SerializeField] private UIPanel _helpPanel;
 
         protected override void Awake()
         {
             base.Awake();
             UIEvents.OnCreditsClicked += OpenCredits;
+            UIEvents.OnHelpClicked += OpenHelp;
         }       
 
         private void Start()
@@ -23,11 +25,17 @@ namespace Game.UI
         {
             base.OnDestroy();
             UIEvents.OnCreditsClicked -= OpenCredits;
+            UIEvents.OnHelpClicked -= OpenHelp;
         }
 
         private void OpenCredits()
         {
             OpenPanel(_creditsPanel);
+        }
+
+        private void OpenHelp()
+        {
+            OpenPanel(_helpPanel);
         }
     }
 }

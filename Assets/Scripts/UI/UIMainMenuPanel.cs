@@ -7,7 +7,7 @@ namespace Game.UI
 {
     public class UIMainMenuPanel : UIMainPanel
     {
-        
+        [SerializeField] private Button _btnHelp;
         [SerializeField] private Button _btnCredits;
         [SerializeField] private Button _btnExit;
 
@@ -17,6 +17,7 @@ namespace Game.UI
         {
             base.OnEnable();
 
+            _btnHelp.onClick.AddListener(OnHelpClicked);
             _btnCredits.onClick.AddListener(OnCreditsClicked);
             _btnExit.onClick.AddListener(OnExitClicked);
         }
@@ -25,6 +26,7 @@ namespace Game.UI
         {
             base.OnDisable();
 
+            _btnHelp.onClick.RemoveAllListeners();
             _btnCredits.onClick.RemoveAllListeners();
             _btnExit.onClick.RemoveAllListeners();
         }
@@ -33,6 +35,13 @@ namespace Game.UI
         {
             base.OnPlayClicked();
             SceneTransitionEvents.RaiseSceneChangeRequested(_gameplayScene);
+        }
+
+        private void OnHelpClicked()
+        {
+            _audioSource.Play();
+            HidePanel();
+            UIEvents.RaiseHelpClicked();
         }
 
         private void OnCreditsClicked()
